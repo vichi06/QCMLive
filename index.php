@@ -10,6 +10,8 @@ elseif (isset($_GET['action'])) {
     	require("./view/frontEnd/loginView.php"	);
     }
     if ($_GET['action'] == 'logged') {
+        session_start();
+        $_SESSION['nom']= 'michele';
     	require("./view/frontEnd/tableauDeBord/etudiantView.php");
     }
 	if ($_GET['action'] == 'utilisation') {

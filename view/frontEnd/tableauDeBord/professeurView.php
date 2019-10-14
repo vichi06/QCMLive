@@ -1,1 +1,7 @@
-<p> je suis un prof </p>
+<?php
+if (isset($_SESSION['nom']))
+{
+    echo $_SESSION['nom'];
+}
+?>
+<p> Bonjour, </p> 
