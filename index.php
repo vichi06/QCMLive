@@ -3,16 +3,19 @@
 require('controller/utilisateur.php');
 
 if (isset($_GET['nom']) && isset($_GET['mdp'])){
-	ident();
+    ident();
 }
 elseif (isset($_GET['action'])) {
     if ($_GET['action'] == 'login') {
-    	require("./view/frontEnd/loginView.php"	);
+    	require("./view/frontEnd/loginView.php");
     }
     if ($_GET['action'] == 'logged') {
-        session_start();
-        $_SESSION['nom']= 'michele';
-    	require("./view/frontEnd/tableauDeBord/etudiantView.php");
+        if ($_GET['type'] == 'eleve') {
+            require("./view/frontEnd/tableauDeBord/etudiantView.php");
+        }
+        if ($_GET['type'] == 'professeur'){
+            require("./view/frontEnd/tableauDeBord/professeurView.php");          
+        }
     }
 	if ($_GET['action'] == 'utilisation') {
     	require("./view/frontEnd/utilisationView.php");

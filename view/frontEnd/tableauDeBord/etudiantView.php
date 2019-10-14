@@ -1,8 +1,8 @@
-<?php $titre = 'Bienvenue ' . $_SESSION['nom']; ?>
+<?php if(isset($_SESSION['nom'])) { $titre = 'Bienvenue ' . $_SESSION['nom']; } ?>
 
 <?php ob_start(); ?>
 
-<?php echo $_SESSION['nom']; ?>
+<?php if(isset($_SESSION['nom'])) { $titre = 'Bienvenue ' . $_SESSION['nom']; } ?>
 
 
 

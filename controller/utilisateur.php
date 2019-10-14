@@ -6,18 +6,14 @@ function ident() {
 	$msg='';
 
     if  (!verif_ident($nom,$mdp)) {
-		$_GET['nom'] = "";
-		$_GET['mdp'] = "";
-		echo 'Mauvais identifiant ou mot de passe !';
         //$msg ="erreur de saisie";
 		$url = "index.php?action=login";
 		header ("Location:" .$url) ;	
 	}
     else {
-    	session_start(); 
-		$_SESSION['nom'] = '$nom';
-		$_GET['connecté'] = "etudiant";
-		$url = "index.php?action=logged";
+    	session_start(); 	
+		$_SESSION['nom'] = $_GET['nom'];
+		$url = "index.php?action=logged&type=" .$_GET['type'];
 		header ("Location:" .$url);
 	}
 }
