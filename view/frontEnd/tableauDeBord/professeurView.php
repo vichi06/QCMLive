@@ -1,6 +1,10 @@
-<?php if(isset($_SESSION['nom'])) { $titre = 'Bienvenue ' . $_SESSION['nom']; } ?>
+<?php $titre = 'Bienvenue Professeur.'; ?>
 
 <?php ob_start(); ?>
+
+
+
+
 
 <?php if(isset($_SESSION['nom'])) { $titre = 'Bienvenue ' . $_SESSION['nom']; } ?>
 
