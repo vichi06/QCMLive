@@ -1,5 +1,9 @@
 <?php
 
+require('controller/router.php');
+$router = new Router();
+$router->routeReq();
+
 require('controller/utilisateur.php');
 
 if (isset($_GET['nom']) && isset($_GET['mdp'])){
