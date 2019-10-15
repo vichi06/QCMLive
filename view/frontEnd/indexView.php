@@ -6,7 +6,7 @@
 
   <div class="row">
     <div class="col-lg-6">
-        <img class="title-image" src="./public/images/img0.png" alt="">
+        <img class="title-image" src="./public/images/img0.png" alt=""> 
     </div>
 
     <div class="col-lg-6">
