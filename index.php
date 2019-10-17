@@ -1,16 +1,9 @@
 <?php
-session_start();
+
 require('controller/utilisateur.php');
 
 if (isset($_GET['nom']) && isset($_GET['mdp'])){
     ident();
-    
-    if(isset($_SESSION['session'])){
-        
-        else {
-            echo
-        }
-    }
 }
 elseif (isset($_GET['action'])) {
     if ($_GET['action'] == 'login') {
