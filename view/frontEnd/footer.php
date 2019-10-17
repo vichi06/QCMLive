@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
   <!--CCS Stylsheet-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="./public/css/footer.css">
   <link rel="stylesheet" href="./public/css/mdb.min.css">
 	
   <!--Font Awesome-->
@@ -21,7 +21,7 @@
 </head>
 
 
-<body>
+
   <!-- Footer -->
 <footer class="page-footer font-small  pt-4">
 
