@@ -1,4 +1,5 @@
 <?php 
+// FONCTIONS CONCERNANT UN UTILISATEUR 
 
 // IDENTIFICATION A LA BASE DE DONNEES
 function ident($type) {
@@ -26,7 +27,7 @@ function verif_ident($nom,$mdp,$type) {
 // CONNEXION A LA SESSION EN COURS 
 function connect_to_session($nomTest) {
 	if(!verif_test($nomTest)) {
-		$url = "index.php?action=logged&type=eleve";
+		$url = "index.php?action=logged&type=etudiant";
 		header("Location:" .$url);
 	}
 	else {
@@ -38,6 +39,6 @@ function connect_to_session($nomTest) {
 
 // VERIFICATION SESSION EN COURS
 function verif_test($nomTest) {
-	require('./model/eleveBD.php');
+	require('./model/etudiantBD.php');
 	return verif_test_available($nomTest);
 }

@@ -1,4 +1,6 @@
 <?php 
+
+// VERIFIER IDENTIFIANT DANS BASE DONNEES
 function verif_ident_BD($nom,$mdp,$type){	
 	require('frontEnd.php');
 	$bdd = dbConnect();
@@ -6,7 +8,7 @@ function verif_ident_BD($nom,$mdp,$type){
 	$resultat= array(); 
 
 	// SI ELEVE --> REQUETE
-	if($type == 'eleve') {
+	if($type == 'etudiant') {
 		$sql="SELECT login_etu, pass_etu, nom, prenom, num_grpe, date_etu, genre, email FROM etudiant 
 		WHERE login_etu =:nom AND pass_etu=:mdp";
 		
@@ -22,7 +24,7 @@ function verif_ident_BD($nom,$mdp,$type){
 	}
 
 	// SI PROFESSEUR --> REQUETE
-	if($type == 'professeur') {
+	if($type ==	 'professeur') {
 		$sql="SELECT login_prof, pass_prof, nom, prenom, email, date_prof FROM professeur 
 		WHERE login_prof =:nom AND pass_prof=:mdp";
 		

@@ -1,9 +1,11 @@
-<?php $titre = 'Login'; ?>
-
-<?php ob_start(); ?>
+<?php 
+// PAGE D'IDENTIFICATION 
+ob_start(); 
+?>
 
 <!DOCTYPE html>
 <html>
+  <title>Identification</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -25,7 +27,7 @@
         <input type="password" id="password" class="fadeIn third" name="mdp" placeholder="mot de passe">
        <!-- <select name="type" id="">
           <option value="professeur" <?php if($_GET['type'] == 'professeur') echo "selected";?> >Professeur</option>
-          <option value="eleve" <?php if($_GET['type'] == 'eleve') echo "selected";?>>Eleve</option>
+          <option value="etudiant" <?php if($_GET['type'] == 'etudiant') echo "selected";?>>etudiant</option>
         </select> -->
         <input type = "text" name="type" value="<?php echo $_GET['type']; ?>">
         <input type="submit" class="fadeIn fourth" value="Se connecter">
@@ -41,7 +43,7 @@
 
 </html>
 
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'template.php'; ?>
+<?php
+$contenu = ob_get_clean(); 
+require 'template.php';
 	

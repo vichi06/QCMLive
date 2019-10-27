@@ -1,3 +1,4 @@
+<!-- TEMPLATE -->
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -5,9 +6,8 @@
     <link rel="stylesheet" href="./public/css/style.css" />
     <link rel="stylesheet" href="./public/css/mdb.min.css">
     <link rel="stylesheet" href="./public/css/backToTop.css" />
-    <script src="./public/js/app.js">
-    
-    <title><?= $titre ?></title>   <!-- Élément spécifique -->
+    <script src="./public/js/app.js"/>
+    <title> <?= $title ?> </title>   <!-- Élément spécifique -->
   </head>
   <body>
     <div id="global">

@@ -1,10 +1,9 @@
 <?php
-
 session_start();
 
 require('controller/utilisateur.php');
 
-// CONNEXION A UN TEST PAR L'ELEVE
+// CONNEXION A UN TEST PAR L'ETUDIANT
 if(isset($_GET['test'])){
     connect_to_session($_GET['test']);
 }
@@ -20,7 +19,7 @@ elseif (isset($_GET['action'])) {
     }
     // ZONE UTILISATEUR CONNECTER
     if ($_GET['action'] == 'logged') {
-        if ($_GET['type'] == 'eleve') {
+        if ($_GET['type'] == 'etudiant') {
             if(isset($_GET['controle'])){
                 require("./view/frontEnd/tableauDeBord/testEtudiantView.php"); 
             }

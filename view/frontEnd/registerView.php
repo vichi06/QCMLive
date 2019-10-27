@@ -1,11 +1,13 @@
-<?php $titre = 'Register'; ?>
-
-<?php ob_start(); ?>
+<?php 
+// PAGE POUR S'INSCRIRE 
+ob_start(); 
+?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
+  <title>Register</title>
   <meta charset="utf-8">
   <!--Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
@@ -68,6 +70,5 @@
 </section>
 <a id="back-to-top" href="#" class="btn btn-blue-gradient btn-lg back-to-top"role="button"><i class="fas fa-chevron-up"></i></a>
 
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'template.php'; ?>
+<?php $contenu = ob_get_clean(); 
+require 'template.php';

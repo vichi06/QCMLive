@@ -1,9 +1,11 @@
-<?php $titre = 'testEnCours'; ?>
-
-<?php ob_start(); ?>
+<?php 
+// PAGE DE SESSION PROFESSEUR
+ob_start(); 
+?>
 
 <!DOCTYPE html>
 <html>
+  <title>Professeur : Session en cours</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,9 +22,9 @@
   <p> questions : </p>
   <?php
     require_once('./model/frontEnd.php');
-		
-		$bdd = dbConnect();
-		
+  	
+  	$bdd = dbConnect();
+  	
     $sql="SELECT question.titre, question.texte FROM question, test, qcm WHERE test.id_test = qcm.id_test AND qcm.id_quest = question.id_quest";
     
     
@@ -42,13 +44,13 @@
     }
 
     var_dump($resultat);
-		
+  	
   ?>
 
 
 </html>
 
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require './view/frontEnd/template.php'; ?>
+<?php 
+$contenu = ob_get_clean(); 
+require './view/frontEnd/template.php';
 	

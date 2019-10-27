@@ -1,7 +1,7 @@
 <?php 
 
+// VERIFIER SI TEST/SESSION EN COURS POUR LE TITRE ET GROUPE DONNE
 function verif_test_available($nomTest) {
-
 	require('frontEnd.php');
 	$bdd = dbConnect();
 
@@ -27,6 +27,7 @@ function verif_test_available($nomTest) {
 	}
 }
 
+// 
 function getNumGroupe() {
     $numGroupe;
 
@@ -46,14 +47,14 @@ function getNumGroupe() {
 }
 
 
-function getNomEleve() {
+function getNomEleve($login_etu) {
     $numGroupe;
 
-    $sql="SELECT nom FROM etudiant WHERE login_etu =:nom";
+    $sql="SELECT nom FROM etudiant WHERE login_etu =:login_etu";
 
     try {
 		$req = $bdd->prepare($sql);
-		$req ->execute(array(':nom' => $_SESSION['nom']));
+		$req ->execute(array(':login_etu' => $login_etu));
 		$resultat = $req->fetchAll();
 	}
 	catch (PDOException $e) {

@@ -1,13 +1,14 @@
-<?php $titre = 'Accueil'; ?>
+<?php 
+// PAGE D'ACCUEIL 
+ob_start(); 
+?>
 
-<?php ob_start(); ?>
 <!DOCTYPE html>
 <html>
 
-
 <head>
+  <title>Accueil</title>
   <meta charset="utf-8">
-  <title> <?php echo $title; ?> </title>
   <!--Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -24,7 +25,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
-  <!-- Title -->
 <section id ="intro">
   <div class="row">
     <div class="col-lg-6">
@@ -50,11 +50,11 @@
                     echo './index.php?action=logged&type=' .$_SESSION['profil']['type']; 
                   } 
                   else { 
-                    echo './index.php?action=login&type=eleve'; 
+                    echo './index.php?action=login&type=etudiant'; 
                   } 
                   ?>'>
         <button type="button"  class="btn btn-outline-light btn-lg download-button">
-          <i class="fas fa-user-graduate"></i></i> Elève
+          <i class="fas fa-user-graduate"></i></i> Etudiant
         </button>
       </a>
     </div>
@@ -86,8 +86,9 @@
     </div>
   </section>
   <a id="back-to-top" href="#" class="btn btn-blue-gradient btn-lg back-to-top"role="button"><i class="fas fa-chevron-up"></i></a>
-<?php $contenu = ob_get_clean(); ?>
 
-<?php require 'template.php'; ?>
+<?php 
+$contenu = ob_get_clean(); 
+require 'template.php'; 
 
   

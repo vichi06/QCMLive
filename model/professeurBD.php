@@ -1,4 +1,6 @@
 <?php 
+
+	// TOUS LES TESTS 
 	function getTests(){
 		require_once('./model/frontEnd.php');
 		
