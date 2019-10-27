@@ -9,24 +9,24 @@ if(isset($_GET['test'])){
 }
 
 // IDENTIFICATION SINON NAVIGUE DANS ZONES NON IDENTIFIER
-if (isset($_GET['nom']) && isset($_GET['mdp'])){
-    ident($_GET['type']);
+if (isset($_GET['login_utilisateur']) && isset($_GET['pass_utilisateur'])){
+    ident();
 }
 elseif (isset($_GET['action'])) {
     // LOGIN
     if ($_GET['action'] == 'login') {
-    	require("./view/frontEnd/loginView.php");
+    	require("./view/frontEnd/loginView.php");  
     }
     // ZONE UTILISATEUR CONNECTER
     if ($_GET['action'] == 'logged') {
-        if ($_GET['type'] == 'etudiant') {
+        if ($_GET['type_utilisateur'] == 'etudiant') {
             if(isset($_GET['controle'])){
                 require("./view/frontEnd/tableauDeBord/testEtudiantView.php"); 
             }
             else {
                 require("./view/frontEnd/tableauDeBord/etudiantView.php");         
             }}
-        if ($_GET['type'] == 'professeur'){
+        if ($_GET['type_utilisateur'] == 'professeur'){
             if(isset($_GET['controle'])){
                 require("./view/frontEnd/tableauDeBord/testProfView.php"); 
             }

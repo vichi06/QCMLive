@@ -2,43 +2,43 @@
 // FONCTIONS CONCERNANT UN UTILISATEUR 
 
 // IDENTIFICATION A LA BASE DE DONNEES
-function ident($type) {
-	$nom = isset($_GET['nom'])?($_GET['nom']):'';
-	$mdp = isset($_GET['mdp'])?($_GET['mdp']):'';
+function ident() {
+	$login_utilisateur = isset($_GET['login_utilisateur'])?($_GET['login_utilisateur']):'';
+	$pass_utilisateur = isset($_GET['pass_utilisateur'])?($_GET['pass_utilisateur']):'';
+	$type_utilisateur = isset($_GET['type_utilisateur'])?($_GET['type_utilisateur']):'';
 
-    if  (!verif_ident($nom,$mdp,$type)) {
-		$url = "index.php?action=login&type=" .$type;
+
+    if  (!verif_ident($login_utilisateur,$pass_utilisateur,$type_utilisateur)) {
+		$url = "index.php?action=login&type_utilisateur=" .$type_utilisateur;
 		header("Location:" .$url) ;	
 	}
     else {	
-		$_SESSION['profil']['nom'] = $nom;
-		$_SESSION['profil']['type'] = $type;
-		$url = "index.php?action=logged&type=" .$type;
+		$url = "index.php?action=logged&type_utilisateur=" .$type_utilisateur;
 		header("Location:" .$url);
 	}
 }
 
 // VERIFICATION IDENTIFICATION
-function verif_ident($nom,$mdp,$type) {
+function verif_ident($login_utilisateur,$pass_utilisateur,$type_utilisateur) {
 	require ('./model/utilisateurBD.php');
-	return verif_ident_BD($nom,$mdp,$type); //true ou false en base;
+	return verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur); //true ou false en base;
 }
 
 // CONNEXION A LA SESSION EN COURS 
-function connect_to_session($nomTest) {
-	if(!verif_test($nomTest)) {
-		$url = "index.php?action=logged&type=etudiant";
+function connect_to_session($titreTest) {
+	if(!verif_test($titreTest)) {
+		$url = "index.php?action=logged&type_utilisateur=etudiant";
 		header("Location:" .$url);
 	}
 	else {
-		$_SESSION['test'] = $nomTest;
-		$url = "index.php?action=logged&type=eleve&controle=test";
+		$_SESSION['test'] = $titreTest;
+		$url = "index.php?action=logged&type_utilisateur=eleve&controle=test";
 		header("Location:" .$url);
 	}
 }
 
 // VERIFICATION SESSION EN COURS
-function verif_test($nomTest) {
+function verif_test($titreTest) {
 	require('./model/etudiantBD.php');
-	return verif_test_available($nomTest);
+	return verif_test_available($titreTest);
 }

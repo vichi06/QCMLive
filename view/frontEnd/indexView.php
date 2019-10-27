@@ -32,25 +32,27 @@ ob_start();
     </div>
 
     <div class="col-lg-6">
-    <h1> Plus d'intéractivité avec vos étudiants grâce à Qcm Live.</h1>
+      <h1> Plus d'intéractivité avec vos étudiants grâce à Qcm Live.</h1>
+      <!-- SI UTILISATEUR CONNECTER -->
       <a href='<?php 
-                  if(isset($_SESSION['profil']['nom']) && isset($_SESSION['profil']['type'])) { 
-                    echo './index.php?action=logged&type=' .$_SESSION['profil']['type']; 
+                  if(isset($_SESSION['profil']['typeU'])) { 
+                    echo './index.php?action=logged&type_utilisateur=' .$_SESSION['profil']['typeU']; 
                   } 
                   else { 
-                    echo './index.php?action=login&type=professeur'; 
+                    echo './index.php?action=login&type_utilisateur=professeur'; 
                   } 
                   ?>'>
-        <button type="button"  class="btn btn-dark btn-lg download-button" >
+        <button type="button"   class="btn btn-dark btn-lg download-button">
           <i class="fas fa-chalkboard-teacher"></i> Professeur
         </button>
       </a>
+      <!-- SI UTILISATEUR CONNECTER -->
       <a href='<?php 
-                  if(isset($_SESSION['profil']['nom']) && isset($_SESSION['profil']['type'])) { 
-                    echo './index.php?action=logged&type=' .$_SESSION['profil']['type']; 
+                  if(isset($_SESSION['profil']['typeU'])) { 
+                    echo './index.php?action=logged&type_utilisateur=' .$_SESSION['profil']['typeU']; 
                   } 
                   else { 
-                    echo './index.php?action=login&type=etudiant'; 
+                    echo './index.php?action=login&type_utilisateur=etudiant'; 
                   } 
                   ?>'>
         <button type="button"  class="btn btn-outline-light btn-lg download-button">
@@ -58,9 +60,7 @@ ob_start();
         </button>
       </a>
     </div>
-  </div>
-
-
+  </div>  
 </section>
 
 

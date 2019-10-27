@@ -22,14 +22,10 @@ ob_start();
       </div>
 
       <!-- Login Form -->
-      <form action="./index.php?" method="get">
-        <input type="text" id="login" class="fadeIn second" name="nom" placeholder="identifiant">
-        <input type="password" id="password" class="fadeIn third" name="mdp" placeholder="mot de passe">
-       <!-- <select name="type" id="">
-          <option value="professeur" <?php if($_GET['type'] == 'professeur') echo "selected";?> >Professeur</option>
-          <option value="etudiant" <?php if($_GET['type'] == 'etudiant') echo "selected";?>>etudiant</option>
-        </select> -->
-        <input type = "text" name="type" value="<?php echo $_GET['type']; ?>">
+      <form action="./index.php" method="get">
+        <input type="text" id="login" class="fadeIn second" name="login_utilisateur" placeholder="identifiant">
+        <input type="password" id="password" class="fadeIn third" name="pass_utilisateur" placeholder="mot de passe">
+        <input type = "text" name="type_utilisateur" value="<?php echo $_GET['type_utilisateur']; ?>">
         <input type="submit" class="fadeIn fourth" value="Se connecter">
       </form>
 

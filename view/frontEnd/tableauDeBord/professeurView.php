@@ -1,6 +1,7 @@
 <?php 
 // PAGE D'ACCUEIL DU PROFESSEUR 
 ob_start(); 
+require "./model/professeurBD.php"
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ ob_start();
 
 	<form>
 		<button>
-			<a href="./index.php?action=logged&type=professeur&controle=test">
+			<a href="./index.php?action=logged&type_utilisateur=professeur&controle=test">
 				lancer session
 			</a>
 		</button>

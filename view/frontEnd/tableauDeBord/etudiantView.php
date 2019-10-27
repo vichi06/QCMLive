@@ -106,7 +106,7 @@ ob_start();
   <!-- End demo content -->
 
 
-
+  <?= $_SESSION['profil']['nom']; ?>
   <p> Rejoignez une session en cours (insérez nom du test) : 
     <form action="./index.php" method="get"> 
       <input type="text" placeholder="Nom du test" name="test">
