@@ -11,7 +11,6 @@ require "./model/professeurBD.php"
 	<p> Tests en cours : </p>
 
 	<?php
-		echo($_SESSION['profil']['email']);
 		//getTestsActifs();
 
 		getTests();
@@ -30,7 +29,7 @@ require "./model/professeurBD.php"
 		</button>
 	</form>
 
-	<a href="deconnexion.php">Deconnection</a>'
+	<a href="deconnexion.php">Deconnection</a>	
 </html>
 
 <?php

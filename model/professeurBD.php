@@ -31,7 +31,7 @@
 		
 		$sql="SELECT num_grpe FROM test WHERE titre_test =:titre";
         
-        echo $_POST['titre'];
+        //echo $_POST['titre'];
 
 		$sth = $bdd->prepare($sql);
 		$sth->bindParam(':titre', $_POST['titre']);

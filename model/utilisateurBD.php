@@ -16,6 +16,12 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 			$req = $bdd->prepare($sql);
 			$req ->execute(array(':login' => $login_utilisateur, ':pass' => $pass_utilisateur));
 			$resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach($resultat as $show) {
+		   		foreach($show as $display) {
+		   
+		    	}
+			}
 		}
 		catch (PDOException $e) {
 			echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
@@ -32,6 +38,12 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 			$req = $bdd->prepare($sql);
 			$req ->execute(array(':login' => $login_utilisateur, ':pass' => $pass_utilisateur));
 			$resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach($resultat as $show) {
+		   		foreach($show as $display) {
+		   
+		    	}
+			}
 		}
 		catch (PDOException $e) {
 			echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
@@ -44,12 +56,38 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 		return false;
 	}
 	else {
-		// AFFECTATION VARIABLES SESSION
+		// bConnect DEFINI A 1
+		try {
+			$upd = "UPDATE ".$type_utilisateur." SET bConnect='1' WHERE nom='".$show['nom']."'";
+			$stmt = $bdd->prepare($upd);
+			$stmt->execute();
+
+			echo $stmt->rowCount() . " records UPDATED successfully";	
+		}
+		catch(PDOException $e) {
+		    echo $upd . "<br>" . $e->getMessage();
+	    }
+
+		$bdd = null;
+
+		// AFFECTATION VARIABLES SESSION PROFIL UTILISATEUR
 		$_SESSION['profil']['loginU'] = $login_utilisateur;
 		$_SESSION['profil']['typeU'] = $type_utilisateur;
+		$_SESSION['profil']['nom'] = $show['nom'];
+		$_SESSION['profil']['prenom'] = $show['prenom'];
+		$_SESSION['profil']['email'] = $show['email'];
+		$_SESSION['profil']['bConnect'] = $show['bConnect']; 
 		
+		if($type_utilisateur == 'professeur') {
+			$_SESSION['profil']['date_prof'] = $show['prenom'];
+		}
+		else {
+			$_SESSION['profil']['genre'] = $show['genre'];
+			$_SESSION['profil']['num_grpe'] = $show['num_grpe'];
+			$_SESSION['profil']['matricule'] = $show['matricule']; 
+			$_SESSION['profil']['date_etu'] = $show['date_etu'];
+		}
+
 		return true;
 	}
 }
-
-
