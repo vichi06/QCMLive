@@ -1,7 +1,7 @@
 <?php 
 session_start();
 // SET bConnect A 0
-require('./model/frontEnd.php');
+require('frontEnd.php');
 $bdd = dbConnect();
 
 try {
@@ -19,4 +19,4 @@ catch(PDOException $e) {
 $_SESSION=array();
 session_destroy();
 session_unset();
-header("location:./index.php") ;
+header("location:../index.php") ;

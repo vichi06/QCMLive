@@ -33,32 +33,30 @@ ob_start();
 
     <div class="col-lg-6">
       <h1> Plus d'intéractivité avec vos étudiants grâce à Qcm Live.</h1>
-      <!-- SI UTILISATEUR CONNECTER -->
-      <a href='<?php 
-                  if(isset($_SESSION['profil']['typeU'])) { 
-                    echo './index.php?action=logged&type_utilisateur=' .$_SESSION['profil']['typeU']; 
-                  } 
-                  else { 
-                    echo './index.php?action=login&type_utilisateur=professeur'; 
-                  } 
-                  ?>'>
-        <button type="button"   class="btn btn-dark btn-lg download-button">
-          <i class="fas fa-chalkboard-teacher"></i> Professeur
-        </button>
-      </a>
-      <!-- SI UTILISATEUR CONNECTER -->
-      <a href='<?php 
-                  if(isset($_SESSION['profil']['typeU'])) { 
-                    echo './index.php?action=logged&type_utilisateur=' .$_SESSION['profil']['typeU']; 
-                  } 
-                  else { 
-                    echo './index.php?action=login&type_utilisateur=etudiant'; 
-                  } 
-                  ?>'>
-        <button type="button"  class="btn btn-outline-light btn-lg download-button">
-          <i class="fas fa-user-graduate"></i></i> Etudiant
-        </button>
-      </a>
+
+      <?php
+        // SI UN UTILISATEUR EST CONNECTE : AFFICHE SEULEMENT TABLEAU DE BORD
+        // SINON AFFICHE BOUTONS PROFESSEUR OU ETUDIANT
+        if(isset($_SESSION['profil'])){
+          echo '<a href="./index.php?action=logged&type_utilisateur='.$_SESSION['profil']['typeU'].'">';
+          echo '<button type="button"   class="btn btn-dark btn-lg download-button">
+                  <i class="fas fa-chalkboard-teacher"></i> Tableau de Bord
+                </button>
+              </a>';
+        }
+        else {
+          echo '<a href="./index.php?action=login&type_utilisateur=professeur">';
+          echo '<button type="button"   class="btn btn-dark btn-lg download-button">
+                  <i class="fas fa-chalkboard-teacher"></i> Professeur
+                </button>
+                </a>';
+          echo '<a href="./index.php?action=login&type_utilisateur=etudiant">';
+          echo '<button type="button"   class="btn btn-outline-light btn-lg download-button">
+                  <i class="fas fa-user-graduate"></i> Etudiant
+                </button>
+                </a>';        
+        }
+      ?>
     </div>
   </div>  
 </section>

@@ -32,13 +32,13 @@ function connect_to_session($titreTest) {
 	}
 	else {
 		$_SESSION['test'] = $titreTest;
-		$url = "index.php?action=logged&type_utilisateur=eleve&controle=test";
+		$url = "index.php?action=logged&type_utilisateur=etudiant&controle=test";
 		header("Location:" .$url);
 	}
 }
 
 // VERIFICATION SESSION EN COURS
 function verif_test($titreTest) {
-	require('./model/etudiantBD.php');
+	require('./model/etudiant.php');
 	return verif_test_available($titreTest);
 }

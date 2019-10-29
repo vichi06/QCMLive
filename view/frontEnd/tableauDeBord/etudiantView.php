@@ -50,7 +50,7 @@ ob_start();
               </a>
       </li>
       <li class="nav-item">
-        <a href="deconnexion.php" class="nav-link text-dark font-italic">
+        <a href="./model/deconnexion.php" class="nav-link text-dark font-italic">
                   <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
                   Deconnexion
               </a>

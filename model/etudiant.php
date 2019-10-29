@@ -47,7 +47,7 @@ function getNumGroupe() {
 }
 
 
-function getNomEleve($login_etu) {
+function getNomEtudiant($login_etu) {
     $numGroupe;
 
     $sql="SELECT nom FROM etudiant WHERE login_etu =:login_etu";

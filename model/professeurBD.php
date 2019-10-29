@@ -1,47 +1,61 @@
 <?php 
 
-	// TOUS LES TESTS 
-	function getTests(){
+	// TESTS D'UN PROFESSEUR SOUS FORME D'UNE LISTE
+	function getTests($id_prof){
 		require_once('./model/frontEnd.php');
-		
 		$bdd = dbConnect();
 		
-		$sql="SELECT titre_test FROM test WHERE id_prof = 1";
+		$sql="SELECT titre_test FROM test WHERE id_prof =:id_prof";
 		
-		$sth = $bdd->prepare($sql);
-		$sth->execute();
-		
-		// SELECT 
-		echo "<form action='professeur.php' method='post'>";
-		echo "<select id='titre' name='titre'>";
-		while($row = $sth->fetch()) {
-			echo "<option value='" . $row['titre_test'] . "'>" . $row['titre_test'] ."</option>";
+		try {
+			$sth = $bdd->prepare($sql);
+			$sth->execute(array(':id_prof' => $id_prof));
+			
+			return $sth;
 		}
-		echo "</select>";
-		echo '</form>';	
-		//$_POST['titre'];
-		return $row['titre_test'];
+		catch (PDOException $e) {
+			echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+			die(); // On arrête tout.
+		}
 	}
 	
-	
-	function getGroupe(){
+	// GROUPE CORRESPONDANT A UN TEST
+	function getGroupe($titre_test){
 		require_once('./model/frontEnd.php');
-		
 		$bdd = dbConnect();
 		
-		$sql="SELECT num_grpe FROM test WHERE titre_test =:titre";
+		$sql="SELECT num_grpe FROM test WHERE titre_test=:titre";
         
-        //echo $_POST['titre'];
-
-		$sth = $bdd->prepare($sql);
-		$sth->bindParam(':titre', $_POST['titre']);
-		
-		$sth->execute();
-		 
-		//On récupère les données dans un tableau php
-		$donnees = $sth->fetchAll();
-		 
-		//Affichage du contenu de la variable
-		var_dump($donnees);
-    }
+        try {
+			$sth = $bdd->prepare($sql);
+			$sth->execute(array(':titre' => $titre_test));
+			 
+			//On récupère les données dans un tableau php
+			$donnees = $sth->fetch(PDO::FETCH_ASSOC);
+			
+			return $donnees['num_grpe'];
+		}
+		catch (PDOException $e) {
+			echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+			die(); // On arrête tout.
+		}
+	}
     
+    // GROUPES DISPONIBLES
+	function getGroupes(){
+		require_once('./model/frontEnd.php');
+		$bdd = dbConnect();
+		
+		$sql="SELECT num_grpe FROM groupe";
+		
+		try {
+			$sth = $bdd->prepare($sql);
+			$sth->execute();
+			
+			return $sth;
+		}
+		catch (PDOException $e) {
+			echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+			die(); // On arrête tout.
+		}
+	}

@@ -9,7 +9,7 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 
 	// SI ELEVE --> REQUETE
 	if($type_utilisateur == 'etudiant') {
-		$sql="SELECT login_etu, pass_etu, genre, nom, prenom, email, matricule, num_grpe, date_etu, bConnect FROM etudiant 
+		$sql="SELECT id_etu, login_etu, pass_etu, genre, nom, prenom, email, matricule, num_grpe, date_etu, bConnect FROM etudiant 
 		WHERE login_etu =:login AND pass_etu=:pass";
 		
 		try {
@@ -31,7 +31,7 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 
 	// SI PROFESSEUR --> REQUETE
 	if($type_utilisateur ==	 'professeur') {
-		$sql="SELECT login_prof, pass_prof, nom, prenom, email, date_prof, bConnect FROM professeur 
+		$sql="SELECT id_prof, login_prof, pass_prof, nom, prenom, email, date_prof, bConnect FROM professeur 
 		WHERE login_prof =:login AND pass_prof=:pass";
 		
 		try {
@@ -80,12 +80,14 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 		
 		if($type_utilisateur == 'professeur') {
 			$_SESSION['profil']['date_prof'] = $show['prenom'];
+			$_SESSION['profil']['id'] = $show['id_prof'];	
 		}
 		else {
 			$_SESSION['profil']['genre'] = $show['genre'];
 			$_SESSION['profil']['num_grpe'] = $show['num_grpe'];
 			$_SESSION['profil']['matricule'] = $show['matricule']; 
 			$_SESSION['profil']['date_etu'] = $show['date_etu'];
+			$_SESSION['profil']['id'] = $show['id_etu'];
 		}
 
 		return true;

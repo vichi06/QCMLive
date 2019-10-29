@@ -12,13 +12,11 @@ ob_start();
   <link rel="stylesheet" href="./public/css/login.css">
   <!------ Include the above in your HEAD tag ---------->
 
-  <p> theme : </p>
-
-  <p> test : </p>
-  <p> prof : </p>
-  <p> grpe : </p>
+  <p> Thème : </p>
+  <p> Test : <?= $_SESSION['titre'] ?> </p>
+  <p> Professeur : <?= strtoupper($_SESSION['profil']['nom'])." ".$_SESSION['profil']['prenom'] ?> </p>
+  <p> Groupe : <?= $_SESSION['groupe'] ?></p>
   <p> Bilan : </p>
-
   <p> questions : </p>
   <?php
     require_once('./model/frontEnd.php');
