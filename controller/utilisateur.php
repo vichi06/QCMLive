@@ -24,21 +24,4 @@ function verif_ident($login_utilisateur,$pass_utilisateur,$type_utilisateur) {
 	return verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur); //true ou false en base;
 }
 
-// CONNEXION A LA SESSION EN COURS 
-function connect_to_session($titreTest) {
-	if(!verif_test($titreTest)) {
-		$url = "index.php?action=logged&type_utilisateur=etudiant";
-		header("Location:" .$url);
-	}
-	else {
-		$_SESSION['test'] = $titreTest;
-		$url = "index.php?action=logged&type_utilisateur=etudiant&controle=test";
-		header("Location:" .$url);
-	}
-}
 
-// VERIFICATION SESSION EN COURS
-function verif_test($titreTest) {
-	require('./model/etudiant.php');
-	return verif_test_available($titreTest);
-}

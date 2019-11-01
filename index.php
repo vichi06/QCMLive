@@ -1,23 +1,18 @@
 <?php
 session_start();
-
+require('controller/etudiant.php');
+require('controller/professeur.php');
 require('controller/utilisateur.php');
+require('controller/session.php');
 
 // CONNEXION A UN TEST PAR L'ETUDIANT
 if(isset($_GET['test'])){
     connect_to_session($_GET['test']);
 }
 
-// CONNEXION A UN TEST PAR PROFESSEUR
-if(isset($_POST['titre']) && isset($_POST['groupe'])){
-    $titre = htmlentities($_POST['titre'], ENT_QUOTES, "UTF-8"); //permet de protéger tout les caractères spéciaux
-    $groupe = htmlentities($_POST['groupe'], ENT_QUOTES, "UTF-8"); //permet de protéger tout les caractères spéciaux
-
-    $_SESSION['titre'] = $titre;
-    $_SESSION['groupe']= $groupe;
-
-    $url = "index.php?action=logged&type_utilisateur=".$_SESSION['profil']['typeU']."&controle=test";
-    header("Location:" .$url);
+// DEMARRAGE D'UN TEST PAR PROFESSEUR
+if(isset($_POST['titreTest'])){
+    startTest($_POST['titreTest'], $_POST['themeTest']);
 }
 
 // IDENTIFICATION SINON NAVIGUE DANS ZONES NON IDENTIFIER

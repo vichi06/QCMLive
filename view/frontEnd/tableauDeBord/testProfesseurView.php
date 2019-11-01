@@ -1,6 +1,8 @@
 <?php 
 // PAGE DE SESSION PROFESSEUR
-ob_start(); 
+ob_start();
+require_once('./model/sessionBD.php'); 
+require_once('./model/professeurBD.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -12,43 +14,76 @@ ob_start();
   <link rel="stylesheet" href="./public/css/login.css">
   <!------ Include the above in your HEAD tag ---------->
 
-  <p> Thème : </p>
-  <p> Test : <?= $_SESSION['titre'] ?> </p>
+  <!-- CHOIX DU THEME -->
+  <!--
+  <p> Thème : 
+    <form action="./model/professeurBD.php" method="post">
+      <select id="" name="">
+        <?php 
+          $sth = getThemes();
+          while($row = $sth->fetch()) {
+            echo "<option value='" . $row['titre_theme'] . "'>" . $row['titre_theme'] ."</option>";
+          }
+        ?>
+      </select>
+    </form>
+  </p>
+  -->
+
+  <p> Thème : <?= $_SESSION['test']['theme'] ?> </p>
+
+  <!-- DONNEES -->
+  <p> Test : <?= $_SESSION['test']['titre'] ?> </p>
   <p> Professeur : <?= strtoupper($_SESSION['profil']['nom'])." ".$_SESSION['profil']['prenom'] ?> </p>
-  <p> Groupe : <?= $_SESSION['groupe'] ?></p>
-  <p> Bilan : </p>
-  <p> questions : </p>
-  <?php
-    require_once('./model/frontEnd.php');
-  	
-  	$bdd = dbConnect();
-  	
-    $sql="SELECT question.titre, question.texte FROM question, test, qcm WHERE test.id_test = qcm.id_test AND qcm.id_quest = question.id_quest";
-    
-    
-    
-    try {
-      $sth = $bdd->prepare($sql);
+  <p> Groupe : <?= $_SESSION['test']['numGrpe'] ?></p>
+  <p> Bilan : Questions </p>
+  <p> Questions : </p>
+  
+  <!-- AFFICHER QUESTIONS SELON LE THEME CHOISI -->
+  <form action='./controller/interactionSession.php' method='POST'>
+    <?php
+      $nbQuestion = 1;
+      $resultat = getQuestionsFromTheme($_SESSION['test']['theme']);
+      while($row = $resultat->fetch()) {
+        echo "<p>";
 
-      $bool = $sth->execute();
+        if($row['bmultiple'] == 1){
+          echo "multiple ";
+        }
 
-      if ($bool) {
-        $resultat = $sth->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+        echo "<input type='checkbox' name='choix' value='". $row['titre'] . "'>-" . $nbQuestion . "-  " . $row['titre'] ." : " . $row['texte'];
+
+        echo "</p>";
+
+        $nbQuestion++;
       }
-    }
-    catch (PDOException $e) {
-      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-      die($msg); // On arrête tout.
-    }
+    ?>
 
-    var_dump($resultat);
-  	
-  ?>
+    <input type="submit" value="Lancer Test">
+  </form>
 
+
+  <!-- AFFICHER REPONSES -->
+  <p>
+    <button onclick="afficherReponses()" value="reponses"> Réponses </button>
+
+    <script>
+      function afficherReponses() {
+        document.getElementById("demo").innerHTML = "lol";
+    </script>
+
+    <p id="demo"> </p>
+    <?php
+      /*if(isset($_POST['reponses'])) {
+        $resultat = getReponses();
+        while($row = $resultat->fetch()) {
+          echo "<p> <input type='checkbox' value='" . $row['titre'] . "'>". $row['titre'] ." : " . $row['texte'] . "</option> </p>";
+      }*/
+    ?>
+  </p>
 
 </html>
 
 <?php 
 $contenu = ob_get_clean(); 
 require './view/frontEnd/template.php';
-	

@@ -6,6 +6,19 @@ ob_start();
 <!DOCTYPE html>
 <html>
 	<title>Etudiant : Session en cours</title>
+
+	<body>
+		
+		<?php
+			require_once('./controller/etudiant.php');
+			$questionsAffichables = questionsAffichables();
+			foreach ($questionsAffichables as $valeur) {
+				echo $valeur['titre'];
+			}
+		?>
+
+
+	</body>
 </html>
 
 
