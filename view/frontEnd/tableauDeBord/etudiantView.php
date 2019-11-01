@@ -14,6 +14,7 @@ ob_start();
     <!--CCS Stylsheet-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/css/dashboard.css">
+   
     <link rel="stylesheet" href="./public/css/mdb.min.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -23,17 +24,9 @@ ob_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </head>
 
-  <!-- Vertical navbar -->
-  <div class="vertical-nav bg-white" id="sidebar">
-    <div class="py-4 px-3 mb-4 bg-light">
-      <div class="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-        <div class="media-body">
-          <h4 class="m-0"></h4>
-          <p class="font-weight-light text-muted mb-0">Etudiant</p>
-        </div>
-      </div>
-    </div>
+  
 
+<<<<<<< HEAD
     <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
 
     <ul class="nav flex-column bg-white mb-0">
@@ -62,59 +55,103 @@ ob_start();
               </a>
       </li>
     </ul>
-
-    <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Charts</p>
-
-    <ul class="nav flex-column bg-white mb-0">
-      <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
-                  <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
-                  Area charts
-              </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
-                  <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
-                  Bar charts
-              </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
-                  <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
-                  Pie charts
-              </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
-                  <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
-                  Line charts
-              </a>
-      </li>
-    </ul>
-  </div>
-  <!-- End vertical navbar -->
-
-
+=======
   <!-- Page content holder -->
-  <div class="page-content p-5" id="content">
-    <!-- Toggle button -->
-    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+  <section id="content"> 
+   
+    
+>>>>>>> eea23dc5907bfb2bc4afa8b403bb1d37a0873389
 
-  <!-- Demo content -->
+<div class="container-fluid px-md-5">
 
+  <!-- For demo purpose -->
+  <div class="row py-5 text-white">
+    <div class="col-lg-9 mx-auto text-center">
+      <h1 class="display-4">QCM LIVE Etudiant</h1>
+      
+     
+    </div>
   </div>
-  <!-- End demo content -->
+  <!-- End -->
 
-  <?= $_SESSION['profil']['nom']; ?>
-  <?= $_SESSION['profil']['loginU']; ?>
-  <?= $_SESSION['profil']['typeU']; ?>
-  <p> Rejoignez une session en cours (insérez nom du test) : 
-    <form action="./index.php" method="get"> 
-      <input type="text" placeholder="Nom du test" name="test">
-      <input type="submit" class="fadeIn fourth" value="Se connecter">
+  <div class="rounded">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+
+        <!-- Vertical Menu-->
+        <nav class="nav flex-column bg-white shadow-sm font-italic rounded p-3">
+        <div class="py-4 px-3 mb-4 bg-light">
+      <div class="media d-flex align-items-center"><img src="./public/images/img0.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        <div class="media-body">
+          <h4 class="m-0"></h4>
+          <p class="font-weight-light text-muted mb-0"><?php echo $_SESSION['profil']['nom'] . ' '. $_SESSION['profil']['num_grpe']?></p>
+        </div>
+      </div>  
+        
+        <a href="#" class="nav-link px-4 active rounded-pill">
+                            <i class="fas fa-bar-chart mr-2"></i>
+                            Accueil
+                            <span class="badge badge-primary px-2 rounded-pill ml-2">45</span>
+                        </a>
+          <a href="#" class="nav-link px-4 rounded-pill">
+                            <i class="fas fa-pie-chart mr-2"></i>
+                           Statistiques
+                            <span class="badge badge-primary px-2 rounded-pill ml-2">12</span>
+                        </a>
+          <a href="deconnexion.php" class="nav-link px-4  bg-primary text-white shadow-sm rounded-pill">
+                            <i class="fas fa-line-chart mr-2"></i>
+                            Deconnexion
+                            <span class="badge badge-light text-primary px-2 rounded-pill ml-2">17</span>
+                        </a>
+          <a href="#" class="nav-link px-4 rounded-pill">
+                            <i class="fas fa-area-chart mr-2"></i>
+                            Action here
+                            <span class="badge badge-primary px-2 rounded-pill ml-2">32</span>
+                        </a>
+          <a href="#" class="nav-link px-4 rounded-pill">
+                            <i class="fas fa-th-large mr-2"></i>
+                            Another action here
+                        </a>
+          <a href="#" class="nav-link px-4 rounded-pill">
+                            <i class="fas fa-line-chart mr-2"></i>
+                            Action here
+                        </a>
+          <a href="#" class="nav-link px-4 disabled">
+                            <i class="fas fa-pie-chart mr-2"></i>
+                            Disabled link
+                        </a>
+        </nav>
+        <!-- End -->
+
+      </div>
+
+      <div class="col-lg-8 mb-5">
+        <!-- Demo Content-->
+        <div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100  ">
+          <div class="demo-content justify-content-center">
+           
+            <div class="alert alert-success text-center" role="alert">
+              <h4 class ="alert-heading">Vous êtes maintenant connecté <?php echo '<strong><u>' . $_SESSION['profil']['nom'] .' du groupe '. $_SESSION['profil']['num_grpe'] .' !' .'</strong></u>';?></h4>
+        
+      </div>
+  <h4> Rejoignez une session en cours (insérez nom du test) : 
+  <div class="md-form"> 
+  <form action="./index.php" method="get"> <br>
+      <input type="text" placeholder="Nom du test" name="test" id="inputMDEx" class="form-control">
+      <input type="submit" class="fadeIn fourth btn btn-primary" value="Se connecter">
+  
     </form>   
-  </p> 
+</h4>           
+</div>
+        </div>
+      </div>
 
+    </div>
+  </div>
+</div>
+<br>
+<br>
+</section>
 </html>
 
 <?php 
