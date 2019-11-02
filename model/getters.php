@@ -66,6 +66,7 @@ function getQuestions(){
   }
 }
 
+/*
 // REPONSES CORRESPONDANTS A UN TEST
 function getReponses(){
   require_once('./model/frontEnd.php');
@@ -88,6 +89,7 @@ function getReponses(){
       die($msg); // On arrête tout.
     }
 }
+*/
 
 // ID THEME
 function getIdTheme($titre_theme){
@@ -224,6 +226,23 @@ function getQuestionsFromTheme($titre_theme){
     try {
       $req = $bdd->prepare($sql);
       $req->execute(array(':numGrpe' => $num_grpe));
+      return $req;
+    }
+    catch (PDOException $e) {
+      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die($msg); // On arrête tout.
+    }	
+  }
+
+  function getReponses($id_quest) {
+  	require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+    
+    $sql = "SELECT id_rep, texte_rep FROM reponse WHERE id_quest=:idQ";
+    
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':idQ' => $id_quest));
       return $req;
     }
     catch (PDOException $e) {

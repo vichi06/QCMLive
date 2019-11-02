@@ -5,7 +5,7 @@ function getQuestionsAffichables(){
 	require('frontEnd.php');
 	$bdd = dbConnect();
 
-	$sql = "SELECT question.titre, question.texte FROM question, qcm WHERE question.id_quest=qcm.id_quest AND qcm.id_test=:id_test AND bAutorise=1";
+	$sql = "SELECT question.id_quest, question.titre, question.texte, question.bmultiple FROM question, qcm WHERE question.id_quest=qcm.id_quest AND qcm.id_test=:id_test AND bAutorise=1";
 
 	$resultat = array(); 
 	

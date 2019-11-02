@@ -10,7 +10,7 @@ function connect_to_session($titreTest) {
 	}
 	else {
 		// VARIABLES SESSION
-		require_once("./model/sessionBD.php");
+		require_once("./model/getters.php");
 		$resultat = getDatasFromTestName($titreTest);	
 	    
 	    $titreT = htmlentities($titreTest, ENT_QUOTES, "UTF-8"); //permet de protéger tout les caractères spéciaux
@@ -31,7 +31,7 @@ function connect_to_session($titreTest) {
 // VERIFICATION SESSION EN COURS
 // @param : titre du test
 function verif_test($titreTest) {
-	require('./model/etudiantBD.php');
+	require('./model/sessionBD.php');
 	return verif_test_available($titreTest);
 }
 

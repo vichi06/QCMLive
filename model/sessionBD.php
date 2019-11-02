@@ -26,8 +26,8 @@ function verif_test_available($nomTest) {
     $_SESSION['test']['titreTest'] = $nomTest;
     $_SESSION['test']['id'] = $resultat['id_test'];
     $_SESSION['test']['idProf'] = $resultat['titre_test'];
-    $_SESSION['test']['num_grpe'] = $resultat['prenom'];
-    $_SESSION['test']['date'] = $resultat['email'];
+    $_SESSION['test']['numGrpe'] = $resultat['num_grpe'];
+    $_SESSION['test']['date'] = $resultat['date_test'];
     $_SESSION['test']['bActif'] = $resultat['bActif']; 
     return true;
   }

@@ -9,15 +9,30 @@ ob_start();
 
 	<body>
 		
+		<p> Questions à traiter : </p>
 		<!-- AFFICHAGE DES QUESTIONS -->
 		<?php
 			require_once('./controller/etudiant.php');
 			$questionsAffichables = questionsAffichables();
+			$nbQuestions = 1;
 			foreach ($questionsAffichables as $valeur) {
-				echo "<p>" . $valeur['titre'] ." : " . $valeur['texte'] . "</p>";
+				// LA QUESTION
+				echo "<p>" . $nbQuestions . " : " ;
+				if($valeur['bmultiple'] == 1){
+					echo " multiple ";
+				} 
+				echo $valeur['titre'] ." : " . $valeur['texte'] . "</p>";
+				$nbQuestions++;
+
+				// LES REPONSES
+				require_once('./model/getters.php');
+				$reponses = getReponses($valeur['id_quest']);
+				foreach ($reponses as $reponse) {
+					echo "<p>" . $reponse['texte_rep'] . "</p>";
+				}
 			}
 		?>
-		
+
 	</body>
 </html>
 
