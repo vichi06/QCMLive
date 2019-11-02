@@ -21,6 +21,22 @@ function startTest($titre_test, $theme_test) {
     // CREER LES QUESTIONS DANS TABLE QCM 
     createQCMs($titre_test);
 
+    // RENDRE TEST ACTIF 
+    activateTest($_SESSION['test']['id']);
+
 	$url = "index.php?action=logged&type_utilisateur=".$_SESSION['profil']['typeU']."&controle=test";
+    header("Location:" .$url);
+}
+
+// AUTORISE LA QUESTION A ETRE AFFICHEE LORSQUE LE PROFESSEUR LA COCHE    
+function setQuestionsAffichables($questions){
+
+    foreach ($questions as $question) {
+        require_once("./model/sessionBD.php");
+        $id_quest = getIdQuestion($question);
+        updateVisibilityQuestion($id_quest);
+    }
+
+    $url = "index.php?action=logged&type_utilisateur=".$_SESSION['profil']['typeU']."&controle=test";
     header("Location:" .$url);
 }

@@ -26,41 +26,7 @@ ob_start();
 
   
 
-<<<<<<< HEAD
-    <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
 
-    <ul class="nav flex-column bg-white mb-0">
-      <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic bg-light">
-        <a href=""><i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-                  Accueil </a>
-              </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
-                  <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-                  Statistiques
-              </a>
-      </li>
-      <li class="nav-item">
-        <a href="./model/finSession.php" class="nav-link text-dark font-italic">
-                  <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                  Deconnexion
-              </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
-                  <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
-                  A propos 
-              </a>
-      </li>
-    </ul>
-=======
-  <!-- Page content holder -->
-  <section id="content"> 
-   
-    
->>>>>>> eea23dc5907bfb2bc4afa8b403bb1d37a0873389
 
 <div class="container-fluid px-md-5">
 
@@ -98,7 +64,7 @@ ob_start();
                            Statistiques
                             <span class="badge badge-primary px-2 rounded-pill ml-2">12</span>
                         </a>
-          <a href="deconnexion.php" class="nav-link px-4  bg-primary text-white shadow-sm rounded-pill">
+          <a href="./model/finSession.php" class="nav-link px-4  bg-primary text-white shadow-sm rounded-pill">
                             <i class="fas fa-line-chart mr-2"></i>
                             Deconnexion
                             <span class="badge badge-light text-primary px-2 rounded-pill ml-2">17</span>
@@ -139,7 +105,6 @@ ob_start();
   <form action="./index.php" method="get"> <br>
       <input type="text" placeholder="Nom du test" name="test" id="inputMDEx" class="form-control">
       <input type="submit" class="fadeIn fourth btn btn-primary" value="Se connecter">
-  
     </form>   
 </h4>           
 </div>

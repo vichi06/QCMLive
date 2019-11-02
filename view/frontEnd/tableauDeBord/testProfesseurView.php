@@ -40,7 +40,7 @@ require_once('./model/professeurBD.php');
   <p> Questions : </p>
   
   <!-- AFFICHER QUESTIONS SELON LE THEME CHOISI -->
-  <form action='./controller/interactionSession.php' method='POST'>
+  <form action='./index.php' method='POST'>
     <?php
       $nbQuestion = 1;
       $resultat = getQuestionsFromTheme($_SESSION['test']['theme']);
@@ -51,7 +51,11 @@ require_once('./model/professeurBD.php');
           echo "multiple ";
         }
 
-        echo "<input type='checkbox' name='choix' value='". $row['titre'] . "'>-" . $nbQuestion . "-  " . $row['titre'] ." : " . $row['texte'];
+        echo "<input type='checkbox' name='question[]' id='question' value='". $row['titre'] . "'";
+        if(isAffichable($row['id_quest'])){
+          echo " checked";
+        }
+        echo ">-" . $nbQuestion . "-  " . $row['titre'] ." : " . $row['texte'];
 
         echo "</p>";
 

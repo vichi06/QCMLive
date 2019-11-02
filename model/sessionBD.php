@@ -150,3 +150,77 @@ function createQCMs($titre_test){
     }
   }
 }
+
+  function getIdQuestion($titre_quest){
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+    
+    $sql = "SELECT id_quest FROM question WHERE titre =:titre_quest";
+    
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':titre_quest' => $titre_quest));
+      $id_quest = $req->fetch();
+
+      return $id_quest['id_quest'];
+    }
+    catch (PDOException $e) {
+      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die($msg); // On arrête tout.
+    }
+  }
+
+  function updateVisibilityQuestion($id_quest) {
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+
+    $sql = "UPDATE qcm SET bAutorise = 1 WHERE qcm.id_quest=:id_quest";       
+  
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':id_quest' => $id_quest));
+    }
+    catch (PDOException $e) {
+      echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die(); // On arrête tout.
+    }
+  }
+
+  function isAffichable($id_quest){
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+
+    $sql = "SELECT bAutorise FROM qcm WHERE qcm.id_quest=:id_quest";       
+  
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':id_quest' => $id_quest));
+      $bAutorise = $req->fetch();
+      if($bAutorise['bAutorise'] == '1'){
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    catch (PDOException $e) {
+      echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die(); // On arrête tout.
+    }
+  }
+
+  function activateTest($id_test){
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+
+    $sql = "UPDATE test SET bActif = 1 WHERE test.id_test=:id_test";       
+  
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':id_test' => $id_test));
+    }
+    catch (PDOException $e) {
+      echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die(); // On arrête tout.
+    }
+  }

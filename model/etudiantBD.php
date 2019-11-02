@@ -38,13 +38,13 @@ function getQuestionsAffichables(){
 	require('frontEnd.php');
 	$bdd = dbConnect();
 
-	$sql = "SELECT question.titre, question.texte FROM question, qcm WHERE question.id_quest=qcm.id_quest /*AND qcm.id_test=:id_test*/";
+	$sql = "SELECT question.titre, question.texte FROM question, qcm WHERE question.id_quest=qcm.id_quest AND qcm.id_test=:id_test AND bAutorise=1";
 
 	$resultat = array(); 
 	
 	try {
 		$req = $bdd->prepare($sql);
-		$req ->execute(/*array(':id_test' => $_SESSION['test']['id'])*/);
+		$req ->execute(array(':id_test' => $_SESSION['test']['id']));
 		return $req;
 	}
 	catch (PDOException $e) {
