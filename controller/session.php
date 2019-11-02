@@ -4,7 +4,7 @@
 function startTest($titre_test, $theme_test) {
 
 	// VARIABLES SESSIONS 	
-	require_once("./model/sessionBD.php");
+	require_once("./model/getters.php");
 	$resultat = getDatasFromTestName($titre_test);	
     
     $titreT = htmlentities($titre_test, ENT_QUOTES, "UTF-8"); //permet de protéger tout les caractères spéciaux
@@ -18,7 +18,8 @@ function startTest($titre_test, $theme_test) {
     $_SESSION['test']['date'] = $resultat['date_test'];
     $_SESSION['test']['bActif'] = $resultat['bActif'];
 
-    // CREER LES QUESTIONS DANS TABLE QCM 
+    // CREER LES QUESTIONS DANS TABLE QCM
+    require_once("./model/sessionBD.php");
     createQCMs($titre_test);
 
     // RENDRE TEST ACTIF 
@@ -30,7 +31,6 @@ function startTest($titre_test, $theme_test) {
 
 // AUTORISE LA QUESTION A ETRE AFFICHEE LORSQUE LE PROFESSEUR LA COCHE    
 function setQuestionsAffichables($questions){
-
     foreach ($questions as $question) {
         require_once("./model/sessionBD.php");
         $id_quest = getIdQuestion($question);

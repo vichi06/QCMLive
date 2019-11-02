@@ -9,19 +9,15 @@ ob_start();
 
 	<body>
 		
+		<!-- AFFICHAGE DES QUESTIONS -->
 		<?php
 			require_once('./controller/etudiant.php');
 			$questionsAffichables = questionsAffichables();
 			foreach ($questionsAffichables as $valeur) {
-				echo "<p>";
-				echo $valeur['titre'];
-				echo " : ";
-				echo $valeur['texte'];
-				echo "</p>";
+				echo "<p>" . $valeur['titre'] ." : " . $valeur['texte'] . "</p>";
 			}
 		?>
-
-
+		
 	</body>
 </html>
 

@@ -1,6 +1,8 @@
 <?php
+// FONCTIONS CONCERNANT UN ETUDIANT
 
 // CONNEXION A LA SESSION EN COURS 
+// @param : titre du test
 function connect_to_session($titreTest) {
 	if(!verif_test($titreTest)) {
 		$url = "index.php?action=logged&type_utilisateur=etudiant";
@@ -27,6 +29,7 @@ function connect_to_session($titreTest) {
 }
 
 // VERIFICATION SESSION EN COURS
+// @param : titre du test
 function verif_test($titreTest) {
 	require('./model/etudiantBD.php');
 	return verif_test_available($titreTest);

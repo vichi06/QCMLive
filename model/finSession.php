@@ -1,5 +1,7 @@
 <?php 
+// FIN DE SESSION
 session_start();
+
 // SET bConnect A 0
 require('frontEnd.php');
 $bdd = dbConnect();

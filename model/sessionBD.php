@@ -1,136 +1,43 @@
 <?php
 
-// DONNEES CORRESPONDANT A UN TEST
-function getDatasFromTestName($titre_test){
-  require_once('./model/frontEnd.php');
+// VERIFIER SI SESSION EN COURS
+// @param : nom du test 
+function verif_test_available($nomTest) {
+  require('frontEnd.php');
   $bdd = dbConnect();
-  
-  $sql="SELECT id_test, id_prof, num_grpe, titre_test, date_test, bActif FROM test WHERE titre_test=:titre_test";
-  
+
+  $sql = "SELECT id_test, id_prof, num_grpe, titre_test, date_test, bActif FROM test WHERE titre_test=:nomTest AND num_grpe=:numGrpe";
+
   $resultat = array(); 
   
   try {
     $req = $bdd->prepare($sql);
-    $req->execute(array(':titre_test' => $titre_test));
-
+    $req ->execute(array(':nomTest' => $nomTest, ':numGrpe' => $_SESSION['profil']['num_grpe']));
     $resultat = $req->fetch(PDO::FETCH_ASSOC);
+
   }
   catch (PDOException $e) {
-    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-    die($msg); // On arrête tout.
-  }  
-
-  return $resultat;
-}
-
-// QUESTIONS CORRESPONDANTS A UN TEST
-function getQuestions(){
-	require_once('./model/frontEnd.php');
-	$bdd = dbConnect();
-	
-  $sql="SELECT question.titre, question.texte FROM question, test, qcm WHERE test.id_test = qcm.id_test AND qcm.id_quest = question.id_quest";
-  
-  try {
-    $sth = $bdd->prepare($sql);
-
-    $bool = $sth->execute();
-
-    if ($bool) {
-      //$resultat = $sth->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-      return $sth;
-    }
+    echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+    die();
   }
-  catch (PDOException $e) {
-    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-    die($msg); // On arrête tout.
+
+  if($resultat['bActif'] == 1){
+    // VARIABLES SESSIONS : MEMORISER LE TEST EN COURS
+    $_SESSION['test']['titreTest'] = $nomTest;
+    $_SESSION['test']['id'] = $resultat['id_test'];
+    $_SESSION['test']['idProf'] = $resultat['titre_test'];
+    $_SESSION['test']['num_grpe'] = $resultat['prenom'];
+    $_SESSION['test']['date'] = $resultat['email'];
+    $_SESSION['test']['bActif'] = $resultat['bActif']; 
+    return true;
+  }
+  else {
+    return false;
   }
 }
 
-// REPONSES CORRESPONDANTS A UN TEST
-function getReponses(){
-  require_once('./model/frontEnd.php');
-    $bdd = dbConnect();
-    
-    $sql="SELECT question.titre, question.texte FROM question, test, qcm WHERE test.id_test = qcm.id_test AND qcm.id_quest = question.id_quest";
-    
-    try {
-      $req = $bdd->prepare($sql);
-
-      $bool = $req->execute();
-
-      if ($bool) {
-        //$resultat = $req->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-        return $req;
-      }
-    }
-    catch (PDOException $e) {
-      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-      die($msg); // On arrête tout.
-    }
-}
-
-// ID THEME
-function getIdTheme($titre_theme){
-  require_once('./model/frontEnd.php');
-  $bdd = dbConnect();
-  
-  $sql = "SELECT id_theme FROM theme WHERE titre_theme =:titre_theme";
-  
-  try {
-    $req = $bdd->prepare($sql);
-    $req->execute(array(':titre_theme' => $titre_theme));
-    $id_theme = $req->fetch();
-
-    return $id_theme['id_theme'];
-  }
-  catch (PDOException $e) {
-    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-    die($msg); // On arrête tout.
-  }
-}
-
-// ID THEME
-function getIdTest($titre_test){
-  require_once('./model/frontEnd.php');
-  $bdd = dbConnect();
-  
-  $sql = "SELECT id_test FROM test WHERE titre_test =:titre_test";
-  
-  try {
-    $req = $bdd->prepare($sql);
-    $req->execute(array(':titre_test' => $titre_test));
-    $id_test = $req->fetch();
-
-    return $id_test['id_test'];
-  }
-  catch (PDOException $e) {
-    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-    die($msg); // On arrête tout.
-  }
-}
-
-// QUESTIONS CORRESPONDANTS A UN THEME
-function getQuestionsFromTheme($titre_theme){
-
-  $id_theme = getIdTheme($titre_theme);
-
-  require_once('./model/frontEnd.php');
-  $bdd = dbConnect();
-  
-  $sql="SELECT id_quest, titre, texte, bmultiple FROM question WHERE id_theme =:id_theme";
-  
-  try {
-    $req = $bdd->prepare($sql);
-    $req->execute(array(':id_theme' => $id_theme));
-    
-    return $req;
-  }
-  catch (PDOException $e) {
-    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-    die($msg); // On arrête tout.
-  }
-}
-
+// CREATION DE QCM : PROFESSEUR CHOISI LES QUESTIONS A TRAITER
+// @param : titre du test
 function createQCMs($titre_test){
   require_once("./model/sessionBD.php");
   $idTest = getIdTest($titre_test);
@@ -150,26 +57,9 @@ function createQCMs($titre_test){
     }
   }
 }
-
-  function getIdQuestion($titre_quest){
-    require_once('./model/frontEnd.php');
-    $bdd = dbConnect();
-    
-    $sql = "SELECT id_quest FROM question WHERE titre =:titre_quest";
-    
-    try {
-      $req = $bdd->prepare($sql);
-      $req->execute(array(':titre_quest' => $titre_quest));
-      $id_quest = $req->fetch();
-
-      return $id_quest['id_quest'];
-    }
-    catch (PDOException $e) {
-      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-      die($msg); // On arrête tout.
-    }
-  }
-
+  
+  // AUTORISE L'AFFICHAGE DES QUESTIONS : bAutorise 0 --> 1 dans Base de Données
+  // @param : ID de la question à rendre visible
   function updateVisibilityQuestion($id_quest) {
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
@@ -186,6 +76,8 @@ function createQCMs($titre_test){
     }
   }
 
+  // VERIFIE SI UNE QUESTION EST AFFICHABLE : selon la décision du professeur
+  // @param : ID de la question 
   function isAffichable($id_quest){
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();

@@ -1,7 +1,7 @@
 <?php 
 // PAGE D'ACCUEIL DU PROFESSEUR 
 ob_start(); 
-require "./model/professeurBD.php"
+require "./model/getters.php"
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +11,10 @@ require "./model/professeurBD.php"
 	</head>
 	
 	<body>
+
+		<p> Vos sessions en cours : </p>
+
+
 		<form action='index.php' method='post'>
 			<p> Sélectionner un titre de test :
 				<select id='titreTest' name='titreTest'>
