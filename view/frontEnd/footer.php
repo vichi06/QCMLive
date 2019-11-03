@@ -37,7 +37,7 @@
 
         <!-- Content -->
         <h2 class="font-weight-bold">Qcm Live</h2>
-        <p class="text-white">Dans le but de rendre les cours d'amphithêatre plus vivant et améliorer votre aprentissage de nouvelles notions, QCM Live vous permettra de tester vos connaissances en temps réel! </p> 
+        <p class="text-white"style ="font-family:'Noto Sans', sans-serif;">Dans le but de rendre les cours d'amphithêatre plus vivant et améliorer votre aprentissage de nouvelles notions, QCM Live vous permettra de tester vos connaissances en temps réel! </p> 
 
       </div>
       <!-- Grid column -->
@@ -53,19 +53,19 @@
 
         <ul class="list-unstyled">
           <li>
-            <a class="text-white text-uppercase"href="">Se connecter</a>
+            <a class="text-white text-uppercase"href=""style ="font-family:'Noto Sans', sans-serif;">Se connecter</a>
           </li>
   		
           <li>
-            <a class="text-white text-uppercase"href="">S'inscrire</a>
+            <a class="text-white text-uppercase"href=""style ="font-family:'Noto Sans', sans-serif;">S'inscrire</a>
           </li>
   		
         <li>
-            <a class="text-white text-uppercase"href="">Utilisation</a>
+            <a class="text-white text-uppercase"href=""style ="font-family:'Noto Sans', sans-serif;">Utilisation</a>
          </li>
   	   
   	   <li>
-            <a class="text-white text-uppercase"href="">Les Développeurs</a>
+            <a class="text-white text-uppercase"href=""style ="font-family:'Noto Sans', sans-serif;">Les Développeurs</a>
           </li>
         </ul>
 
@@ -83,16 +83,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <a class="text-white text-uppercase"href="">FAQ</a>
+            <a class="text-white text-uppercase"href=""style ="font-family:'Noto Sans', sans-serif;">FAQ</a>
           </li>
           <li>
-            <a class="text-white text-uppercase"href="">Blog</a>
+            <a class="text-white text-uppercase"href=""style ="font-family:'Noto Sans', sans-serif;">Blog</a>
           </li>
           <li>
-           <a class="text-white text-uppercase"href="">Gestion des cookies</a>
+           <a class="text-white text-uppercase"href=""style ="font-family:'Noto Sans', sans-serif;">Gestion des cookies</a>
           </li>
           <li>
-           <a class="text-white text-uppercase"href="">Mention légales</a>
+           <a class="text-white text-uppercase"href=""style ="font-family:'Noto Sans', sans-serif;">Mention légales</a>
           </li>
         </ul>
         

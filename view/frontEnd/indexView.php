@@ -67,19 +67,19 @@ ob_start();
   <section id="features">
     <div class="row">
       <div class="feature-box col-lg-4 col-md-12 col-sm-12">
-        <i class="icon fas fa-check-circle fa-4x"> </i>
-        <h3>Facile à utiliser. </h3>
-        <p>Un outil à la portée de tous. </p>
+        <i class="icon fas fa-check-circle fa-4x "> </i>
+        <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Facile à utiliser. </h3>
+        <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Un outil à la portée de tous. </p>
       </div>
       <div class="feature-box col-lg-4 col-md-12 col-sm-12 ">
         <i class="icon fas fa-bullseye fa-4x"></i>
-        <h3>Le meilleur sur le marché.</h3>
-        <p>Pas plus rapide et ergonome.</p>
+        <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Le meilleur sur le marché.</h3>
+        <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Pas plus rapide et ergonome.</p>
       </div>
       <div class="feature-box col-lg-4 col-md-12 col-sm-12">
         <i class="icon fas fa-heart fa-4x"></i>
-        <h3>Codé avec attention.</h3>
-        <p>Une équipe de développeurs passionnés.</p>
+        <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Codé avec attention.</h3>
+        <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Une équipe de développeurs passionnés.</p>
       </div>
     </div>
   </section>

@@ -24,13 +24,19 @@ ob_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </head>
 
+  
+
+  <!-- Page content holder -->
+  <section id="content"> 
+   
+    
 
 <div class="container-fluid px-md-5">
 
   <!-- For demo purpose -->
   <div class="row py-5 text-white">
     <div class="col-lg-9 mx-auto text-center">
-      <h1 class="display-4">QCM LIVE Etudiant</h1>
+      <h1 class="display-4"style ="font-family:'Ubuntu';">QCM LIVE Etudiant</h1>
       
      
     </div>
@@ -42,7 +48,7 @@ ob_start();
       <div class="col-lg-4 mb-4 mb-lg-0">
 
         <!-- Vertical Menu-->
-        <nav class="nav flex-column bg-white shadow-sm font-italic rounded p-3">
+        <nav class="nav flex-column bg-white shadow-sm font-italic rounded p-3 sticky">
         <div class="py-4 px-3 mb-4 bg-light">
       <div class="media d-flex align-items-center"><img src="./public/images/img0.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
         <div class="media-body">
@@ -52,62 +58,52 @@ ob_start();
       </div>  
         
         <a href="#" class="nav-link px-4 active rounded-pill">
-                            <i class="fas fa-bar-chart mr-2"></i>
+                            <i class="fas fa-home mr-2"></i>
                             Accueil
-                            <span class="badge badge-primary px-2 rounded-pill ml-2">45</span>
+                            
                         </a>
           <a href="#" class="nav-link px-4 rounded-pill">
-                            <i class="fas fa-pie-chart mr-2"></i>
+                            <i class="fas fa-chart-pie mr-2"></i>
                            Statistiques
-                            <span class="badge badge-primary px-2 rounded-pill ml-2">12</span>
+                           
                         </a>
-          <a href="./model/finSession.php" class="nav-link px-4  bg-primary text-white shadow-sm rounded-pill">
-                            <i class="fas fa-line-chart mr-2"></i>
+          <a href="./model/finSession.php" class="nav-link px-4 rounded-pill">
+                            <i class="fas fa-power-off mr-2"></i>
                             Deconnexion
-                            <span class="badge badge-light text-primary px-2 rounded-pill ml-2">17</span>
+                         
                         </a>
-          <a href="#" class="nav-link px-4 rounded-pill">
-                            <i class="fas fa-area-chart mr-2"></i>
-                            Action here
-                            <span class="badge badge-primary px-2 rounded-pill ml-2">32</span>
-                        </a>
+          
           <a href="#" class="nav-link px-4 rounded-pill">
                             <i class="fas fa-th-large mr-2"></i>
                             Another action here
                         </a>
-          <a href="#" class="nav-link px-4 rounded-pill">
-                            <i class="fas fa-line-chart mr-2"></i>
-                            Action here
-                        </a>
-          <a href="#" class="nav-link px-4 disabled">
-                            <i class="fas fa-pie-chart mr-2"></i>
-                            Disabled link
-                        </a>
+       
         </nav>
         <!-- End -->
 
       </div>
 
+      
       <div class="col-lg-8 mb-5">
         <!-- Demo Content-->
-        <div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100  ">
-          <div class="demo-content justify-content-center">
-           
-            <div class="alert alert-success text-center" role="alert">
+        <div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
+          <div class="demo-content">
+            
+              <div class="alert alert-success text-center" role="alert">
               <h4 class ="alert-heading">Vous êtes maintenant connecté <?php echo '<strong><u>' . $_SESSION['profil']['nom'] .' du groupe '. $_SESSION['profil']['num_grpe'] .' !' .'</strong></u>';?></h4>
         
       </div>
-  <h4> Rejoignez une session en cours (insérez nom du test) : 
+  <h4> Rejoignez une session en cours (insérez nom du test) pour démarrer : 
   <div class="md-form"> 
   <form action="./index.php" method="get"> <br>
       <input type="text" placeholder="Nom du test" name="test" id="inputMDEx" class="form-control">
-      <input type="submit" class="fadeIn fourth btn btn-primary" value="Se connecter">
+      <input type="submit" class="fadeIn fourth btn btn-primary" value="Rejoindre">
+  
     </form>   
 </h4>           
-</div>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
