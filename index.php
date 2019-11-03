@@ -27,7 +27,7 @@ if(isset($_GET['test'])){
 
 // DEMARRAGE D'UN TEST PAR PROFESSEUR
 if(isset($_POST['titreTest'])){
-    startTest($_POST['titreTest']/*, $_POST['themeTest']*/);
+    startTest($_POST['titreTest']);
 }
 
 // IDENTIFICATION SINON NAVIGUE DANS ZONES NON IDENTIFIER

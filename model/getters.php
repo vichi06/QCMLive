@@ -124,8 +124,6 @@ function getGroupe($titre_test){
 	}
 }
 
-
-
 // QUESTIONS CORRESPONDANTS A UN THEME
 function getQuestionsFromTheme($titre_theme){
 

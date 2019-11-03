@@ -42,7 +42,6 @@ function createQCMs($titre_test){
   require_once("./model/sessionBD.php");
   $idTest = getIdTest($titre_test);
 
-  //$resultat = getQuestionsFromTheme($_SESSION['test']['theme']);
   $resultat = getQuestions();
 
   require_once('./model/frontEnd.php');
@@ -79,15 +78,15 @@ function createQCMs($titre_test){
 
   // VERIFIE SI UNE QUESTION EST AFFICHABLE : selon la décision du professeur
   // @param : ID de la question 
-  function isAffichable($id_quest){
+  function isAffichable($id_quest, $id_test){
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
 
-    $sql = "SELECT bAutorise FROM qcm WHERE qcm.id_quest=:id_quest";       
+    $sql = "SELECT bAutorise FROM qcm WHERE qcm.id_quest=:id_quest AND qcm.id_test=:id_test";       
   
     try {
       $req = $bdd->prepare($sql);
-      $req->execute(array(':id_quest' => $id_quest));
+      $req->execute(array(':id_quest' => $id_quest, ':id_test' => $id_test));
       $bAutorise = $req->fetch();
       if($bAutorise['bAutorise'] == '1'){
         return true;

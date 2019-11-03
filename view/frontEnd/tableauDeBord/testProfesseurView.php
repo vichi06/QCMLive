@@ -27,7 +27,6 @@ require_once('./model/getters.php');
   <form action='./index.php' method='POST'>
     <?php
       $nbQuestion = 1;
-      // $resultat = getQuestionsFromTheme($_SESSION['test']['theme']);
       $resultat = getQuestions();
       while($row = $resultat->fetch()) {
         echo "<p>";
@@ -37,7 +36,7 @@ require_once('./model/getters.php');
         }
 
         echo "<input type='checkbox' name='question[]' id='question' value='". $row['titre'] . "'";
-        if(isAffichable($row['id_quest'])){
+        if(isAffichable($row['id_quest'], $_SESSION['test']['id'])){
           echo " checked='checked' disabled";
         }
         echo ">-" . $nbQuestion . "-  " . $row['titre'] ." : " . $row['texte'];

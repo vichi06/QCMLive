@@ -40,19 +40,6 @@ require "./model/getters.php"
 					?>
 				</select>
 			</p>
-			<!--
-			<p> Sélectionner un theme :
-				<select id='themeTest' name='themeTest'>
-					<?php 
-						$sth = getThemes();
-						while($row = $sth->fetch()) {
-							echo "<option value='" . $row['titre_theme'] . "'>" . $row['titre_theme'] ."</option>";
-						}
-					?>
-				</select>
-			</p>
-			-->
-
 			<input type="submit" name="submit" value="Lancer Test">
 		</form>
 

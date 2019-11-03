@@ -1,17 +1,15 @@
 <?php 
 
 // AJOUTE LES ELEMENTS DANS LA TABLE QCM POUR QUE LES ETUDIANTS PUISSENT VOIR LES QUESTIONS
-function startTest($titre_test/*, $theme_test*/) {
+function startTest($titre_test) {
 
 	// VARIABLES SESSIONS 	
 	require_once("./model/getters.php");
 	$resultat = getDatasFromTestName($titre_test);	
     
     $titreT = htmlentities($titre_test, ENT_QUOTES, "UTF-8"); //permet de protéger tout les caractères spéciaux
-    //$themeT = htmlentities($theme_test, ENT_QUOTES, "UTF-8"); //permet de protéger tout les caractères spéciaux
 
 	$_SESSION['test']['titre'] = $titreT;
-    //$_SESSION['test']['theme'] = $themeT;
     $_SESSION['test']['id'] = $resultat['id_test'];
     $_SESSION['test']['idProf'] = $resultat['id_prof'];
     $_SESSION['test']['numGrpe'] = $resultat['num_grpe'];
