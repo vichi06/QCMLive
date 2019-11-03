@@ -40,3 +40,15 @@ function questionsAffichables() {
 	require('./model/etudiantBD.php');
 	return getQuestionsAffichables();
 }
+
+// ENREGISTRER LES REPONSES DE L'ETUDIANT
+function enregistrerReponse($reponses){
+	foreach ($reponses as $id_rep) {
+		require_once('./model/etudiantBD.php');
+		enregistrerReponseBD($id_rep);	
+	}
+
+	// REDIRECTION 
+	$url = "index.php?action=logged&type_utilisateur=etudiant&controle=test";
+	header("Location:" .$url);
+}

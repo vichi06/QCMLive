@@ -191,7 +191,7 @@ function getQuestions(){
   	require_once('./model/frontEnd.php');
     $bdd = dbConnect();
     
-    $sql = "SELECT genre, nom, prenom FROM etudiant WHERE num_grpe=:numGrpe AND bConnect = 1";
+    $sql = "SELECT genre, nom, prenom, id_etu FROM etudiant WHERE num_grpe=:numGrpe AND bConnect = 1";
     
     try {
       $req = $bdd->prepare($sql);
@@ -208,7 +208,7 @@ function getQuestions(){
   	require_once('./model/frontEnd.php');
     $bdd = dbConnect();
     
-    $sql = "SELECT id_rep, texte_rep FROM reponse WHERE id_quest=:idQ";
+    $sql = "SELECT id_rep, id_quest, texte_rep, bvalide FROM reponse WHERE id_quest=:idQ";
     
     try {
       $req = $bdd->prepare($sql);
@@ -237,3 +237,28 @@ function getQuestions(){
       die($msg); // On arrête tout.
     } 
   }
+
+// DONNEES CORRESPONDANT A UNE REPONSE : de la base de données
+// @param : ID de la réponse
+function getDatasFromIdReponse($id_reponse){
+  require_once('./model/frontEnd.php');
+  $bdd = dbConnect();
+  
+  $sql="SELECT id_rep, id_quest, texte_rep, bvalide FROM reponse WHERE id_rep=:idR";
+  
+  $resultat = array(); 
+  
+  try {
+    $req = $bdd->prepare($sql);
+    $req->execute(array(':idR' => $id_reponse));
+
+    $resultat = $req->fetch(PDO::FETCH_ASSOC);
+  }
+  catch (PDOException $e) {
+    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+    die($msg); // On arrête tout.
+  }  
+
+  return $resultat;
+}
+

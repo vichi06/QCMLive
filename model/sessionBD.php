@@ -148,3 +148,27 @@ function createQCMs($titre_test){
       die(); // On arrête tout.
     }
   }
+
+  // RETOURNE SI UNE REPONSE EST VALIDE
+  // @param : ID de la réponse
+  function isValid($id_rep){
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+
+    $sql = "SELECT bvalide FROM reponse WHERE id_rep=:idR";
+
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':idR' => $id_rep));
+      if($req['bvalide'] == 1){
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    catch (PDOException $e) {
+      echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die(); // On arrête tout.
+    } 
+  }

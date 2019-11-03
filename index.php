@@ -10,6 +10,16 @@ if(isset($_POST['question'])){
     setQuestionsAffichables($_POST['question']);
 }
 
+// FIN D'UNE QUESTION
+if(isset($_POST['fin'])) {
+    //finishQuestion($id_quest);
+}
+
+// REPONSE A ENREGISTRE
+if(isset($_POST['reponse'])) {
+    enregistrerReponse($_POST['reponse']);
+}
+
 // CONTINUER UN TEST 
 if(isset($_POST['continuer'])){
     continueTest($_POST['titre_test']);
@@ -47,10 +57,14 @@ elseif (isset($_GET['action'])) {
             }
             else {
                 require("./view/frontEnd/tableauDeBord/etudiantView.php");         
-            }}
+            }
+        }
         if ($_GET['type_utilisateur'] == 'professeur'){
-            if(isset($_GET['controle'])){
+            if($_GET['controle'] == 'test'){
                 require("./view/frontEnd/tableauDeBord/testProfesseurView.php"); 
+            }
+            elseif ($_GET['controle'] == 'bilan') {
+                require("./view/frontEnd/bilan.php"); 
             }
             else {
                 require("./view/frontEnd/tableauDeBord/professeurView.php");         

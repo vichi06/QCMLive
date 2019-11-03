@@ -40,7 +40,7 @@ require_once('./model/getters.php');
           echo " checked='checked' disabled";
         }
         echo ">-" . $nbQuestion . "-  " . $row['titre'] ." : " . $row['texte'];
-
+        // echo "<input type='submit' name='fin' value='Fin'>";
         echo "</p>";
 
         $nbQuestion++;
@@ -55,7 +55,10 @@ require_once('./model/getters.php');
   <?php
     $etudiants = getConnectedEtudiants($_SESSION['test']['numGrpe']);
     foreach ($etudiants as $etudiant) {
-      echo "<p> Nom : ". $etudiant['nom'] ." Prenom : " . $etudiant['prenom'] . "</p>";
+      echo "<p> Nom : ". $etudiant['nom'] ." Prenom : " . $etudiant['prenom'];
+      require_once('./model/etudiantBD.php');
+      echo ", Nombre bonnes réponses : " . numberGoodAnswers($etudiant['id_etu']);
+      echo "</p>";
     }
   ?>
 
@@ -67,6 +70,7 @@ require_once('./model/getters.php');
   <!-- CARNET DE BORD -->
   <a href="./index.php?action=logged&type_utilisateur=professeur"> Carnet de Bord </a>
 
+  <a href="./index.php?action=logged&type_utilisateur=professeur&controle=bilan"> Bilan </a>
 </html>
 
 <?php 
