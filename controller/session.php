@@ -32,11 +32,21 @@ function startTest($titre_test, $theme_test) {
 // AUTORISE LA QUESTION A ETRE AFFICHEE LORSQUE LE PROFESSEUR LA COCHE    
 function setQuestionsAffichables($questions){
     foreach ($questions as $question) {
+        require_once("./model/getters.php");
         require_once("./model/sessionBD.php");
         $id_quest = getIdQuestion($question);
         updateVisibilityQuestion($id_quest);
     }
 
     $url = "index.php?action=logged&type_utilisateur=".$_SESSION['profil']['typeU']."&controle=test";
+    header("Location:" .$url);
+}
+
+function stopTest($id_test){
+    require_once('./model/sessionBD.php');
+    desactivateTest($id_test);
+    unset($_SESSION['test']);
+
+    $url = "index.php?action=logged&type_utilisateur=professeur";
     header("Location:" .$url);
 }

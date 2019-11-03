@@ -37,7 +37,7 @@ require_once('./model/getters.php');
 
         echo "<input type='checkbox' name='question[]' id='question' value='". $row['titre'] . "'";
         if(isAffichable($row['id_quest'])){
-          echo " checked='checked'";
+          echo " checked='checked' disabled";
         }
         echo ">-" . $nbQuestion . "-  " . $row['titre'] ." : " . $row['texte'];
 
@@ -47,7 +47,7 @@ require_once('./model/getters.php');
       }
     ?>
 
-    <input type="submit" value="Lancer Test">
+    <input type="submit" value="Afficher les Questions">
   </form>
 
   <!-- LISTE DES ETUDIANTS CONNECTES -->
@@ -77,6 +77,14 @@ require_once('./model/getters.php');
       }*/
     ?>
   </p>
+
+  <!-- ARRETER TEST -->
+  <form action="./index.php" method="POST">
+    <input type="submit" name="stop" value="STOP"> 
+  </form>
+
+  <!-- CARNET DE BORD -->
+  <a href="./index.php?action=logged&type_utilisateur=professeur"> Carnet de Bord </a>
 
 </html>
 

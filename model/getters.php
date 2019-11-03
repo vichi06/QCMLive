@@ -250,3 +250,20 @@ function getQuestionsFromTheme($titre_theme){
       die($msg); // On arrête tout.
     }	
   }
+
+  function getSessionsEnCours($id_prof){
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+    
+    $sql = "SELECT titre_test, num_grpe FROM test WHERE id_prof:=idP";
+    
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':idP' => $id_prof));
+      return $req;
+    }
+    catch (PDOException $e) {
+      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die($msg); // On arrête tout.
+    } 
+  }

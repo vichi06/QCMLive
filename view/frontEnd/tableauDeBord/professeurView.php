@@ -7,12 +7,21 @@ require "./model/getters.php"
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Etudiant : Session en cours</title>
+		<title>Tableau de Bord</title>
 	</head>
 	
 	<body>
 
-		<p> Vos sessions en cours : </p>
+		<p> 
+			Vos sessions en cours :
+			<?php
+				$sessions = getSessionsEnCours($_SESSION['profil']['id']);
+				while($row = $sessions->fetch()) {
+					echo $row['titre_test'];
+				}		
+			?>
+		</p>
+
 
 
 		<form action='index.php' method='post'>

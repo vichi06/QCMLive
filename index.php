@@ -10,6 +10,11 @@ if(isset($_POST['question'])){
     setQuestionsAffichables($_POST['question']);
 }
 
+// QUESTIONS A AFFICHER PAR PROFESSEUR
+if(isset($_POST['stop'])){
+    stopTest($_SESSION['test']['id']);
+}
+
 // CONNEXION A UN TEST PAR L'ETUDIANT
 if(isset($_GET['test'])){
     connect_to_session($_GET['test']);

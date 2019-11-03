@@ -116,3 +116,19 @@ function createQCMs($titre_test){
       die(); // On arrête tout.
     }
   }
+
+  function desactivateTest($id_test){
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+
+    $sql = "UPDATE test SET bActif = 0 WHERE test.id_test=:id_test";       
+  
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':id_test' => $id_test));
+    }
+    catch (PDOException $e) {
+      echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die(); // On arrête tout.
+    }
+  }
