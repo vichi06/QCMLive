@@ -17,7 +17,12 @@ require "./model/getters.php"
 			<?php
 				$sessions = getSessionsEnCours($_SESSION['profil']['id']);
 				while($row = $sessions->fetch()) {
-					echo $row['titre_test'];
+					echo '<p> Nom du test : ' . $row['titre_test'] . ", du groupe " . $row['num_grpe'];
+					echo "<form action='./index.php' method='POST'> 
+							<input type='text' name='titre_test' value='" . $row['titre_test'] . "'>
+							<input type='submit' name='continuer' value='continuer'>";
+					echo "</form>";
+					echo "</p>";
 				}		
 			?>
 		</p>
@@ -28,13 +33,14 @@ require "./model/getters.php"
 			<p> Sélectionner un titre de test :
 				<select id='titreTest' name='titreTest'>
 					<?php 
-						$sth = getTests($_SESSION['profil']['id']);
+						$sth = getTestsAvailable($_SESSION['profil']['id']);
 						while($row = $sth->fetch()) {
 							echo "<option value='" . $row['titre_test'] . "'>" . $row['titre_test'] ."</option>";
 						}
 					?>
 				</select>
 			</p>
+			<!--
 			<p> Sélectionner un theme :
 				<select id='themeTest' name='themeTest'>
 					<?php 
@@ -45,6 +51,7 @@ require "./model/getters.php"
 					?>
 				</select>
 			</p>
+			-->
 
 			<input type="submit" name="submit" value="Lancer Test">
 		</form>

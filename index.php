@@ -10,6 +10,11 @@ if(isset($_POST['question'])){
     setQuestionsAffichables($_POST['question']);
 }
 
+// CONTINUER UN TEST 
+if(isset($_POST['continuer'])){
+    continueTest($_POST['titre_test']);
+}
+
 // QUESTIONS A AFFICHER PAR PROFESSEUR
 if(isset($_POST['stop'])){
     stopTest($_SESSION['test']['id']);
@@ -22,7 +27,7 @@ if(isset($_GET['test'])){
 
 // DEMARRAGE D'UN TEST PAR PROFESSEUR
 if(isset($_POST['titreTest'])){
-    startTest($_POST['titreTest'], $_POST['themeTest']);
+    startTest($_POST['titreTest']/*, $_POST['themeTest']*/);
 }
 
 // IDENTIFICATION SINON NAVIGUE DANS ZONES NON IDENTIFIER

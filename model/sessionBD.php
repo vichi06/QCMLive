@@ -42,7 +42,8 @@ function createQCMs($titre_test){
   require_once("./model/sessionBD.php");
   $idTest = getIdTest($titre_test);
 
-  $resultat = getQuestionsFromTheme($_SESSION['test']['theme']);
+  //$resultat = getQuestionsFromTheme($_SESSION['test']['theme']);
+  $resultat = getQuestions();
 
   require_once('./model/frontEnd.php');
   $bdd = dbConnect();
@@ -131,4 +132,9 @@ function createQCMs($titre_test){
       echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
       die(); // On arrête tout.
     }
+  }
+
+  function deleteQCMs($id_test){
+
+    
   }

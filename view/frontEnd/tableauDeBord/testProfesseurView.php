@@ -14,7 +14,7 @@ require_once('./model/getters.php');
   <link rel="stylesheet" href="./public/css/login.css">
   <!------ Include the above in your HEAD tag ---------->
 
-  <p> Thème : <?= $_SESSION['test']['theme'] ?> </p>
+  <!-- <p> Thème : <?= $_SESSION['test']['theme'] ?> </p> -->
 
   <!-- DONNEES -->
   <p> Test : <?= $_SESSION['test']['titre'] ?> </p>
@@ -27,7 +27,8 @@ require_once('./model/getters.php');
   <form action='./index.php' method='POST'>
     <?php
       $nbQuestion = 1;
-      $resultat = getQuestionsFromTheme($_SESSION['test']['theme']);
+      // $resultat = getQuestionsFromTheme($_SESSION['test']['theme']);
+      $resultat = getQuestions();
       while($row = $resultat->fetch()) {
         echo "<p>";
 
@@ -58,25 +59,6 @@ require_once('./model/getters.php');
       echo "<p> Nom : ". $etudiant['nom'] ." Prenom : " . $etudiant['prenom'] . "</p>";
     }
   ?>
-
-  <!-- AFFICHER REPONSES -->
-  <p>
-    <button onclick="afficherReponses()" value="reponses"> Réponses </button>
-
-    <script>
-      function afficherReponses() {
-        document.getElementById("demo").innerHTML = "lol";
-    </script>
-
-    <p id="demo"> </p>
-    <?php
-      /*if(isset($_POST['reponses'])) {
-        $resultat = getReponses();
-        while($row = $resultat->fetch()) {
-          echo "<p> <input type='checkbox' value='" . $row['titre'] . "'>". $row['titre'] ." : " . $row['texte'] . "</option> </p>";
-      }*/
-    ?>
-  </p>
 
   <!-- ARRETER TEST -->
   <form action="./index.php" method="POST">

@@ -43,54 +43,6 @@ function getThemes(){
 	}	
 }
 
-// QUESTIONS CORRESPONDANTS A UN TEST
-function getQuestions(){
-	require_once('./model/frontEnd.php');
-	$bdd = dbConnect();
-	
-  $sql="SELECT question.titre, question.texte FROM question, test, qcm WHERE test.id_test = qcm.id_test AND qcm.id_quest = question.id_quest";
-  
-  try {
-    $sth = $bdd->prepare($sql);
-
-    $bool = $sth->execute();
-
-    if ($bool) {
-      //$resultat = $sth->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-      return $sth;
-    }
-  }
-  catch (PDOException $e) {
-    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-    die($msg); // On arrête tout.
-  }
-}
-
-/*
-// REPONSES CORRESPONDANTS A UN TEST
-function getReponses(){
-  require_once('./model/frontEnd.php');
-    $bdd = dbConnect();
-    
-    $sql="SELECT question.titre, question.texte FROM question, test, qcm WHERE test.id_test = qcm.id_test AND qcm.id_quest = question.id_quest";
-    
-    try {
-      $req = $bdd->prepare($sql);
-
-      $bool = $req->execute();
-
-      if ($bool) {
-        //$resultat = $req->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-        return $req;
-      }
-    }
-    catch (PDOException $e) {
-      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
-      die($msg); // On arrête tout.
-    }
-}
-*/
-
 // ID THEME
 function getIdTheme($titre_theme){
   require_once('./model/frontEnd.php');
@@ -132,11 +84,11 @@ function getIdTest($titre_test){
 }
 
 // TESTS D'UN PROFESSEUR SOUS FORME D'UNE LISTE
-function getTests($id_prof){
+function getTestsAvailable($id_prof){
 	require_once('./model/frontEnd.php');
 	$bdd = dbConnect();
 	
-	$sql="SELECT titre_test FROM test WHERE id_prof =:id_prof";
+	$sql="SELECT titre_test FROM test WHERE id_prof =:id_prof AND bActif = 0";
 	
 	try {
 		$sth = $bdd->prepare($sql);
@@ -187,6 +139,26 @@ function getQuestionsFromTheme($titre_theme){
   try {
     $req = $bdd->prepare($sql);
     $req->execute(array(':id_theme' => $id_theme));
+    
+    return $req;
+  }
+  catch (PDOException $e) {
+    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+    die($msg); // On arrête tout.
+  }
+}
+
+// QUESTIONS CORRESPONDANTS A UN THEME
+function getQuestions(){
+
+  require_once('./model/frontEnd.php');
+  $bdd = dbConnect();
+  
+  $sql="SELECT id_quest, titre, texte, bmultiple FROM question";
+  
+  try {
+    $req = $bdd->prepare($sql);
+    $req->execute();
     
     return $req;
   }
@@ -255,7 +227,7 @@ function getQuestionsFromTheme($titre_theme){
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
     
-    $sql = "SELECT titre_test, num_grpe FROM test WHERE id_prof:=idP";
+    $sql = "SELECT titre_test, num_grpe, id_test FROM test WHERE id_prof=:idP AND bActif = 1";
     
     try {
       $req = $bdd->prepare($sql);
