@@ -135,6 +135,17 @@ function createQCMs($titre_test){
   }
 
   function deleteQCMs($id_test){
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
 
-    
+    $sql = "DELETE FROM qcm WHERE id_test=:idT";
+
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':idT' => $id_test));
+    }
+    catch (PDOException $e) {
+      echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die(); // On arrête tout.
+    }
   }
