@@ -12,7 +12,7 @@ ob_start();
   <link rel="stylesheet" href="./public/css/login.css">
   <!------ Include the above in your HEAD tag ---------->
 
-  <div class="wrapper fadeInDown">
+  <div class="wrapper fadeInDown"style="background-color: #5c94bd;">
     <div id="formContent">
       <!-- Tabs Titles -->
 

@@ -8,7 +8,7 @@ ob_start();
 	<head>
 	<title>Etudiant : Session en cours</title>
 	<!--Google Fonts -->
-	<?php /*
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <!--CCS Stylsheet-->
@@ -22,11 +22,11 @@ ob_start();
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    */?>
+    
 	</head>
 	<body>
 		
-	<?php /*
+	
 	<section id="content"> 
    
     
@@ -80,9 +80,11 @@ ob_start();
        
         </nav>
         <!-- End -->
-
+        
       </div>
+      <!-- FIN SIDE MENU PROF-->
 
+      <!-- RECTANGLE BLANC ZONE POUR AFFICHER LE CONTENU -->
 	  <div class="col-lg-8 mb-5">
         <!-- Demo Content-->
         <div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
@@ -93,13 +95,13 @@ ob_start();
 
 
 
-<<<<<<< HEAD
+
 		<!-- AFFICHAGE DES QUESTIONS -->
 		
-=======
+
 		<!-- AFFICHAGE DES QUESTIONS --> 
 		
-		<!-- TEMPLATE QUESTIONS -->
+		<!-- TEMPLATE QUESTIONS A UTILISER POUR LES QUESTIONS -->
 		<ul class="quiz">
 			
 		<fieldset>
@@ -142,48 +144,7 @@ ob_start();
 
 </fieldset>
 	
-		
 
-
-<li>
-    <h4>How many letters are there in "JS"?</h4>
-    <ul class="choices">
-      <li><label><input type="radio" name="question0" value="A"><span>2</span></label></li>
-      <li><label><input type="radio" name="question0" value="B"><span>1</span></label></li>
-      <li><label><input type="radio" name="question0" value="C"><span>3</span></label></li>
-      <li><label><input type="radio" name="question0" value="D"><span>4</span></label></li>
-
-	</ul>
-  </li>
-  <li>
-    <h4>How many letters are there in "BMX"?</h4>
-    <ul class="choices">
-      <li><label><input type="radio" name="question1" value="A"><span>2</span></label></li>
-      <li><label><input type="radio" name="question1" value="B"><span>1</span></label></li>
-      <li><label><input type="radio" name="question1" value="C"><span>3</span></label></li>
-      <li><label><input type="radio" name="question1" value="D"><span>4</span></label></li>
-    </ul>
-  </li>
-  <li>
-    <h4>How many letters are there in "A"?</h4>
-    <ul class="choices">
-      <li><label><input type="radio" name="question2" value="A"><span>2</span></label></li>
-      <li><label><input type="radio" name="question2" value="B"><span>1</span></label></li>
-      <li><label><input type="radio" name="question2" value="C"><span>3</span></label></li>
-      <li><label><input type="radio" name="question2" value="D"><span>4</span></label></li>
-    </ul>
-  </li>
-</ul>
-
-
-
-
-
-<button class="view-results btn-primary" onclick="returnScore()">View Results</button>
-<span id="myresults" class="my-results">My results will appear here</span>
-
-
-*/?>
 
 		<p> Questions à traiter : </p>
 		<form action="./index.php" method="post">
