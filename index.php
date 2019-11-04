@@ -60,11 +60,13 @@ elseif (isset($_GET['action'])) {
             }
         }
         if ($_GET['type_utilisateur'] == 'professeur'){
-            if($_GET['controle'] == 'test'){
-                require("./view/frontEnd/tableauDeBord/testProfesseurView.php"); 
-            }
-            elseif ($_GET['controle'] == 'bilan') {
-                require("./view/frontEnd/bilan.php"); 
+            if(isset($_GET['controle'])){
+                if($_GET['controle'] == 'test'){
+                    require("./view/frontEnd/tableauDeBord/testProfesseurView.php"); 
+                }
+                else {
+                    require("./view/frontEnd/bilan.php");    
+                }
             }
             else {
                 require("./view/frontEnd/tableauDeBord/professeurView.php");         

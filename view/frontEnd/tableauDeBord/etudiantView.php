@@ -28,88 +28,80 @@ ob_start();
 
   <!-- Page content holder -->
   <section id="content"> 
-   
-    
-
-<div class="container-fluid px-md-5">
-
-  <!-- For demo purpose -->
-  <div class="row py-5 text-white">
-    <div class="col-lg-9 mx-auto text-center">
-      <h1 class="display-4"style ="font-family:'Ubuntu';">QCM LIVE Etudiant</h1>
-      
-     
-    </div>
-  </div>
-  <!-- End -->
-
-  <div class="rounded">
-    <div class="row">
-      <div class="col-lg-4 mb-4 mb-lg-0">
-
-        <!-- Vertical Menu-->
-        <nav class="nav flex-column bg-white shadow-sm font-italic rounded p-3 sticky">
-        <div class="py-4 px-3 mb-4 bg-light">
-      <div class="media d-flex align-items-center"><img src="./public/images/img0.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-        <div class="media-body">
-          <h4 class="m-0"></h4>
-          <p class="font-weight-light text-muted mb-0"><?php echo $_SESSION['profil']['nom'] . ' '. $_SESSION['profil']['num_grpe']?></p>
+    <div class="container-fluid px-md-5">
+      <!-- For demo purpose -->
+      <div class="row py-5 text-white">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="display-4"style ="font-family:'Ubuntu';">QCM LIVE Etudiant</h1>   
         </div>
-      </div>  
-        
-        <a href="#" class="nav-link px-4 active rounded-pill">
-                            <i class="fas fa-home mr-2"></i>
-                            Accueil
-                            
-                        </a>
-          <a href="#" class="nav-link px-4 rounded-pill">
-                            <i class="fas fa-chart-pie mr-2"></i>
-                           Statistiques
-                           
-                        </a>
-          <a href="./model/finSession.php" class="nav-link px-4 rounded-pill">
-                            <i class="fas fa-power-off mr-2"></i>
-                            Deconnexion
-                         
-                        </a>
-          
-          <a href="#" class="nav-link px-4 rounded-pill">
-                            <i class="fas fa-th-large mr-2"></i>
-                            Another action here
-                        </a>
-       
-        </nav>
-        <!-- End -->
-
       </div>
+      <!-- End -->
+
+      <div class="rounded">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+
+            <!-- Vertical Menu-->
+            <nav class="nav flex-column bg-white shadow-sm font-italic rounded p-3 sticky">
+              <div class="py-4 px-3 mb-4 bg-light">
+                <div class="media d-flex align-items-center"><img src="./public/images/img0.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                  <div class="media-body">
+                    <h4 class="m-0"></h4>
+                    <p class="font-weight-light text-muted mb-0"><?php echo $_SESSION['profil']['nom'] . ' '. $_SESSION['profil']['num_grpe']?></p>
+                  </div>
+                </div>  
+        
+                <a href="#" class="nav-link px-4 active rounded-pill">
+                                    <i class="fas fa-home mr-2"></i>
+                                    Accueil
+                                    
+                </a>
+                  <a href="#" class="nav-link px-4 rounded-pill">
+                                    <i class="fas fa-chart-pie mr-2"></i>
+                                   Statistiques
+                                   
+                </a>
+                  <a href="./model/finSession.php" class="nav-link px-4 rounded-pill">
+                                    <i class="fas fa-power-off mr-2"></i>
+                                    Deconnexion
+                                 
+                </a>
+                  
+                <a href="#" class="nav-link px-4 rounded-pill">
+                                    <i class="fas fa-th-large mr-2"></i>
+                                    Another action here
+                </a>
+              </div>   
+            </nav>
+          <!-- End -->
+
+          </div>
 
       
-      <div class="col-lg-8 mb-5">
-        <!-- Demo Content-->
-        <div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
-          <div class="demo-content">
-            
-              <div class="alert alert-success text-center" role="alert">
-              <h4 class ="alert-heading">Vous êtes maintenant connecté <?php echo '<strong><u>' . $_SESSION['profil']['nom'] .' du groupe '. $_SESSION['profil']['num_grpe'] .' !' .'</strong></u>';?></h4>
-        
-      </div>
-  <h4> Rejoignez une session en cours (insérez nom du test) pour démarrer : 
-  <div class="md-form"> 
-  <form action="./index.php" method="get"> <br>
-      <input type="text" placeholder="Nom du test" name="test" id="inputMDEx" class="form-control">
-      <input type="submit" class="fadeIn fourth btn btn-primary" value="Rejoindre">
-  
-    </form>   
-</h4>           
+          <div class="col-lg-8 mb-5">
+            <!-- Demo Content-->
+            <div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
+              <div class="demo-content">                
+                <div class="alert alert-success text-center" role="alert">
+                  <h4 class ="alert-heading">Vous êtes maintenant connecté <?php echo '<strong><u>' . $_SESSION['profil']['nom'] .' du groupe '. $_SESSION['profil']['num_grpe'] .' !' .'</strong></u>';?></h4>
+                </div>
+                <h4> Rejoignez une session en cours (insérez nom du test) pour démarrer : 
+                  <div class="md-form"> 
+                    <form action="./index.php" method="get"> <br>
+                      <input type="text" placeholder="Nom du test" name="test" id="inputMDEx" class="form-control">
+                      <input type="submit" class="fadeIn fourth btn btn-primary" value="Rejoindre">
+                    </form>   
+                  </div>
+                </h4>           
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<br>
-<br>
-</section>
+    <br>
+    <br>
+  </section>
 </html>
 
 <?php 
