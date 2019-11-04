@@ -18,6 +18,8 @@ function getQuestionsAffichables(){
 	}
 }
 
+// ENREGISTRE REPONSES DE L'ETUDIANT
+// @param : ID de la réponse à enregistrer
 function enregistrerReponseBD($id_rep) {
 	require_once('./model/getters.php');
 	$reponse = getDatasFromIdReponse($id_rep);
@@ -38,6 +40,7 @@ function enregistrerReponseBD($id_rep) {
 	}
 }
 
+// RETOURNE VRAI SI LA QUESTION A ETE REPONDU PAR L'ETUDIANT
 function isAnswered($id_quest, $id_etu, $id_test) {
 	require_once('frontEnd.php');
 	$bdd = dbConnect();
@@ -60,6 +63,7 @@ function isAnswered($id_quest, $id_etu, $id_test) {
 	}	
 }
 
+// RETOURNE VRAI SI LA REPONSE A ETE COCHEE PAR L'ETUDIANT
 function isChecked($id_quest, $id_etu, $id_test, $id_rep) {
 	require_once('frontEnd.php');
 	$bdd = dbConnect();
@@ -82,6 +86,7 @@ function isChecked($id_quest, $id_etu, $id_test, $id_rep) {
 	}
 }
 
+// RETOURNE LE NOMBRE DE BONNES REPONSES D'UN ETUDIANT DONNE
 function numberGoodAnswers($id_etu){
 	require_once('frontEnd.php');
 	$bdd = dbConnect();

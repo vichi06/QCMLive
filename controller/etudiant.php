@@ -42,6 +42,7 @@ function questionsAffichables() {
 }
 
 // ENREGISTRER LES REPONSES DE L'ETUDIANT
+// @param : tableau de réponses
 function enregistrerReponse($reponses){
 	foreach ($reponses as $id_rep) {
 		require_once('./model/etudiantBD.php');

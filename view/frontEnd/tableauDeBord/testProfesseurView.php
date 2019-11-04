@@ -69,8 +69,6 @@ require_once('./model/getters.php');
 
   <!-- CARNET DE BORD -->
   <a href="./index.php?action=logged&type_utilisateur=professeur"> Carnet de Bord </a>
-
-  <a href="./index.php?action=logged&type_utilisateur=professeur&controle=bilan"> Bilan </a>
 </html>
 
 <?php 

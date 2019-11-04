@@ -101,6 +101,7 @@ function createQCMs($titre_test){
     }
   }
 
+  // ACTIVATION D'UN TEST
   function activateTest($id_test){
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
@@ -117,6 +118,7 @@ function createQCMs($titre_test){
     }
   }
 
+  // DESACTIVATION D'UN TEST
   function desactivateTest($id_test){
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
@@ -133,6 +135,7 @@ function createQCMs($titre_test){
     }
   }
 
+  // SUPPRIMER LES QUESTIONS DU QCM D'UN TEST
   function deleteQCMs($id_test){
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
