@@ -53,11 +53,16 @@ elseif (isset($_GET['action'])) {
     if ($_GET['action'] == 'logged') {
         if ($_GET['type_utilisateur'] == 'etudiant') {
             if(isset($_GET['controle'])){
-                require("./view/frontEnd/tableauDeBord/testEtudiantView.php"); 
+                if($_GET['controle'] == 'test'){
+                    require("./view/frontEnd/tableauDeBord/testEtudiantView.php"); 
+                }
+                else {
+                    require("./view/frontEnd/bilan.php");    
+                }
             }
             else {
                 require("./view/frontEnd/tableauDeBord/etudiantView.php");         
-            }
+            } 
         }
         if ($_GET['type_utilisateur'] == 'professeur'){
             if(isset($_GET['controle'])){
