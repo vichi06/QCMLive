@@ -37,7 +37,7 @@
 
         <!-- Content -->
         <h2 class="font-weight-bold">Qcm Live</h2>
-        <p class="text-white"style ="font-family:'Noto Sans', sans-serif;">Dans le but de rendre les cours d'amphithêatre plus vivant et améliorer votre aprentissage de nouvelles notions, QCM Live vous permettra de tester vos connaissances en temps réel! </p> 
+        <p class="text-white"style ="font-family:'Noto Sans', sans-serif;">Dans le but de rendre les cours d'amphithêatre plus vivant et améliorer votre aprentissage de nouvelles notions, QCM Live vous permettra de tester vos connaissances en temps réel ! </p> 
 
       </div>
       <!-- Grid column -->

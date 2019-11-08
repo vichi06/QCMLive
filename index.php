@@ -80,8 +80,14 @@ elseif (isset($_GET['action'])) {
     }
 
     // PAGES AUTRES
-	if ($_GET['action'] == 'utilisation') {
-    	require("./view/frontEnd/utilisationView.php");
+	if ($_GET['action'] == 'utilisation1') {
+    	require("./view/frontEnd/utilisationView1.php");
+    }
+    if ($_GET['action'] == 'utilisation2') {
+        require("./view/frontEnd/utilisationView2.php");
+    }
+    if ($_GET['action'] == 'utilisation3') {
+        require("./view/frontEnd/utilisationView3.php");
     }
 	if ($_GET['action'] == 'developpeurs') {
     	require("./view/frontEnd/developpeursView.php");
