@@ -19,6 +19,7 @@ function ident() {
 }
 
 // VERIFICATION IDENTIFICATION
+// @param Données à vérifiées
 function verif_ident($login_utilisateur,$pass_utilisateur,$type_utilisateur) {
 	require ('./model/utilisateurBD.php');
 	return verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur); //true ou false en base;

@@ -9,6 +9,7 @@ ob_start();
 <head>
   <title>Register</title>
   <meta charset="utf-8">
+  
   <!--Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">

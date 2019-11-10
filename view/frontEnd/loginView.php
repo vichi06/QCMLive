@@ -5,38 +5,45 @@ ob_start();
 
 <!DOCTYPE html>
 <html>
-  <title>Identification</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="./public/css/login.css">
+  <head>
+    <title>Identification</title>
+    
+    <link rel="stylesheet" href="./public/css/login.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
+    <!-- SCRIPTS -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
   <!------ Include the above in your HEAD tag ---------->
 
-  <div class="wrapper fadeInDown"style="background-color: #5c94bd;">
-    <div id="formContent">
-      <!-- Tabs Titles -->
+  <body>
+    <div class="wrapper fadeInDown"style="background-color: #5c94bd;">
+      <div id="formContent">
+        <!-- Tabs Titles -->
 
-      <!-- Icon -->
-      <div class="fadeIn first">
-        <h1>  </h1>
-      </div>
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <h1>  </h1>
+        </div>
 
-      <!-- Login Form -->
-      <form action="./index.php" method="get">
-      <p class="h4 mb-4 underlineHover"style="font-family:'Noto Sans',sans-serif;">QCM Live</p>
-        <input type="text" id="login" class="fadeIn second" name="login_utilisateur" placeholder="identifiant"required>
-        <input type="password" id="password" class="fadeIn third" name="pass_utilisateur" placeholder="mot de passe"required>
-        <input type = "text" name="type_utilisateur" value="<?php echo $_GET['type_utilisateur']; ?>"required>
-        <input type="submit" class="fadeIn fourth" value="Se connecter">
-      </form>
+        <!-- Login Form -->
+        <form action="./index.php" method="get">
+        <p class="h4 mb-4 underlineHover"style="font-family:'Noto Sans',sans-serif;">QCM Live</p>
+          <input type="text" id="login" class="fadeIn second" name="login_utilisateur" placeholder="identifiant"required>
+          <input type="password" id="password" class="fadeIn third" name="pass_utilisateur" placeholder="mot de passe"required>
+          <input type = "text" name="type_utilisateur" value="<?php echo $_GET['type_utilisateur']; ?>"required>
+          <input type="submit" class="fadeIn fourth" value="Se connecter">
+        </form>
 
-      <!-- Remind Passowrd -->
-      <div id="formFooter">
-        <a class="underlineHover" href="#">Mot de passe oublié?</a>
-      </div>
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a class="underlineHover" href="#">Mot de passe oublié?</a>
+        </div>
 
-    </div> 
-  </div>
+      </div> 
+    </div>
+  </body>
 
 </html>
 

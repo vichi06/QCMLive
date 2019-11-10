@@ -64,6 +64,7 @@ function isAnswered($id_quest, $id_etu, $id_test) {
 }
 
 // RETOURNE VRAI SI LA REPONSE A ETE COCHEE PAR L'ETUDIANT
+// @param Données correspondant à la question et étudiant
 function isChecked($id_quest, $id_etu, $id_test, $id_rep) {
 	require_once('frontEnd.php');
 	$bdd = dbConnect();
@@ -87,6 +88,7 @@ function isChecked($id_quest, $id_etu, $id_test, $id_rep) {
 }
 
 // RETOURNE LE NOMBRE DE BONNES REPONSES D'UN ETUDIANT DONNE
+// @param id_etu : ID étudiant 
 function numberGoodAnswers($id_etu){
 	require_once('frontEnd.php');
 	$bdd = dbConnect();

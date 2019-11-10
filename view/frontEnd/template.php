@@ -3,12 +3,15 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8"/>
+  
     <link rel="stylesheet" href="./public/css/style.css" />
     <link rel="stylesheet" href="./public/css/mdb.min.css">
     <link rel="stylesheet" href="./public/css/backToTop.css" />
+    
+    <!-- SCRIPTS -->
     <script src="./public/js/app.js"/>
-    <title> <?= $title ?> </title>   <!-- Élément spécifique -->
   </head>
+  
   <body>
     <div id="global">
       <header>

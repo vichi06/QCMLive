@@ -1,6 +1,7 @@
 <?php 
 
 // VERIFIER IDENTIFIANT DANS BASE DONNEES
+// @param Données à vérifier
 function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){	
 	require('frontEnd.php');
 	$bdd = dbConnect();

@@ -166,8 +166,9 @@ function getQuestions(){
   }
 }
 
-
-  function getIdQuestion($titre_quest){
+// RETOURNE ID QUESTION A PARTIR DE SON TITRE
+// @param titre_quest : titre de la question
+function getIdQuestion($titre_quest){
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
     
@@ -221,6 +222,8 @@ function getQuestions(){
     }	
   }
 
+  // RETOURNE LES SESSION EN COURS POUR UN PROFESSEUR DONNE
+  // @param id_prof : ID du professeur
   function getSessionsEnCours($id_prof){
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();

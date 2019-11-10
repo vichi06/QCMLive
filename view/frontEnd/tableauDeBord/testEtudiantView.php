@@ -7,14 +7,15 @@ ob_start();
 <html>
 	<head>
 		<title>Etudiant : Session en cours</title>
+
+	    <link rel="stylesheet" href="./public/css/dashboard.css">
+	    <link rel="stylesheet" href="./public/css/mdb.min.css">
+	    
 		<!--Google Fonts -->
 	    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 	    <!--CCS Stylsheet-->
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	    <link rel="stylesheet" href="./public/css/dashboard.css">
-	   
-	    <link rel="stylesheet" href="./public/css/mdb.min.css">
 	    <!--Font Awesome-->
 	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	    <script src="./public/js/app.js"></script>
@@ -27,14 +28,6 @@ ob_start();
 	<body>
 		<section id="content"> 
 			<div class="container-fluid px-md-5">
-				<!-- For demo purpose -->
-				<div class="row py-5 text-white">
-			    	<div class="col-lg-9 mx-auto text-center">
-			      		<h1 class="display-4"style ="font-family:'Ubuntu';">QCM LIVE Etudiant</h1>
-			    	</div>
-			  	</div>
-  			  	<!-- End -->
-
 				<div class="rounded">
 					<div class="row">
 				    	<div class="col-lg-4 mb-4 mb-lg-0">
@@ -48,9 +41,9 @@ ob_start();
 					        			</div>
 					      			</div>  
         
-							        <a href="#" class="nav-link px-4 active rounded-pill">
+							        <a href="./index.php?action=logged&type_utilisateur=etudiant" class="nav-link px-4 active rounded-pill">
 							                            <i class="fas fa-home mr-2"></i>
-							                            Accueil
+							                            Carnet de bord
 							        </a>
 							        <a href="#" class="nav-link px-4 rounded-pill">
 							                            <i class="fas fa-chart-pie mr-2"></i>
@@ -149,7 +142,6 @@ ob_start();
 		</section>
 	</body>
 </html>
-
 
 <?php
 $contenu = ob_get_clean(); 

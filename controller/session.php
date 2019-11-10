@@ -33,7 +33,9 @@ function startTest($titre_test) {
 // @param : Titre du test en cours
 function continueTest($titre_test) {
     require_once("./model/getters.php");
-    $resultat = getDatasFromTestName($titre_test);  
+
+    $resultat = getDatasFromTestName($titre_test);
+
    
    // REDEFINIR LES VARIABLES SESSIONS POUR CE TEST
     $_SESSION['test']['titre'] = $resultat['titre_test'];
@@ -46,6 +48,7 @@ function continueTest($titre_test) {
     // REDIRECTION
     $url = "index.php?action=logged&type_utilisateur=".$_SESSION['profil']['typeU']."&controle=test";
     header("Location:" .$url);
+
 }
 
 // AUTORISE LA QUESTION A ETRE AFFICHEE LORSQUE LE PROFESSEUR LA COCHE  
@@ -72,6 +75,6 @@ function stopTest($id_test){
     unset($_SESSION['test']);
 
     //REDIRECTION
-    $url = "index.php?action=logged&type_utilisateur=professeur&controle=bilan";
+    $url = "index.php?action=logged&type_utilisateur=professeur";//&controle=bilan";
     header("Location:" .$url);
 }
