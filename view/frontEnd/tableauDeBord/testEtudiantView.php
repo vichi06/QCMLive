@@ -77,6 +77,7 @@ ob_start();
 												require_once('./controller/etudiant.php');
 												$questionsAffichables = questionsAffichables();
 												$nbQuestions = 1;
+												$nbReponses = 1;
 
 												// POUR CHAQUE QUESTION
 												foreach ($questionsAffichables as $valeur) {
@@ -91,7 +92,7 @@ ob_start();
 													// SI MULTIPLE 
 													if($valeur['bmultiple'] == 1){
 														echo " multiple ";
-														$typeReponse = 'Check';
+														$typeReponse = 'Checkbox';
 													} 
 
 													// LA QUESTION 
@@ -101,17 +102,16 @@ ob_start();
 
 													require_once('./model/getters.php');
 													$reponses = getReponses($valeur['id_quest']);
-													$nbReponses = 1;
 
 													// LES REPONSES
 													foreach ($reponses as $reponse) {
 														echo "<div class='custom-control custom-".strtolower($typeReponse)."'>";
 
-														echo "<p> <input type='".$typeReponse."' name='reponse[]' value='".$reponse['id_rep']."' class='custom-control-input' ";
+														echo "<p> <input type='".strtolower($typeReponse)."' name='reponse[]' value='".$reponse['id_rep']."' class='custom-control-input' ";
 
 														// STYLE TEMPLATE
-														if($typeReponse == 'Check') {
-															echo "id='customCheck".$nbReponses."'";
+														if($typeReponse == 'Checkbox') {
+															echo "id='customCheckbox".$nbReponses."'";
 														}
 														if($typeReponse == 'Radio') {
 															echo "id='customRadio".$nbReponses."'";
