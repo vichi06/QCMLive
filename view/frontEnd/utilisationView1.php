@@ -8,8 +8,8 @@ ob_start();
 
 <!-- Page Content -->
     <div class="container">
-
       <!-- Page Heading -->
+      <br>
       <h1 class="my-4">Tutoriel d'utilisation,
         <small>Prenez le temps de comprendre</small>
       </h1>

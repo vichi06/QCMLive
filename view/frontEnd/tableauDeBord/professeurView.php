@@ -9,14 +9,12 @@ require "./model/getters.php"
 	<head>
 		<title>Tableau de Bord</title>
 
-		<link rel="stylesheet" href="./public/css/dashboard.css">
-	    <link rel="stylesheet" href="./public/css/mdb.min.css">
-
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 	    <!--CCS Stylsheet-->
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="./public/css/dashboard.css">
+	    <link rel="stylesheet" href="./public/css/mdb.min.css">
 	    <!--Font Awesome-->
 	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
@@ -29,7 +27,7 @@ require "./model/getters.php"
 	
 	<body>
 		<section id="content" > 
-	   		<div class="container-fluid px-md-5">	   
+	   		<div class="container-fluid px-md-5">	
 			 	<div class="rounded">
 			   		<div class="row">
 						<div class="col-lg-4 mb-4 mb-lg-0">

@@ -10,6 +10,7 @@
     
     <!-- SCRIPTS -->
     <script src="./public/js/app.js"/>
+    <title> <?= $title ?> </title>   <!-- Élément spécifique -->
   </head>
   
   <body>

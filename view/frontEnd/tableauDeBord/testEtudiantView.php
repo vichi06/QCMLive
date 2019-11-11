@@ -7,27 +7,27 @@ ob_start();
 <html>
 	<head>
 		<title>Etudiant : Session en cours</title>
-
-	    <link rel="stylesheet" href="./public/css/dashboard.css">
-	    <link rel="stylesheet" href="./public/css/mdb.min.css">
 	    
 		<!--Google Fonts -->
 	    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 	    <!--CCS Stylsheet-->
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	    <link rel="stylesheet" href="./public/css/dashboard.css">
+	    <link rel="stylesheet" href="./public/css/mdb.min.css">
 	    <!--Font Awesome-->
 	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	    
+	    <!-- SCRIPTS -->
 	    <script src="./public/js/app.js"></script>
 	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	    
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
 	</head>
 	
 	<body>
 		<section id="content"> 
-			<div class="container-fluid px-md-5">
+			<div class="container-fluid px-md-5">				
 				<div class="rounded">
 					<div class="row">
 				    	<div class="col-lg-4 mb-4 mb-lg-0">
@@ -73,64 +73,71 @@ ob_start();
 									<ul class="quiz">
 										<fieldset>
 											<legend>Questions</legend>
-											<form action="./index.php" method="post">
-												<?php
-													require_once('./controller/etudiant.php');
-													$questionsAffichables = questionsAffichables();
-													$nbQuestions = 1;
-													// POUR CHAQUE QUESTION
-													foreach ($questionsAffichables as $valeur) {
-														// TYPE PAR DEFAUT 
-														$typeReponse = 'radio';
-														
-														// NUMERO QUESTION 
-														echo "<div class='form-group'>";
-														echo "<p>" . $nbQuestions . " : " ;
+											<?php
+												require_once('./controller/etudiant.php');
+												$questionsAffichables = questionsAffichables();
+												$nbQuestions = 1;
 
-														// SI MULTIPLE 
-														if($valeur['bmultiple'] == 1){
-															echo " multiple ";
-															$typeReponse = 'checkbox';
-														} 
+												// POUR CHAQUE QUESTION
+												foreach ($questionsAffichables as $valeur) {
+													// TYPE PAR DEFAUT 
+													$typeReponse = 'Radio';
+													
+													// NUMERO QUESTION 
+													echo "<div class='form-group'>";
+													echo '<form action="./index.php" method="post">';
+													echo "<p>" . $nbQuestions . " : " ;
 
-														// LA QUESTION 
-														echo $valeur['titre'] ." : " . $valeur['texte'] . "</p>";
-														
-														$nbQuestions++;
+													// SI MULTIPLE 
+													if($valeur['bmultiple'] == 1){
+														echo " multiple ";
+														$typeReponse = 'Check';
+													} 
 
-														require_once('./model/getters.php');
-														$reponses = getReponses($valeur['id_quest']);
-														// LES REPONSES
-														foreach ($reponses as $reponse) {
-															echo "<div class='custom-control custom-radio'>";
-															$nbReponses = 1;
-															echo "<p> <input type='".$typeReponse."' name='reponse[]' value='".$reponse['id_rep']."' class='custom-control-input' ";
+													// LA QUESTION 
+													echo $valeur['titre'] ." : " . $valeur['texte'] . "</p>";
 
-															// STYLE TEMPLATE
-															if($typeReponse == 'checkbox') {
-																echo "id='customCheck".$nbReponses."'";
-															}
-															if($typeReponse == 'radio') {
-																echo "id='customRadio".$nbReponses."'";
-															}
+													$nbQuestions++;
 
-															// CHECKED OR DISABLED
-															require_once('./model/etudiantBD.php');
-															if(isAnswered($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'])) {
-																echo " disabled";
-															}
-															if(isChecked($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'], $reponse['id_rep'])) {
-																echo " checked";
-															}
-	 
-															echo "> <label class='custom-control-label' for='customRadio".$nbReponses."'>" .$reponse['texte_rep'] . "</label> </p> </div>";
-															$nbReponses++;
+													require_once('./model/getters.php');
+													$reponses = getReponses($valeur['id_quest']);
+													$nbReponses = 1;
+
+													// LES REPONSES
+													foreach ($reponses as $reponse) {
+														echo "<div class='custom-control custom-".strtolower($typeReponse)."'>";
+
+														echo "<p> <input type='".$typeReponse."' name='reponse[]' value='".$reponse['id_rep']."' class='custom-control-input' ";
+
+														// STYLE TEMPLATE
+														if($typeReponse == 'Check') {
+															echo "id='customCheck".$nbReponses."'";
 														}
-														echo "<input type=submit name='submit'>";
-														echo "</div>";
+														if($typeReponse == 'Radio') {
+															echo "id='customRadio".$nbReponses."'";
+														}
+
+														// CHECKED OR DISABLED
+														require_once('./model/etudiantBD.php');
+														if(isAnswered($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'])) {
+															echo " disabled";
+														}
+														if(isChecked($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'], $reponse['id_rep'])) {
+															echo " checked";
+														}
+ 
+														echo "> <label class='custom-control-label' for='custom".$typeReponse.$nbReponses."'>".$reponse['texte_rep']."</label> </p> </div>";
+														
+														$nbReponses++;
 													}
-												?>
-											</form>
+													echo "<input type=submit name='submit' ";
+													if (isAnswered($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'])) {
+													 	echo "disabled";
+													} 
+													echo ">";
+													echo "</form></div>";
+												}
+											?>
 										</fieldset>
 									</ul>
 								</div>
