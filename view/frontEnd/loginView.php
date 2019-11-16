@@ -27,7 +27,7 @@ ob_start();
         </div>
 
         <!-- Login Form -->
-        <form action="./index.php" method="get">
+        <form action="./index.php?action=ident" method="post">
         <p class="h4 mb-4 underlineHover"style="font-family:'Noto Sans',sans-serif;">QCM Live</p>
           <input type="text" id="login" class="fadeIn second" name="login_utilisateur" placeholder="identifiant"required>
           <input type="password" id="password" class="fadeIn third" name="pass_utilisateur" placeholder="mot de passe"required>

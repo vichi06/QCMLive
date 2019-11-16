@@ -1,6 +1,7 @@
 <?php 
 // PAGE DE SESSION ETUDIANT
 ob_start(); 
+require_once('./controller/etudiant.php');
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,7 @@ ob_start();
 					        			</div>
 					      			</div>  
         
-							        <a href="./index.php?action=logged&type_utilisateur=etudiant" class="nav-link px-4 active rounded-pill">
+							        <a href="./index.php?action=tableauDeBord" class="nav-link px-4 active rounded-pill">
 							                            <i class="fas fa-home mr-2"></i>
 							                            Carnet de bord
 							        </a>
@@ -49,14 +50,14 @@ ob_start();
 							                            <i class="fas fa-chart-pie mr-2"></i>
 							                           Statistiques
 							        </a>
-							        <a href="./model/finSession.php" class="nav-link px-4 rounded-pill">
+							        <a href="./index.php?ation=logout" class="nav-link px-4 rounded-pill">
 							                            <i class="fas fa-power-off mr-2"></i>
 							                            Deconnexion
 							        </a>
 							          
 							        <a href="#" class="nav-link px-4 rounded-pill">
 							                            <i class="fas fa-th-large mr-2"></i>
-							                            Another action here
+							                            Envoyer un commentaire
 							        </a>
 							    </div>
         					</nav>
@@ -74,7 +75,6 @@ ob_start();
 										<fieldset>
 											<legend>Questions</legend>
 											<?php
-												require_once('./controller/etudiant.php');
 												$questionsAffichables = questionsAffichables();
 												$nbQuestions = 1;
 												$nbReponses = 1;
@@ -86,7 +86,7 @@ ob_start();
 													
 													// NUMERO QUESTION 
 													echo "<div class='form-group'>";
-													echo '<form action="./index.php" method="post">';
+													echo '<form action="./index.php?action=enregistrerReponse" method="post">';
 													echo "<p>" . $nbQuestions . " : " ;
 
 													// SI MULTIPLE 
@@ -100,8 +100,7 @@ ob_start();
 
 													$nbQuestions++;
 
-													require_once('./model/getters.php');
-													$reponses = getReponses($valeur['id_quest']);
+													$reponses = listReponses($valeur['id_quest']);
 
 													// LES REPONSES
 													foreach ($reponses as $reponse) {
@@ -118,11 +117,12 @@ ob_start();
 														}
 
 														// CHECKED OR DISABLED
+														/* A CORRIGER */
 														require_once('./model/etudiantBD.php');
-														if(isAnswered($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'])) {
+														if(isResponseAnswered($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'])) {
 															echo " disabled";
 														}
-														if(isChecked($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'], $reponse['id_rep'])) {
+														if(isResponseChecked($valeur['id_quest'], $_SESSION['profil']['id'], $_SESSION['test']['id'], $reponse['id_rep'])) {
 															echo " checked";
 														}
  

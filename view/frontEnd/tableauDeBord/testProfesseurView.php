@@ -52,25 +52,24 @@ require_once('./model/getters.php');
                     </div>
                   </div>  
            
-                    <a href="./index.php?action=logged&type_utilisateur=professeur" class="nav-link px-4 active rounded-pill">
+                    <a href="./index.php?action=tableauDeBord" class="nav-link px-4 active rounded-pill">
                      <i class="fas fa-home mr-2"></i>
-                     Carnet de Bord
+                     Carnet de bord
                      
                     </a>
-                    <a href="#" class="nav-link px-4 rounded-pill">
+                  <a href="#" class="nav-link px-4 rounded-pill">
                      <i class="fas fa-chart-pie mr-2"></i>
-                      Statistiques
+                    Statistiques
                     
                     </a>
-                    <a href="./model/finSession.php" class="nav-link px-4 rounded-pill">
-                     <i class="fas fa-power-off mr-2"></i>
-                     Deconnexion
-                  
-                    </a>
-           
                     <a href="#" class="nav-link px-4 rounded-pill">
                      <i class="fas fa-th-large mr-2"></i>
-                     Another action here
+                     Editer Tests
+                    </a>
+
+                  <a href="./index.php?action=logout" class="nav-link px-4 rounded-pill">
+                     <i class="fas fa-power-off mr-2"></i>
+                     Deconnexion
                     </a>
 
                 </div>
@@ -94,8 +93,8 @@ require_once('./model/getters.php');
 
                   <h3> Questions : </h1>
 
-                  <!-- AFFICHER QUESTIONS -->
-                  <form action='./index.php' method='POST'>
+                  <!-- AFFICHER QUESTIONS A COCHER POUR AFFICHER -->
+                  <form action='./index.php?action=setQuestionsAffichables' method='POST'>
                     <?php
                       $nbQuestion = 1;
                       $resultat = getQuestions();
@@ -143,7 +142,7 @@ require_once('./model/getters.php');
                   <hr> 
                   
                   <!-- ARRETER TEST -->
-                  <form action="./index.php" method="POST">
+                  <form action="./index.php?action=stopTest" method="POST">
                     <input type="submit" name="stop" value="STOP"> 
                   </form>
                 </div>

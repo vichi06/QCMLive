@@ -15,7 +15,7 @@ ob_start();
 
 		<button> Exporter </button>
 
-		<a href='./index.php?action=logged&type_utilisateur=professeur'> Retour Test </a> 
+		<a href='./index.php?action=continueTest'> Retour Test </a> 
 
 		Etudiants :
 

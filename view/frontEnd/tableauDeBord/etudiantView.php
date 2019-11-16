@@ -41,7 +41,7 @@ ob_start();
                     </div>
                   </div>  
           
-                  <a href="./index.php?action=logged&type_utilisateur=etudiant" class="nav-link px-4 active rounded-pill">
+                  <a href="./index.php?action=tableauDeBord" class="nav-link px-4 active rounded-pill">
                                       <i class="fas fa-home mr-2"></i>
                                       Tableau de Bord
                                       
@@ -51,7 +51,7 @@ ob_start();
                                      Statistiques
                                      
                   </a>
-                    <a href="./model/finSession.php" class="nav-link px-4 rounded-pill">
+                    <a href="./index.php?action=logout" class="nav-link px-4 rounded-pill">
                                       <i class="fas fa-power-off mr-2"></i>
                                       Deconnexion
                                    
@@ -59,7 +59,7 @@ ob_start();
                     
                   <a href="#" class="nav-link px-4 rounded-pill">
                                       <i class="fas fa-th-large mr-2"></i>
-                                      Another action here
+                                      Envoyer un commentaire
                   </a>
                 </div>   
               </nav>
@@ -77,7 +77,7 @@ ob_start();
                   </div>
                   <h4> Rejoignez une session en cours (insérez nom du test) pour démarrer : 
                     <div class="md-form"> 
-                      <form action="./index.php" method="get"> <br>
+                      <form action="./index.php?action=joinSession" method="post"> <br>
                         <input type="text" placeholder="Nom du test" name="test" id="inputMDEx" class="form-control">
                         <input type="submit" class="fadeIn fourth btn btn-primary" value="Rejoindre">
                       </form>   

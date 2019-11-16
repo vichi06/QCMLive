@@ -40,7 +40,7 @@ ob_start();
         // SI UN UTILISATEUR EST CONNECTE : AFFICHE SEULEMENT TABLEAU DE BORD
         // SINON AFFICHE BOUTONS PROFESSEUR OU ETUDIANT
         if(isset($_SESSION['profil'])){
-          echo '<a href="./index.php?action=logged&type_utilisateur='.$_SESSION['profil']['typeU'].'">';
+          echo '<a href="./index.php?action=tableauDeBord">';
           echo '<button type="button"   class="btn btn-dark btn-lg download-button">
                   <i class="fas fa-chalkboard-teacher"></i> Tableau de Bord
                 </button>

@@ -1,13 +1,13 @@
 <?php 
 // PAGE D'ACCUEIL DU PROFESSEUR 
-ob_start(); 
-require "./model/getters.php"
+ob_start();
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Tableau de Bord</title>
+	    <meta charset="utf-8">
 
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ require "./model/getters.php"
 				   						</div>
 				 					</div>  
 				   
-				   					<a href="./index.php?action=logged&type_utilisateur=professeur" class="nav-link px-4 active rounded-pill">
+				   					<a href="./index.php?action=tableauDeBord" class="nav-link px-4 active rounded-pill">
 									   <i class="fas fa-home mr-2"></i>
 									   Carnet de bord
 									   
@@ -51,16 +51,16 @@ require "./model/getters.php"
 									  Statistiques
 									  
 								    </a>
-					 				<a href="./model/finSession.php" class="nav-link px-4 rounded-pill">
-									   <i class="fas fa-power-off mr-2"></i>
-									   Deconnexion
-									
-								    </a>
-					 
 					  				<a href="#" class="nav-link px-4 rounded-pill">
 									   <i class="fas fa-th-large mr-2"></i>
-									   Another action here
+									   Editer Tests
 								    </a>
+
+					 				<a href="./index.php?action=logout" class="nav-link px-4 rounded-pill">
+									   <i class="fas fa-power-off mr-2"></i>
+									   Deconnexion
+								    </a>
+								    
 				  				</div>
 				  			</nav>
 						</div>
@@ -74,7 +74,8 @@ require "./model/getters.php"
 
 					      			<!-- SESSIONS EN COURS -->
 									<p> 
-									<?php
+									<?php					
+										require_once('./model/getters.php');		
 										$sessions = getSessionsEnCours($_SESSION['profil']['id']);
 										if(empty($sessions->rowCount())){
 											echo "Aucune Session en cours. ";
@@ -83,7 +84,7 @@ require "./model/getters.php"
 											echo "Vos sessions en cours :";
 											while($row = $sessions->fetch()) {
 												echo '<p> Nom du test : ' . $row['titre_test'] . ", du groupe " . $row['num_grpe'];
-												echo "<form action='./index.php' method='POST'> 
+												echo "<form action='./index.php?action=continueTest' method='POST'> 
 														<input type='hidden' name='titre_test' value='" . $row['titre_test'] . "'>
 														<input type='submit' name='continuer' value='continuer'>";
 												echo "</form>";
@@ -97,10 +98,11 @@ require "./model/getters.php"
 				
 									<!-- NOUVELLE SESSION -->
 									<p> Sélectionner un titre de test : </p>
-									<form action='index.php' method='post'>
+									<form action='index.php?action=startTest' method='post'>
 										<p>
 										<select id='titreTest' name='titreTest' class="custom-select">
-											<?php 
+											<?php 	
+												require_once('./model/getters.php');	
 												$sth = getTestsAvailable($_SESSION['profil']['id']);
 												if(empty($sth->rowCount())) {
 													echo "<option value=''> Aucun test disponible </option>";
@@ -115,6 +117,15 @@ require "./model/getters.php"
 										</select>
 										</p>
 									</form>
+
+									<hr>
+
+									<p> Créer votre Test : </p>
+									<form action="index.php?action=createTest" method="post">
+										<input type="text" placeholder="Nom du Test" name="titre" class="form-control"> <br>
+										<input type="text" placeholder="Numéro du Groupe" name="groupe" class="form-control"> <br>
+										<input type="submit" class="nav-link px-4 active rounded-pill" name="create" value="Creation du test">
+									</form>									
 		          				</div>
 		        			</div>
 		      			</div>
@@ -127,4 +138,4 @@ require "./model/getters.php"
 
 <?php
 $contenu = ob_get_clean(); 
-require './view/frontEnd/template.php';
+require('./view/frontEnd/template.php');

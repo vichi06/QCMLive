@@ -35,10 +35,10 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="./index.php?action=utilisation1"><h3>Utilisation</h3></a>
+              <a class="nav-link" href="./index.php?action=pageUtilisation1"><h3>Utilisation</h3></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./index.php?action=developpeurs"><h3>Les Développeurs</h3></a>
+              <a class="nav-link" href="./index.php?action=pageDeveloppeurs"><h3>Les Développeurs</h3></a>
             </li>
             <li class="nav-item">
             <a href="./index.php?action=register"> <button type="button"  class="btn btn-dark btn-lg download-button" ><i class="fas fa-address-card"></i></i> Register</button></a>

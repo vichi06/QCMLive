@@ -3,9 +3,11 @@
 
 // CONNEXION A LA SESSION EN COURS 
 // @param : titre du test
-function connect_to_session($titreTest) {
+function joinSession() {
+	$titreTest = isset($_POST['test'])?($_POST['test']):'';
+
 	if(!verif_test($titreTest)) {
-		$url = "index.php?action=logged&type_utilisateur=etudiant";
+		$url = "index.php?action=tableauDeBord";
 		header("Location:" .$url);
 	}
 	else {
@@ -23,7 +25,7 @@ function connect_to_session($titreTest) {
 	    $_SESSION['test']['bActif'] = $resultat['bActif'];
 
 	    // REDIRECTION 
-		$url = "index.php?action=logged&type_utilisateur=etudiant&controle=test";
+		$url = "index.php?action=afficherTest";
 		header("Location:" .$url);
 	}
 }
@@ -43,13 +45,33 @@ function questionsAffichables() {
 
 // ENREGISTRER LES REPONSES DE L'ETUDIANT
 // @param : tableau de réponses
-function enregistrerReponse($reponses){
+function enregistrerReponse(){
+	$reponses = isset($_POST['reponse'])?($_POST['reponse']):'';
+	
 	foreach ($reponses as $id_rep) {
 		require_once('./model/etudiantBD.php');
 		enregistrerReponseBD($id_rep);	
 	}
 
 	// REDIRECTION 
-	$url = "index.php?action=logged&type_utilisateur=etudiant&controle=test";
+	$url = "index.php?action=afficherTest";
 	header("Location:" .$url);
+}
+
+// RETOURNE LA LISTE DES REPONSES D'UNE QUESTION
+function listReponses($id_quest) {
+	require_once('./model/getters.php');
+	return getReponses($id_quest);
+}
+
+// RETOURNE VRAI SI LA REPONSE EST CHECKED
+function isResponseChecked($id_quest, $id_u, $id_test, $id_rep) {
+	require_once('./model/etudiantBD.php');
+	return isChecked($id_quest, $id_u, $id_test, $id_rep);
+}
+
+// RETOURNE VRAI SI LA REPONSE EST COCHEE
+function isResponseAnswered($id_quest, $id_u, $id_test) {
+	require_once('./model/etudiantBD.php');
+	return isAnswered($id_quest, $id_u, $id_test);
 }

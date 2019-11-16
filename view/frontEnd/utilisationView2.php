@@ -86,22 +86,22 @@ ob_start();
       <!-- Pagination -->
       <ul class="pagination justify-content-center">
         <li class="page-item">
-          <a class="page-link" href="./index?action=utilisation1" aria-label="Previous">
+          <a class="page-link" href="./index?action=pageUtilisation1" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             <span class="sr-only">Previous</span>
           </a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="./index.php?action=utilisation1">1</a>
+          <a class="page-link" href="./index.php?action=pageUtilisation1">1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="./index.php?action=utilisation2">2</a>
+          <a class="page-link" href="./index.php?action=pageUtilisation2">2</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="./index.php?action=utilisation3">3</a>
+          <a class="page-link" href="./index.php?action=pageUtilisation3">3</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="./index?action=utilisation3" aria-label="Next">
+          <a class="page-link" href="./index?action=pageUtilisation3" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>

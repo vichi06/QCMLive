@@ -58,7 +58,7 @@ ob_start();
         <div class="col-md-5">
           <h3>Les Développeurs</h3>
           <p>Jetez un coup d'oeil à la page LES DEVELOPPEURS pour nous connaître un peu plus et partagez votre avis.</p>
-          <a class="btn btn-primary" href="./index.php?action=developpeurs">Les Développeurs</a>
+          <a class="btn btn-primary" href="./index.php?action=pageDeveloppeurs">Les Développeurs</a>
         </div>
       </div>
       <!-- /.row -->
@@ -86,22 +86,22 @@ ob_start();
       <!-- Pagination -->
       <ul class="pagination justify-content-center">
         <li class="page-item">
-          <a class="page-link" href="./index?action=utilisation1" aria-label="Previous">
+          <a class="page-link" href="./index?action=pageUtilisation1" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             <span class="sr-only">Previous</span>
           </a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="./index.php?action=utilisation1">1</a>
+          <a class="page-link" href="./index.php?action=pageUtilisation1">1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="./index.php?action=utilisation2">2</a>
+          <a class="page-link" href="./index.php?action=pageUtilisation2">2</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="./index.php?action=utilisation3">3</a>
+          <a class="page-link" href="./index.php?action=pageUtilisation3">3</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="./index?action=utilisation2" aria-label="Next">
+          <a class="page-link" href="./index?action=pageUtilisation2" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>
