@@ -113,3 +113,40 @@ function numberGoodAnswers($id_etu){
 		die(); // On arrête tout.
 	}	
 }
+
+// RETOURNE LA LISTE DES ID DES ETUDIANTS D'UN GROUPE
+function idEtudiantsFromGroupe($id_groupe) {
+	require_once('frontEnd.php');
+	$bdd = dbConnect();
+
+	$sql = "SELECT id_etu FROM etudiant WHERE num_grpe=:idG";
+
+	$idEtudiants = array();
+
+	try {
+		$req = $bdd->prepare($sql);
+		$idEtudiants = $req->execute(array(':idG' => $id_groupe));
+	} 
+	catch (PDOException $e) {
+		echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+		die(); // On arrête tout.
+	}
+	return $idEtudiants;
+}
+
+function createBilan($id_test, $id_etu, $note) {
+	require_once('frontEnd.php');
+	$bdd = dbConnect();
+
+	$sql = "INSERT INTO bilan (id_test, id_etu, note_test, date_bilan) 
+		VALUES ('" . $id_test . "', '" . $id_etu . "', '" . $note ."', CAST(NOW() AS DATE))";
+
+	try {
+		$req = $bdd->prepare($sql);
+		$req ->execute();		
+	} 
+	catch (PDOException $e) {
+		echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+		die(); // On arrête tout.
+	}
+}

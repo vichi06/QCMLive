@@ -175,3 +175,41 @@ function createQCMs($titre_test){
       die(); // On arrête tout.
     } 
   }
+
+  // FAIRE LE BILAN DU TEST
+  function createBilans($id_test) {
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+
+    $nbQuestions = nbQuestions($id_test);
+
+    require_once('./model/etudiantBD.php');
+    $idEtudiantsGroupe = idEtudiantsFromGroupe($id_groupe);
+    
+    // POUR CHAQUE ETUDIANT DU GROUPE 
+    foreach ($idEtudiantsGroupe as $idEtudiant) {
+      require_once('./model/etudiantBD.php');
+      $note = numberGoodAnswers($idEtudiant) * 20 / $nbQuestions; 
+      require_once('./model/etudiantBD.php');
+      createBilan($id_test, $idEtudiant, $note);
+    }
+  }
+
+  // RETOURNE LE NOMBRE DE QUESTIONS TRAITEES PAR UN TEST
+  function nbQuestions($id_test) {
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+
+    $sql = "SELECT count(id_qcm) FROM qcm WHERE id_test=:idT AND bAutorise = 0";
+
+    try {
+      $req = $bdd->prepare($sql);
+      $result = $req->execute(array(':idT' => $id_test));
+    }
+    catch (PDOException $e) {
+      echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      die(); // On arrête tout.
+    }
+
+    return $result;
+  }

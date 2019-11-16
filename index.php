@@ -9,7 +9,8 @@ $professeurActions = array (
     'startTest',
     'continueTest',
     'stopTest',
-    'createTest'
+    'createTest',
+    'bilan'
 );
 
 $etudiantActions = array(

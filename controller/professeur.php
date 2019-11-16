@@ -83,12 +83,13 @@ function stopTest(){
 	$id_test = isset($_SESSION['test']['id'])?($_SESSION['test']['id']):'';
 
     require_once('./model/sessionBD.php');
+    createBilans($id_test);
     desactivateTest($id_test);
     deleteQCMs($id_test);
     unset($_SESSION['test']);
 
     //REDIRECTION
-    $url = "index.php?action=tableauDeBord";
+    $url = "index.php?action=bilan";
     header("Location:" .$url);
 }
 
@@ -115,4 +116,8 @@ function sessionsEnCours() {
 function testsAvailable() {
 	require('./model/getters.php');
 	return getTestsAvailable($_SESSION['profil']['id']);	
+}
+
+function bilan() {
+	require('./view/frontEnd/bilan.php');	
 }
