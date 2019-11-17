@@ -19,9 +19,9 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 			$resultat = $req->fetchAll(PDO::FETCH_ASSOC);
 
 			foreach($resultat as $show) {
-		   		foreach($show as $display) {
-		   
-		    	}
+				foreach($show as $display) {
+					
+				}
 			}
 		}
 		catch (PDOException $e) {
@@ -41,9 +41,9 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 			$resultat = $req->fetchAll(PDO::FETCH_ASSOC);
 
 			foreach($resultat as $show) {
-		   		foreach($show as $display) {
-		   
-		    	}
+				foreach($show as $display) {
+					
+				}
 			}
 		}
 		catch (PDOException $e) {
@@ -66,8 +66,8 @@ function verif_ident_BD($login_utilisateur,$pass_utilisateur,$type_utilisateur){
 			echo $stmt->rowCount() . " records UPDATED successfully";	
 		}
 		catch(PDOException $e) {
-		    echo $upd . "<br>" . $e->getMessage();
-	    }
+			echo $upd . "<br>" . $e->getMessage();
+		}
 
 		$bdd = null;
 

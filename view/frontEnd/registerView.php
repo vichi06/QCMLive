@@ -27,49 +27,49 @@ ob_start();
 </div>
 </section>
 <body>
-<section id="login">
-<div class="container-fluid">
-    <div class="row no-gutter">
+  <section id="login">
+    <div class="container-fluid">
+      <div class="row no-gutter">
         <!-- The image half -->
         <div class="col-md-6 d-none d-md-flex bg-image"></div>
 
 
         <!-- The content half -->
         <div class="col-md-6 bg-light">
-            <div class="login d-flex align-items-center py-5">
+          <div class="login d-flex align-items-center py-5">
 
-                <!-- Demo content-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 col-xl-7 mx-auto">
-                            <h3 class="display-4">Inscrivez-vous!</h3>
-                            <p class="text-muted mb-4">Vos cours d'amphithéâtre ne seront plus les mêmes.</p>
-                            <form>
-                                <div class="form-group mb-3">
-                                    <input id="inputEmail" type="email" placeholder="Adresse e-mail" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input id="inputPassword" type="password" placeholder="Mot de passe" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
-                                </div>
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-                                    <label for="customCheck1" class="custom-control-label">Remember password</label>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">S'inscrire</button>
-                                <div class="text-center d-flex justify-content-between mt-4"><p>Déjà inscrit?<a href="./index.php?action=login" class="font-italic text-muted"> 
-                                        <u>Se connecter avec son compte</u></a></p></div>
-                            </form>
-                        </div>
+            <!-- Demo content-->
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-10 col-xl-7 mx-auto">
+                  <h3 class="display-4">Inscrivez-vous!</h3>
+                  <p class="text-muted mb-4">Vos cours d'amphithéâtre ne seront plus les mêmes.</p>
+                  <form>
+                    <div class="form-group mb-3">
+                      <input id="inputEmail" type="email" placeholder="Adresse e-mail" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
                     </div>
-                </div><!-- End -->
+                    <div class="form-group mb-3">
+                      <input id="inputPassword" type="password" placeholder="Mot de passe" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                      <label for="customCheck1" class="custom-control-label">Remember password</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">S'inscrire</button>
+                    <div class="text-center d-flex justify-content-between mt-4"><p>Déjà inscrit?<a href="./index.php?action=login" class="font-italic text-muted"> 
+                      <u>Se connecter avec son compte</u></a></p></div>
+                    </form>
+                  </div>
+                </div>
+              </div><!-- End -->
 
             </div>
-        </div><!-- End -->
+          </div><!-- End -->
 
-    </div>
-</div>
-</section>
-<a id="back-to-top" href="#" class="btn btn-blue-gradient btn-lg back-to-top"role="button"><i class="fas fa-chevron-up"></i></a>
+        </div>
+      </div>
+    </section>
+    <a id="back-to-top" href="#" class="btn btn-blue-gradient btn-lg back-to-top"role="button"><i class="fas fa-chevron-up"></i></a>
 
-<?php $contenu = ob_get_clean(); 
-require 'template.php';
+    <?php $contenu = ob_get_clean(); 
+    require 'template.php';

@@ -7,7 +7,7 @@ ob_start();
 <html>
 
 <head>
-  <title>Accueil</title>
+  <title> QCM Live, exercez-vous en direct</title>
   <meta charset="utf-8">
 
   <!--Google Fonts -->
@@ -27,14 +27,16 @@ ob_start();
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <script> new WOW().init();
-          $( ".wow" ).addClass( "fadeInUp" );
+  $( ".wow" ).addClass( "fadeInUp" );
   </script>
+
+
 </head>
 
 <section id ="intro">
   <div class="row">
     <div class="col-lg-6">
-        <img class="title-image wow fadeInDown" src="./public/images/img0.png" alt="">
+      <img class="title-image wow fadeInDown" src="./public/images/img0.png" alt="">
     </div>
 
     <div class="col-lg-6">
@@ -43,57 +45,56 @@ ob_start();
       <?php
         // SI UN UTILISATEUR EST CONNECTE : AFFICHE SEULEMENT TABLEAU DE BORD
         // SINON AFFICHE BOUTONS PROFESSEUR OU ETUDIANT
-        if(isset($_SESSION['profil'])){
-          echo '<a href="./index.php?action=tableauDeBord">';
-          echo '<button type="button"   class="btn btn-dark btn-lg download-button">
-                  <i class="fas fa-chalkboard-teacher"></i> Tableau de Bord
-                </button>
-              </a>';
-        }
-        else {
-          echo '<a href="./index.php?action=login&type_utilisateur=professeur">';
-          echo '<button type="button"   class="btn btn-dark btn-lg download-button">
-                  <i class="fas fa-chalkboard-teacher"></i> Professeur
-                </button>
-                </a>';
-          echo '<a href="./index.php?action=login&type_utilisateur=etudiant">';
-          echo '<button type="button"   class="btn btn-outline-light btn-lg download-button">
-                  <i class="fas fa-user-graduate"></i> Etudiant
-                </button>
-                </a>';        
-        }
+      if(isset($_SESSION['profil'])){
+        echo '<a href="./index.php?action=tableauDeBord">';
+        echo '<button type="button"   class="btn btn-dark btn-lg download-button">
+        <i class="fas fa-chalkboard-teacher"></i> Tableau de Bord
+        </button>
+        </a>';
+      }
+      else {
+        echo '<a href="./index.php?action=login&type_utilisateur=professeur">';
+        echo '<button type="button"   class="btn btn-dark btn-lg download-button">
+        <i class="fas fa-chalkboard-teacher"></i> Professeur
+        </button>
+        </a>';
+        echo '<a href="./index.php?action=login&type_utilisateur=etudiant">';
+        echo '<button type="button"   class="btn btn-outline-light btn-lg download-button">
+        <i class="fas fa-user-graduate"></i> Etudiant
+        </button>
+        </a>';        
+      }
       ?>
     </div>
   </div>  
 </section>
 
 
-  <!-- Features -->
+<!-- Features -->
 
-  <section id="features">
-      <div class="row">
-        <div class="feature-box col-lg-4 col-md-12 col-sm-12">
-          <i class="icon fas fa-check-circle fa-4x wow fadeIn" data-wow-delay="0.5s"> </i>
-          <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Facile à utiliser. </h3>
-          <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Un outil à la portée de tous. </p>
-        </div>
-        <div class="feature-box col-lg-4 col-md-12 col-sm-12 ">
-          <i class="icon fas fa-bullseye fa-4x animated wow fadeIn"data-wow-delay="0.5s"></i>
-          <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Le meilleur sur le marché.</h3>
-          <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Pas plus rapide et ergonome.</p>
-        </div>
-        <div class="feature-box col-lg-4 col-md-12 col-sm-12">
-          <i class="icon fas fa-heart fa-4x animated wow fadeIn" data-wow-delay="0.5s"></i>
-          <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Codé avec attention.</h3>
-          <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Une équipe de développeurs passionnés.</p>
-        </div>
-      </div>
-    
-  </section>
-  <a id="back-to-top" href="#" class="btn btn-blue-gradient btn-lg back-to-top"role="button"><i class="fas fa-chevron-up"></i></a>
+<section id="features">
+  <div class="row">
+    <div class="feature-box col-lg-4 col-md-12 col-sm-12">
+      <i class="icon fas fa-check-circle fa-4x wow fadeIn" data-wow-delay="0.5s"> </i>
+      <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Facile à utiliser. </h3>
+      <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Un outil à la portée de tous. </p>
+    </div>
+    <div class="feature-box col-lg-4 col-md-12 col-sm-12 ">
+      <i class="icon fas fa-bullseye fa-4x animated wow fadeIn"data-wow-delay="0.5s"></i>
+      <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Le meilleur sur le marché.</h3>
+      <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Pas plus rapide et ergonome.</p>
+    </div>
+    <div class="feature-box col-lg-4 col-md-12 col-sm-12">
+      <i class="icon fas fa-heart fa-4x animated wow fadeIn" data-wow-delay="0.5s"></i>
+      <h3 class="font-weight-bold text-center"style ="font-family:'Noto Sans', sans-serif;">Codé avec attention.</h3>
+      <p class="text-center"style ="font-family:'Noto Sans', sans-serif;">Une équipe de développeurs passionnés.</p>
+    </div>
+  </div>
+  
+</section>
+<a id="back-to-top" href="#" class="btn btn-blue-gradient btn-lg back-to-top"role="button"><i class="fas fa-chevron-up"></i></a>
 
 <?php 
 $contenu = ob_get_clean(); 
 require 'template.php'; 
 
-  

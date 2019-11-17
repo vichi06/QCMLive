@@ -23,7 +23,8 @@ $utilisateurActions = array(
     'ident',
     'tableauDeBord',
     'logout',
-    'afficherTest'
+    'afficherTest',
+    'statistiques'
 );
 
 $pages = array(
@@ -34,26 +35,32 @@ $pages = array(
     'register'
 );
 
-if(isset($_GET['action'])) {
-    $action = $_GET['action'];
+try {
+    if(isset($_GET['action'])) {
+        $action = $_GET['action'];
 
-    if(in_array($action, $pages)) {
-        $action ();
-    }
-    if(in_array($action, $utilisateurActions)) {
-        $action ();
-    }
-    if(in_array($action, $etudiantActions)) {
-        if(isset($_SESSION['profil']['typeU']) && $_SESSION['profil']['typeU'] == 'etudiant') {
+        if(in_array($action, $pages)) {
             $action ();
         }
-    }
-    if(in_array($action, $professeurActions)) {
-        if(isset($_SESSION['profil']['typeU']) && $_SESSION['profil']['typeU'] == 'professeur') {
+        if(in_array($action, $utilisateurActions)) {
             $action ();
         }
+        if(in_array($action, $etudiantActions)) {
+            if(isset($_SESSION['profil']['typeU']) && $_SESSION['profil']['typeU'] == 'etudiant') {
+                $action ();
+            }
+        }
+        if(in_array($action, $professeurActions)) {
+            if(isset($_SESSION['profil']['typeU']) && $_SESSION['profil']['typeU'] == 'professeur') {
+                $action ();
+            }
+        }
+    }
+    else {
+        index();
     }
 }
-else {
-    index();
+catch(Exception $e) {
+    $errorMessage = $e->getMessage();
+    require('./view/frontEnd/errorView.php');
 }

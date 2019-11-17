@@ -11,10 +11,10 @@ try {
 	$stmt = $bdd->prepare($sql);
 	$stmt->execute();
 	// echo a message to say the UPDATE succeeded
-    echo $stmt->rowCount() . " records UPDATED successfully";
+	echo $stmt->rowCount() . " records UPDATED successfully";
 }
 catch(PDOException $e) {
-    echo $sql . "<br>" . $e->getMessage();
+	echo $sql . "<br>" . $e->getMessage();
 }
 
 // DECONNEXION A LA SESSION 

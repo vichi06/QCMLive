@@ -88,7 +88,7 @@ function stopTest(){
     deleteQCMs($id_test);
     unset($_SESSION['test']);
 
-    //REDIRECTION
+    //REDIRECTION 
     $url = "index.php?action=bilan";
     header("Location:" .$url);
 }
@@ -118,6 +118,7 @@ function testsAvailable() {
 	return getTestsAvailable($_SESSION['profil']['id']);	
 }
 
+// ACCEDE AU BILAN
 function bilan() {
 	require('./view/frontEnd/bilan.php');	
 }

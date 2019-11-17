@@ -108,18 +108,18 @@ function getGroupe($titre_test){
 	$bdd = dbConnect();
 	
 	$sql="SELECT num_grpe FROM test WHERE titre_test=:titre";
+  
+  try {
+    $sth = $bdd->prepare($sql);
+    $sth->execute(array(':titre' => $titre_test));
     
-    try {
-		$sth = $bdd->prepare($sql);
-		$sth->execute(array(':titre' => $titre_test));
-		 
 		//On récupère les données dans un tableau php
-		$donnees = $sth->fetch(PDO::FETCH_ASSOC);
-		
-		return $donnees['num_grpe'];
-	}
-	catch (PDOException $e) {
-		echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+    $donnees = $sth->fetch(PDO::FETCH_ASSOC);
+    
+    return $donnees['num_grpe'];
+  }
+  catch (PDOException $e) {
+    echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
 		die(); // On arrête tout.
 	}
 }
@@ -169,20 +169,20 @@ function getQuestions(){
 // RETOURNE ID QUESTION A PARTIR DE SON TITRE
 // @param titre_quest : titre de la question
 function getIdQuestion($titre_quest){
-    require_once('./model/frontEnd.php');
-    $bdd = dbConnect();
-    
-    $sql = "SELECT id_quest FROM question WHERE titre =:titre_quest";
-    
-    try {
-      $req = $bdd->prepare($sql);
-      $req->execute(array(':titre_quest' => $titre_quest));
-      $id_quest = $req->fetch();
+  require_once('./model/frontEnd.php');
+  $bdd = dbConnect();
+  
+  $sql = "SELECT id_quest FROM question WHERE titre =:titre_quest";
+  
+  try {
+    $req = $bdd->prepare($sql);
+    $req->execute(array(':titre_quest' => $titre_quest));
+    $id_quest = $req->fetch();
 
-      return $id_quest['id_quest'];
-    }
-    catch (PDOException $e) {
-      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+    return $id_quest['id_quest'];
+  }
+  catch (PDOException $e) {
+    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
       die($msg); // On arrête tout.
     }
   }
@@ -205,6 +205,7 @@ function getIdQuestion($titre_quest){
     }	
   }
 
+  // RETOURNE LES REPONSES D'UNE QUESTION
   function getReponses($id_quest) {
   	require_once('./model/frontEnd.php');
     $bdd = dbConnect();
@@ -243,22 +244,22 @@ function getIdQuestion($titre_quest){
 
 // DONNEES CORRESPONDANT A UNE REPONSE : de la base de données
 // @param : ID de la réponse
-function getDatasFromIdReponse($id_reponse){
-  require_once('./model/frontEnd.php');
-  $bdd = dbConnect();
-  
-  $sql="SELECT id_rep, id_quest, texte_rep, bvalide FROM reponse WHERE id_rep=:idR";
-  
-  $resultat = array(); 
-  
-  try {
-    $req = $bdd->prepare($sql);
-    $req->execute(array(':idR' => $id_reponse));
+  function getDatasFromIdReponse($id_reponse){
+    require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+    
+    $sql="SELECT id_rep, id_quest, texte_rep, bvalide FROM reponse WHERE id_rep=:idR";
+    
+    $resultat = array(); 
+    
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':idR' => $id_reponse));
 
-    $resultat = $req->fetch(PDO::FETCH_ASSOC);
-  }
-  catch (PDOException $e) {
-    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+      $resultat = $req->fetch(PDO::FETCH_ASSOC);
+    }
+    catch (PDOException $e) {
+      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
     die($msg); // On arrête tout.
   }  
 

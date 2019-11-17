@@ -4,7 +4,7 @@
 // IDENTIFICATION A LA BASE DE DONNEES
 function ident() {
 	$login_utilisateur = isset($_POST['login_utilisateur'])?($_POST['login_utilisateur']):'';
-	$pass_utilisateur = isset($_POST['pass_utilisateur'])?($_POST['pass_utilisateur']):'';
+	$pass_utilisateur = isset($_POST['pass_utilisateur'])?(sha1($_POST['pass_utilisateur'])):'';
 	$type_utilisateur = isset($_POST['type_utilisateur'])?($_POST['type_utilisateur']):'';
 
 	require ('./model/utilisateurBD.php');
@@ -49,21 +49,34 @@ function afficherTest() {
 	}
 }
 
+// PAGE STATISTIQUES
+function statistiques() {
+	if(isset($_SESSION['profil']['typeU'])) {
+		if($_SESSION['profil']['typeU'] == 'etudiant'){
+			require('./view/frontEnd/statistiques/etudiantStat.php');
+		}
+		if($_SESSION['profil']['typeU'] == 'professeur'){
+			require('./view/frontEnd/statistiques/professeurStat.php');
+		}
+	}
+}
+
 // AUTRES PAGES 
 function index() {
 	require('./view/frontEnd/indexView.php');
 }
 
+// ACCEDE AU PAGES UTILISATION
 function pageUtilisation1() {
-	require('./view/frontEnd/utilisationView1.php');	
+	require('./view/frontEnd/utilisation/utilisationView1.php');	
 }
 
 function pageUtilisation2() {
-	require('./view/frontEnd/utilisationView2.php');	
+	require('./view/frontEnd/utilisation/utilisationView2.php');	
 }
 
 function pageUtilisation3() {
-	require('./view/frontEnd/utilisationView3.php');	
+	require('./view/frontEnd/utilisation/utilisationView3.php');	
 }
 
 // PAGE DEVELOPPEURS
@@ -71,12 +84,15 @@ function pageDeveloppeurs() {
 	require('./view/frontEnd/developpeursView.php');
 }
 
+// PAGE LOGIN
 function login() {
 	require('./view/frontEnd/loginView.php');
 }
 
+// PAGE REGISTER
 function register() {
 	require('./view/frontEnd/registerView.php');
 }
+
 
 

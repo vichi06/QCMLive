@@ -57,21 +57,21 @@ function createQCMs($titre_test){
     }
   }
 }
-  
+
   // AUTORISE L'AFFICHAGE DES QUESTIONS : bAutorise 0 --> 1 dans Base de Données
   // @param : ID de la question à rendre visible
-  function updateVisibilityQuestion($id_quest) {
-    require_once('./model/frontEnd.php');
-    $bdd = dbConnect();
+function updateVisibilityQuestion($id_quest) {
+  require_once('./model/frontEnd.php');
+  $bdd = dbConnect();
 
-    $sql = "UPDATE qcm SET bAutorise = 1 WHERE qcm.id_quest=:id_quest";       
+  $sql = "UPDATE qcm SET bAutorise = 1 WHERE qcm.id_quest=:id_quest";       
   
-    try {
-      $req = $bdd->prepare($sql);
-      $req->execute(array(':id_quest' => $id_quest));
-    }
-    catch (PDOException $e) {
-      echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+  try {
+    $req = $bdd->prepare($sql);
+    $req->execute(array(':id_quest' => $id_quest));
+  }
+  catch (PDOException $e) {
+    echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
       die(); // On arrête tout.
     }
   }
@@ -83,7 +83,7 @@ function createQCMs($titre_test){
     $bdd = dbConnect();
 
     $sql = "SELECT bAutorise FROM qcm WHERE qcm.id_quest=:id_quest AND qcm.id_test=:id_test";       
-  
+    
     try {
       $req = $bdd->prepare($sql);
       $req->execute(array(':id_quest' => $id_quest, ':id_test' => $id_test));
@@ -107,7 +107,7 @@ function createQCMs($titre_test){
     $bdd = dbConnect();
 
     $sql = "UPDATE test SET bActif = 1 WHERE test.id_test=:id_test";       
-  
+    
     try {
       $req = $bdd->prepare($sql);
       $req->execute(array(':id_test' => $id_test));
@@ -124,7 +124,7 @@ function createQCMs($titre_test){
     $bdd = dbConnect();
 
     $sql = "UPDATE test SET bActif = 0 WHERE test.id_test=:id_test";       
-  
+    
     try {
       $req = $bdd->prepare($sql);
       $req->execute(array(':id_test' => $id_test));

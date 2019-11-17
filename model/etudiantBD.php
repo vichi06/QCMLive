@@ -28,7 +28,7 @@ function enregistrerReponseBD($id_rep) {
 	$bdd = dbConnect();
 
 	$sql = "INSERT INTO resultat (id_test, id_etu, id_quest, date_res, id_rep) 
-		VALUES ('" . $_SESSION['test']['id'] . "', '" . $_SESSION['profil']['id'] . "', '" . $reponse['id_quest'] ."', CAST(NOW() AS DATE), '" . $reponse['id_rep'] ."')";
+	VALUES ('" . $_SESSION['test']['id'] . "', '" . $_SESSION['profil']['id'] . "', '" . $reponse['id_quest'] ."', CAST(NOW() AS DATE), '" . $reponse['id_rep'] ."')";
 
 	try {
 		$req = $bdd->prepare($sql);
@@ -134,12 +134,13 @@ function idEtudiantsFromGroupe($id_groupe) {
 	return $idEtudiants;
 }
 
+// CREER UN BILAN INDIVIDUEL
 function createBilan($id_test, $id_etu, $note) {
 	require_once('frontEnd.php');
 	$bdd = dbConnect();
 
 	$sql = "INSERT INTO bilan (id_test, id_etu, note_test, date_bilan) 
-		VALUES ('" . $id_test . "', '" . $id_etu . "', '" . $note ."', CAST(NOW() AS DATE))";
+	VALUES ('" . $id_test . "', '" . $id_etu . "', '" . $note ."', CAST(NOW() AS DATE))";
 
 	try {
 		$req = $bdd->prepare($sql);
