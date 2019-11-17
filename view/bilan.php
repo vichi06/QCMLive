@@ -75,10 +75,10 @@ ob_start();
 						<div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
 							<div class="demo-content">                
 								
+								<p>
+									Session :  <?= $_SESSION['test']['titre'] ?>
+								</p>
 								
-								Session :  
-
-								<button> Exporter </button>
 
 								Etudiants :
 
@@ -94,8 +94,16 @@ ob_start();
 
 								Professeur : <?= $_SESSION['profil']['nom'] ?> 
 
-								Grpe : (nb eleves) 
+								Grpe : <?= $_SESSION['test']['numGrpe'] ?> (nb eleves) 
 
+								<p>
+									<button> Exporter </button>
+
+									<!-- ACCEDER AU BILAN -->
+									<form action="./index.php?action=stopTest" method="POST">
+										<input type="submit" name="stop" value="STOP"> 
+									</form>
+								</p>
 							</div>
 						</div>
 					</div>

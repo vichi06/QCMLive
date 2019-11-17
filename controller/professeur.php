@@ -89,7 +89,7 @@ function stopTest(){
     unset($_SESSION['test']);
 
     //REDIRECTION 
-    $url = "index.php?action=bilan";
+    $url = "index.php?action=tableauDeBord";
     header("Location:" .$url);
 }
 
@@ -120,5 +120,5 @@ function testsAvailable() {
 
 // ACCEDE AU BILAN
 function bilan() {
-	require('./view/frontEnd/bilan.php');	
+	require('./view/bilan.php');	
 }

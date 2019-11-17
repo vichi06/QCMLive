@@ -25,7 +25,7 @@ function startTest($titre_test) {
     activateTest($_SESSION['test']['id']);
 
     // REDIRECTION
-	$url = "index.php?action=logged&type_utilisateur=".$_SESSION['profil']['typeU']."&controle=test";
+	$url = "index.php?action=afficherTest";
     header("Location:" .$url);
 }
 
@@ -46,7 +46,7 @@ function continueTest($titre_test) {
     $_SESSION['test']['bActif'] = $resultat['bActif'];
 
     // REDIRECTION
-    $url = "index.php?action=logged&type_utilisateur=".$_SESSION['profil']['typeU']."&controle=test";
+    $url = "index.php?action=afficherTest";
     header("Location:" .$url);
 
 }
@@ -62,7 +62,7 @@ function setQuestionsAffichables($questions){
     }
 
     //REDIRECTION
-    $url = "index.php?action=logged&type_utilisateur=".$_SESSION['profil']['typeU']."&controle=test";
+    $url = "index.php?action=afficherTest";
     header("Location:" .$url);
 }
 
@@ -75,6 +75,6 @@ function stopTest($id_test){
     unset($_SESSION['test']);
 
     //REDIRECTION
-    $url = "index.php?action=logged&type_utilisateur=professeur";//&controle=bilan";
+    $url = "index.php?action=tableauDeBord";
     header("Location:" .$url);
 }

@@ -141,9 +141,9 @@ require_once('./model/getters.php');
 
                 <hr> 
 
-                <!-- ARRETER TEST -->
-                <form action="./index.php?action=stopTest" method="POST">
-                  <input type="submit" name="stop" value="STOP"> 
+                <!-- ACCEDER AU BILAN -->
+                <form action="./index.php?action=bilan" method="POST">
+                  <input type="submit" name="stop" value="BILAN"> 
                 </form>
               </div>
             </div>
@@ -157,4 +157,4 @@ require_once('./model/getters.php');
 
 <?php 
 $contenu = ob_get_clean(); 
-require './view/frontEnd/template.php';
+require './view/template.php';

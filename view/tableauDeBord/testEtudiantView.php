@@ -152,6 +152,6 @@ require_once('./controller/etudiant.php');
 
 <?php
 $contenu = ob_get_clean(); 
-require './view/frontEnd/template.php';
+require './view/template.php';
 
 

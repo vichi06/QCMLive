@@ -29,10 +29,10 @@ function logout() {
 function tableauDeBord() {
 	if(isset($_SESSION['profil']['typeU'])) {
 		if($_SESSION['profil']['typeU'] == 'etudiant'){
-			require('./view/frontEnd/tableauDeBord/etudiantView.php');
+			require('./view/tableauDeBord/etudiantView.php');
 		}
 		if($_SESSION['profil']['typeU'] == 'professeur'){
-			require('./view/frontEnd/tableauDeBord/professeurView.php');
+			require('./view/tableauDeBord/professeurView.php');
 		}
 	}
 }
@@ -41,10 +41,10 @@ function tableauDeBord() {
 function afficherTest() {
 	if(isset($_SESSION['profil']['typeU'])) {
 		if($_SESSION['profil']['typeU'] == 'etudiant'){
-			require('./view/frontEnd/tableauDeBord/testEtudiantView.php');
+			require('./view/tableauDeBord/testEtudiantView.php');
 		}
 		if($_SESSION['profil']['typeU'] == 'professeur'){
-			require('./view/frontEnd/tableauDeBord/testProfesseurView.php');
+			require('./view/tableauDeBord/testProfesseurView.php');
 		}
 	}
 }
@@ -53,45 +53,45 @@ function afficherTest() {
 function statistiques() {
 	if(isset($_SESSION['profil']['typeU'])) {
 		if($_SESSION['profil']['typeU'] == 'etudiant'){
-			require('./view/frontEnd/statistiques/etudiantStat.php');
+			require('./view/statistiques/etudiantStat.php');
 		}
 		if($_SESSION['profil']['typeU'] == 'professeur'){
-			require('./view/frontEnd/statistiques/professeurStat.php');
+			require('./view/statistiques/professeurStat.php');
 		}
 	}
 }
 
 // AUTRES PAGES 
 function index() {
-	require('./view/frontEnd/indexView.php');
+	require('./view/indexView.php');
 }
 
 // ACCEDE AU PAGES UTILISATION
 function pageUtilisation1() {
-	require('./view/frontEnd/utilisation/utilisationView1.php');	
+	require('./view/utilisation/utilisationView1.php');	
 }
 
 function pageUtilisation2() {
-	require('./view/frontEnd/utilisation/utilisationView2.php');	
+	require('./view/utilisation/utilisationView2.php');	
 }
 
 function pageUtilisation3() {
-	require('./view/frontEnd/utilisation/utilisationView3.php');	
+	require('./view/utilisation/utilisationView3.php');	
 }
 
 // PAGE DEVELOPPEURS
 function pageDeveloppeurs() {
-	require('./view/frontEnd/developpeursView.php');
+	require('./view/developpeursView.php');
 }
 
 // PAGE LOGIN
 function login() {
-	require('./view/frontEnd/loginView.php');
+	require('./view/loginView.php');
 }
 
 // PAGE REGISTER
 function register() {
-	require('./view/frontEnd/registerView.php');
+	require('./view/registerView.php');
 }
 
 
