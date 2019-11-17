@@ -31,7 +31,7 @@ ob_start();
         <p class="h4 mb-4 underlineHover"style="font-family:'Noto Sans',sans-serif;">QCM Live</p>
           <input type="text" id="login" class="fadeIn second" name="login_utilisateur" placeholder="identifiant"required>
           <input type="password" id="password" class="fadeIn third" name="pass_utilisateur" placeholder="mot de passe"required>
-          <input type = "text" name="type_utilisateur" value="<?php echo $_GET['type_utilisateur']; ?>"required>
+          <input type = "text" name="type_utilisateur" value="<?php echo $_GET['type_utilisateur']; ?>"placeholder="professeur ou etudiant"required>
           <input type="submit" class="fadeIn fourth" value="Se connecter">
         </form>
 

@@ -4,7 +4,6 @@
 
 <head>
   <meta charset="utf-8">
-  
   <!--Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900|Ubuntu" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -14,8 +13,6 @@
   <link rel="stylesheet" href="./public/css/mdb.min.css">
   <!--Font Awesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  
-  <!-- SCRIPTS -->
   <script src="./public/js/app.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -27,7 +24,7 @@
     <!-- Nav Bar -->
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-dark ">
-        <a class="navbar-brand" href="./index.php"><h2>Qcm Live</h2></a>
+        <a class="navbar-brand" href="./index.php"><h2>QCM Live</h2></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,8 +38,14 @@
               <a class="nav-link" href="./index.php?action=pageDeveloppeurs"><h3>Les Développeurs</h3></a>
             </li>
             <li class="nav-item">
-            <a href="./index.php?action=register"> <button type="button"  class="btn btn-dark btn-lg download-button" ><i class="fas fa-address-card"></i></i> Register</button></a>
-              
+            <?php
+            if(isset($_SESSION['profil'])){
+              echo '<a href="./model/finSession.php"> <button type="button"  class="btn btn-dark btn-lg download-button" ><i class="fas fa-address-card"></i></i> Se Deconnecter</button></a>';
+            }else{
+              echo '<a href="./index.php?action=login&type_utilisateur="> <button type="button"  class="btn btn-dark btn-lg download-button" ><i class="fas fa-address-card"></i></i> Se Connecter</button></a>';
+
+
+            }?>
             </li>
           </ul>
         </div>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./public/css/backToTop.css" />
     
     <!-- SCRIPTS -->
-    <script src="./public/js/app.js"/>
+    <script src="./public/js/app.js">
     <title> <?= $title ?> </title>   <!-- Élément spécifique -->
   </head>
   
