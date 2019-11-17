@@ -135,5 +135,5 @@ ob_start();
 </html>
 <?php 
 $contenu = ob_get_clean(); 
-require 'template.php';
+require './view/frontEnd/template.php';
 
