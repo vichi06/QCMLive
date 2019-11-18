@@ -38,7 +38,19 @@ ob_start();
       <!-- Remind Passowrd -->
       <div id="formFooter">
         <a class="underlineHover" href="#">Mot de passe oublié?</a><br>
-        <a class="underlineHover" href="./index.php?action=register">Pas de compte? Inscrivez-vous !</a><br>
+        <a class="underlineHover" href="">Pas de compte? Inscrivez-vous !</a><br>
+        <a href="./index.php?action=login&type_utilisateur=professeur">
+          <button type="button"   class="btn btn-dark btn-lg download-button">
+            <i class="fas fa-chalkboard-teacher"></i> Professeur
+          </button>
+        </a>
+
+        <a href="./index.php?action=login&type_utilisateur=etudiant">
+          <button type="button" class="btn btn-light btn-lg download-button">
+            <i class="fas fa-user-graduate"></i> Etudiant
+          </button>
+        </a>
+        
       </div>
 
     </div> 
