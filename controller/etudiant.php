@@ -82,3 +82,9 @@ function getNote($id_etu) {
 	
 	return numberGoodAnswers($id_etu)*20/nbQuestion($_SESSION['test']['id']);
 }
+
+// RETOURNE VRAI SI LA REPONSE EST COCHEE
+function commentaire() {
+	require_once('./view/commentaireView.php');
+}
+

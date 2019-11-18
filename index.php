@@ -15,7 +15,8 @@ $professeurActions = array (
 
 $etudiantActions = array(
     'enregistrerReponse',
-    'joinSession'
+    'joinSession',
+    'commentaire'
 );
 
 $utilisateurActions = array(

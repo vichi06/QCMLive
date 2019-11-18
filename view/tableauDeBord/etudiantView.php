@@ -57,7 +57,7 @@ ob_start();
                   
                 </a>
                 
-                <a href="" class="nav-link px-4 rounded-pill">
+                <a href="./index.php?action=commentaire" class="nav-link px-4 rounded-pill">
                   <i class="fas fa-robot mr-2"></i>
                   Envoyer un commentaire  
                 </a>

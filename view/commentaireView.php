@@ -1,12 +1,12 @@
 <?php
-// PAGE D'ACCUEIL DE L'ETUDIANT
+// PAGE COMMENTAIRE DE L'ETUDIANT
 ob_start(); 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ton Tableau de Bord</title>
+  <title>Lâche un commentaire</title>
   <meta charset="utf-8">
 
   <!--Google Fonts -->
@@ -56,6 +56,10 @@ ob_start();
                   Deconnexion
                   
                 </a>
+                <a href="./index.php?action=commentaire" class="nav-link px-4 rounded-pill">
+                  <i class="fas fa-robot mr-2"></i>
+                  Envoyer un commentaire  
+                </a>
               </div>   
             </nav>
             <!-- End -->
@@ -66,15 +70,21 @@ ob_start();
           <div class="col-lg-8 mb-5">
             <!-- Demo Content-->
             <div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
-              <div class="demo-content">                
-                <div class="alert alert-success text-center" role="alert">
-                  <h4 class ="alert-heading">Vous êtes maintenant connecté <?php echo '<strong><u>' . $_SESSION['profil']['nom'] .' du groupe '. $_SESSION['profil']['num_grpe'] .' !' .'</strong></u>';?></h4>
-                </div>
-                <h4> Vous pouvez ajouter un commentaire  : 
+              <div class="demo-content">               
                   <div class="md-form"> 
-                    <form action="./index.php?action=joinSession" method="post"> <br>
-                      <input type="text" placeholder="Commentaire" name="test" id="inputMDEx" class="form-control">
-                      <input type="submit" class="fadeIn fourth btn btn-primary" value="Comment">
+
+                <h4> Envoyez-nous un commentaire afin de partager ton avis !   
+                    <form action="commentaireView.php" method="post"> <br>
+                      <textarea style="  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;"name="commentaire" type="text" placeholder="Votre commentaire ..."></textarea><br/>
+                      <input type="submit" value="poster" class="btn btn-primary" name="submit_commentaire" />
                     </form>   
                   </div>
                 </h4>           
@@ -90,6 +100,7 @@ ob_start();
 </body>
 </html>
 
+
 <?php 
 $contenu = ob_get_clean();
-require './view/frontEnd/template.php';
+require './view/template.php';
