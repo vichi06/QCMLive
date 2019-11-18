@@ -119,19 +119,19 @@ function idEtudiantsFromGroupe($id_groupe) {
 	require_once('frontEnd.php');
 	$bdd = dbConnect();
 
-	$sql = "SELECT id_etu FROM etudiant WHERE num_grpe=:idG";
+	$sql = "SELECT id_etu, nom, prenom FROM etudiant WHERE num_grpe=:idG";
 
 	$idEtudiants = array();
 
 	try {
 		$req = $bdd->prepare($sql);
-		$idEtudiants = $req->execute(array(':idG' => $id_groupe));
+		$req->execute(array(':idG' => $id_groupe));
 	} 
 	catch (PDOException $e) {
 		echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
 		die(); // On arrête tout.
 	}
-	return $idEtudiants;
+	return $resultat;
 }
 
 // CREER UN BILAN INDIVIDUEL
@@ -150,4 +150,24 @@ function createBilan($id_test, $id_etu, $note) {
 		echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
 		die(); // On arrête tout.
 	}
+}
+
+function getEtudiantsFromGroupe($num_grpe){
+  require_once('./model/frontEnd.php');
+  $bdd = dbConnect();
+  
+  $sql="SELECT * FROM etudiant WHERE num_grpe=:numG";
+  
+  $resultat = array(); 
+  
+  try {
+    $req = $bdd->prepare($sql);
+    $req->execute(array(':numG' => $num_grpe));
+
+    return $req;
+  }
+  catch (PDOException $e) {
+    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+    die($msg); // On arrête tout.
+  }  
 }

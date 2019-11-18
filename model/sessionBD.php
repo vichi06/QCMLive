@@ -181,10 +181,11 @@ function updateVisibilityQuestion($id_quest) {
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
 
-    $nbQuestions = nbQuestions($id_test);
+
+    $nbQuestions = nbQuestion($id_test);
 
     require_once('./model/etudiantBD.php');
-    $idEtudiantsGroupe = idEtudiantsFromGroupe($id_groupe);
+    $idEtudiantsGroupe = idEtudiantsFromGroupe($_SESSION['test']['numGrpe']);
     
     // POUR CHAQUE ETUDIANT DU GROUPE 
     foreach ($idEtudiantsGroupe as $idEtudiant) {
@@ -195,21 +196,19 @@ function updateVisibilityQuestion($id_quest) {
     }
   }
 
-  // RETOURNE LE NOMBRE DE QUESTIONS TRAITEES PAR UN TEST
-  function nbQuestions($id_test) {
+  function nbQuestion($idTest) {
     require_once('./model/frontEnd.php');
     $bdd = dbConnect();
 
-    $sql = "SELECT count(id_qcm) FROM qcm WHERE id_test=:idT AND bAutorise = 0";
+    $sql = "SELECT id_qcm FROM qcm WHERE id_test=:idT AND bAutorise = 1";
 
     try {
       $req = $bdd->prepare($sql);
-      $result = $req->execute(array(':idT' => $id_test));
+      $req->execute(array(':idT' => $idTest));
     }
     catch (PDOException $e) {
       echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
       die(); // On arrête tout.
     }
-
-    return $result;
+    return $req->rowCount();
   }

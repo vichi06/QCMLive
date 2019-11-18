@@ -83,7 +83,7 @@ function stopTest(){
 	$id_test = isset($_SESSION['test']['id'])?($_SESSION['test']['id']):'';
 
     require_once('./model/sessionBD.php');
-    createBilans($id_test);
+    //createBilans($id_test);
     desactivateTest($id_test);
     deleteQCMs($id_test);
     unset($_SESSION['test']);
@@ -122,3 +122,4 @@ function testsAvailable() {
 function bilan() {
 	require('./view/bilan.php');	
 }
+

@@ -75,3 +75,10 @@ function isResponseAnswered($id_quest, $id_u, $id_test) {
 	require_once('./model/etudiantBD.php');
 	return isAnswered($id_quest, $id_u, $id_test);
 }
+
+function getNote($id_etu) {
+	require_once('./model/etudiantBD.php');
+	require_once('./model/sessionBD.php');
+	
+	return numberGoodAnswers($id_etu)*20/nbQuestion($_SESSION['test']['id']);
+}
