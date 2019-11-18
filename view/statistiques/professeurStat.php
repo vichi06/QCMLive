@@ -74,7 +74,7 @@ ob_start();
 						<!-- Demo Content-->
 						<div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
 							<div class="demo-content">                
-								
+					
 							
 							</div>
 						</div>

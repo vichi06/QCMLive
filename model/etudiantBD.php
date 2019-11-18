@@ -171,3 +171,23 @@ function getEtudiantsFromGroupe($num_grpe){
     die($msg); // On arrête tout.
   }  
 }
+
+function getBilans($id_etu) {
+	require_once('./model/frontEnd.php');
+  $bdd = dbConnect();
+  
+  $sql="SELECT * FROM bilan WHERE id_etu=:idE";
+  
+  $resultat = array(); 
+  
+  try {
+    $req = $bdd->prepare($sql);
+    $req->execute(array(':idE' => $id_etu));
+
+    return $req;
+  }
+  catch (PDOException $e) {
+    $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+    die($msg); // On arrête tout.
+  }	
+}

@@ -75,7 +75,31 @@ ob_start();
 						<div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
 							<div class="demo-content">                
 								
-							
+
+								<?php 
+								require_once("./model/etudiantBD.php");
+								require_once("./model/getters.php");
+								
+								$bilans = getBilans($_SESSION['profil']['id']);
+								while ($row = $bilans->fetch()) {
+									$test = getTest($row['id_test']);
+									echo '<div class="card" style="width: 18rem; ">
+											  <div class="card-body">
+											    <h5 class="card-title">'.$test['titre_test'].'</h5>
+											    <h6 class="card-subtitle mb-2 text-muted">'.$test['date_test'].'</h6>
+											    <p class="card-text"> Tu as eu '.$row['note_test'].'/20 à ce test.</p>
+											    <a href="#" class="card-link">Refaire pour entraînement</a>
+											    <br> ou <br>
+											    <a href="#" class="card-link">Revoir le test</a>
+											  </div>
+											</div> <br> <hr>';
+								}
+								?>
+
+								
+
+
+
 							</div>
 						</div>
 					</div>

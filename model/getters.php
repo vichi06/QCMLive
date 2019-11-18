@@ -266,3 +266,24 @@ function getIdQuestion($titre_quest){
   return $resultat;
 }
 
+function getTest($id_test) {
+  require_once('./model/frontEnd.php');
+    $bdd = dbConnect();
+    
+    $sql="SELECT * FROM test WHERE id_test=:idT";
+    
+    $resultat = array(); 
+    
+    try {
+      $req = $bdd->prepare($sql);
+      $req->execute(array(':idT' => $id_test));
+
+      $resultat = $req->fetch(PDO::FETCH_ASSOC);
+    }
+    catch (PDOException $e) {
+      $msg = utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+    die($msg); // On arrête tout.
+  }  
+
+  return $resultat;
+}

@@ -79,8 +79,12 @@ function isResponseAnswered($id_quest, $id_u, $id_test) {
 function getNote($id_etu) {
 	require_once('./model/etudiantBD.php');
 	require_once('./model/sessionBD.php');
-	
-	return numberGoodAnswers($id_etu)*20/nbQuestion($_SESSION['test']['id']);
+	if(numberGoodAnswers($id_etu) == 0 ) {
+		return 0;
+	}
+	else {
+		return numberGoodAnswers($id_etu)*20/nbQuestion($_SESSION['test']['id']);
+	}
 }
 
 // RETOURNE VRAI SI LA REPONSE EST COCHEE
