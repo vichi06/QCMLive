@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 17 nov. 2019 à 17:59
+-- Généré le :  lun. 18 nov. 2019 à 21:41
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -36,7 +36,17 @@ CREATE TABLE IF NOT EXISTS `bilan` (
   `note_test` int(11) NOT NULL,
   `date_bilan` date NOT NULL,
   PRIMARY KEY (`id_bilan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `bilan`
+--
+
+INSERT INTO `bilan` (`id_bilan`, `id_test`, `id_etu`, `note_test`, `date_bilan`) VALUES
+(1, 2, 1, 14, '2019-11-18'),
+(2, 3, 4, 12, '2019-11-08'),
+(3, 1, 2, 16, '2019-11-02'),
+(4, 7, 1, 19, '2019-11-01');
 
 -- --------------------------------------------------------
 
@@ -58,17 +68,20 @@ CREATE TABLE IF NOT EXISTS `etudiant` (
   `date_etu` date NOT NULL,
   `bConnect` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_etu`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `etudiant`
 --
 
 INSERT INTO `etudiant` (`id_etu`, `genre`, `nom`, `prenom`, `email`, `login_etu`, `pass_etu`, `matricule`, `num_grpe`, `date_etu`, `bConnect`) VALUES
-(1, 'M.', 'Tor', 'Michaël', 'michael.tor@etu.parisdescartes.fr', 'tor', 'a06ad5dbbfe4f53e49edb4064cfbe275727b1e98', '22701007', '206', '2017-09-01', 1),
+(1, 'M.', 'Tor', 'Michaël', 'michael.tor@etu.parisdescartes.fr', 'tor', 'a06ad5dbbfe4f53e49edb4064cfbe275727b1e98', '22701007', '206', '2017-09-01', 0),
 (2, 'M.', 'Moustache', 'Félix', 'felix.moustache@etu.parisdescartes.fr', 'moustach', 'b45c8e654464ac3250a1e6bcdd3d944d5b6f3195', '22701011', '207', '2017-09-01', 0),
-(3, 'M.', 'Nguyen', 'Rémi', 'paule.nguyen@etuparisdescartes.fr', 'nguyen1', '79415ace1535e3dbe779d110ae8b2407170fe53b', '22701012', '202', '2017-09-01', 0),
-(4, 'Melle.', 'Nguyen', 'Paule', 'paule.nguyen@etuparisdescartes.fr', 'nguyen2', 'fd52fd4c888314f1cc71f20035cfc396cbd9fce5', '22701027', '202', '2017-09-01', 0);
+(3, 'M.', 'Nguyen', 'Rémi', 'paule.nguyen@etuparisdescartes.fr', 'nguyen1', '79415ace1535e3dbe779d110ae8b2407170fe53b', '22701012', '201', '2017-09-01', 0),
+(4, 'Melle.', 'Nguyen', 'Paule', 'paule.nguyen@etuparisdescartes.fr', 'nguyen2', 'fd52fd4c888314f1cc71f20035cfc396cbd9fce5', '22701027', '202', '2017-09-01', 0),
+(5, 'M.', 'Noirclerc', 'Thomas', 'toto@hotmail.fr', 'toutou', 'toutou', '556987', '202', '2019-11-18', 0),
+(6, 'Melle.', 'PO', 'gertrude', 'gertrude.l@parisdescartes.com', 'gert', 'gigi', '9446617', '207', '2019-11-18', 0),
+(7, 'Melle', 'SMITH', 'Jennyfer', 'jenjen@parisdescartes.com', 'jeff', 'jeff', '2211000', '206', '2019-11-18', 0);
 
 -- --------------------------------------------------------
 
@@ -152,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `professeur` (
 
 INSERT INTO `professeur` (`id_prof`, `nom`, `prenom`, `email`, `login_prof`, `pass_prof`, `date_prof`, `bConnect`) VALUES
 (1, 'Prof', 'Esseur', 'professeur@parisdescartes.fr', 'professeur', 'e718ab41a00fe697cc1973be2104f5df4ed0b538', '2017-10-01', 0),
-(2, 'pavy', 'antoine', '', 'pavy', '04e53096233a95a01b62b732db5534d23ce987bd', '0000-00-00', 0),
+(2, 'pavy', 'antoine', '', 'pavy', '04e53096233a95a01b62b732db5534d23ce987bd', '0000-00-00', 1),
 (3, 'Sylvain', 'Durif', 'merlinlhommevert@orianna.world', 'christcosmique', '60e03fa792f847022a7b2a33fe4dc3c4765da325', '0000-00-00', 0);
 
 -- --------------------------------------------------------
@@ -170,22 +183,7 @@ CREATE TABLE IF NOT EXISTS `qcm` (
   `bBloque` tinyint(1) NOT NULL,
   `bAnnule` int(11) NOT NULL,
   PRIMARY KEY (`id_qcm`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Déchargement des données de la table `qcm`
---
-
-INSERT INTO `qcm` (`id_qcm`, `id_test`, `id_quest`, `bAutorise`, `bBloque`, `bAnnule`) VALUES
-(64, 2, 1, 0, 0, 0),
-(65, 2, 2, 0, 0, 0),
-(66, 2, 3, 0, 0, 0),
-(67, 2, 4, 0, 0, 0),
-(68, 2, 5, 1, 0, 0),
-(69, 2, 6, 0, 0, 0),
-(70, 2, 7, 0, 0, 0),
-(71, 2, 8, 1, 0, 0),
-(72, 2, 9, 0, 0, 0);
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -283,17 +281,6 @@ CREATE TABLE IF NOT EXISTS `resultat` (
   PRIMARY KEY (`id_res`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Déchargement des données de la table `resultat`
---
-
-INSERT INTO `resultat` (`id_res`, `id_test`, `id_etu`, `id_quest`, `date_res`, `id_rep`) VALUES
-(19, 2, 1, 5, '2019-11-11', 11),
-(20, 2, 1, 4, '2019-11-16', 9),
-(21, 2, 1, 1, '2019-11-17', 1),
-(22, 2, 1, 8, '2019-11-17', 26),
-(23, 2, 1, 8, '2019-11-17', 27);
-
 -- --------------------------------------------------------
 
 --
@@ -317,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `test` (
 
 INSERT INTO `test` (`id_test`, `id_prof`, `num_grpe`, `titre_test`, `date_test`, `bActif`) VALUES
 (1, 1, '207', 'Anglais', '2017-10-11', 0),
-(2, 2, '206', 'Test sur les connaissances vues en cours', '2017-10-01', 1),
+(2, 2, '206', 'Test sur les connaissances vues en cours', '2017-10-01', 0),
 (3, 3, '203', 'Mathématiques', '0000-00-00', 0),
 (4, 2, '201', 'Droit Informatique', '0000-00-00', 0),
 (5, 3, '204', 'Conjugaison', '2017-10-11', 0),
