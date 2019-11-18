@@ -37,7 +37,8 @@ ob_start();
 
       <!-- Remind Passowrd -->
       <div id="formFooter">
-        <a class="underlineHover" href="#">Mot de passe oublié?</a>
+        <a class="underlineHover" href="#">Mot de passe oublié?</a><br>
+        <a class="underlineHover" href="./index.php?action=register">Pas de compte? Inscrivez-vous !</a><br>
       </div>
 
     </div> 
