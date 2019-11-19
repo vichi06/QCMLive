@@ -69,22 +69,61 @@ ob_start();
 			</div>
 		
 			<hr>
+			
 			<div class="row">
 				<div class="col-md-7">
 					<a href="#">
-						<img class="img-fluid rounded mb-3 mb-md-0 wow fadeIn" src="./public/images/menu_prof.jpg" alt="">
+						<img class="img-fluid rounded mb-3 mb-md-0 wow fadeIn" src="./public/images/menuProf.jpg" alt=""><br><br>
+						<img class="img-fluid rounded mb-3 mb-md-0 wow fadeIn" src="./public/images/creerTest.jpg" alt="">
 					</a>
 				</div>
 				<div class="col-md-5">
 					<h3>Menu</h3>
 					<p>Grâce à notre User Experience, le menu a été élaboré afin que vous puissiez naviguer en toute sérénité dans un environnement épuré et simple.
-						En tant que professeur vous aurez la possibilité de choisir les tests ou alors de créer des tests.
+						<br>En tant que professeur vous aurez la possibilité de choisir les tests ou alors de créer des tests.
 					</p>
-
+					
 				</div>
 			</div>
 
 			<hr>
+			<div class="row">
+				<div class="col-md-7">
+					<a href="#">
+						<img class="img-fluid rounded mb-3 mb-md-0 wow fadeIn" src="./public/images/choixQuestion.jpg" alt=""><br><br>
+			
+					</a>
+				</div>
+				<div class="col-md-5">
+					<h3>Choix des questions à afficher</h3>
+					<p>Vous pourrez choisir les questions à afficher des sessions déjà en cours en cliquant sur le bouton continuer qui vous redirigera sur la liste des questions
+						
+					</p>
+					
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="row">
+				<div class="col-md-7">
+					<a href="#">
+						<img class="img-fluid rounded mb-3 mb-md-0 wow fadeIn" src="./public/images/bilan.jpg" alt=""><br><br>
+			
+					</a>
+				</div>
+				<div class="col-md-5">
+					<h3>Bilan</h3>
+					<p>Vous pourrez accéder aux résultats des élèves participant au test en temps réel présenter sous la forme d'un bilan.
+					Vous avez la possibilité d'exporter ce bilan sur votre espace de travail à l'aide du bouton. 
+					Vous pourrez aussi arrêter le test.
+					</p>
+					
+				</div>
+			</div>
+
+			<hr>
+			
 
 			<!-- Project Three --> 
 			<div class="row">

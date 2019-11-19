@@ -26,7 +26,7 @@ ob_start();
 </head>
 
 <body>
-	<section id="content" > 
+	<section id="content"style="font-family: 'Noto Sans', sans-serif;" > 
 		<div class="container-fluid px-md-5">	
 			<div class="rounded">
 				<div class="row">
@@ -67,37 +67,38 @@ ob_start();
 					<div class="col-lg-8 mb-5">
 						<!-- Demo Content-->
 						<div class="p-5 bg-white d-flex align-items-center shadow-sm rounded h-100">
-							<div class="demo-content">   
+							<div class="demo-content ">   
 								<div class="alert alert-success text-center" role="alert">
-									<h4 class ="alert-heading">Vous êtes maintenant connecté <?php echo '<strong><u>' . $_SESSION['profil']['nom'] . ' ' . $_SESSION['profil']['prenom'] .' !' .'</strong></u>';?></h4>  
+									<h2 class ="alert-heading">Vous êtes maintenant connecté <?php echo '<strong><u>' . $_SESSION['profil']['nom'] . ' ' . $_SESSION['profil']['prenom'] .' !' .'</strong></u>';?></h2>  
 								</div>
+								<hr>
 
 								<!-- SESSIONS EN COURS -->
-								<p> 
+								<p>
 									<?php					
 									require_once('./model/getters.php');		
 									$sessions = getSessionsEnCours($_SESSION['profil']['id']);
 									if(empty($sessions->rowCount())){
-										echo "Aucune Session en cours. ";
+										echo "<h3>Aucune Session en cours.</h3><hr> ";
 									}
 									else {
-										echo "Vos sessions en cours :";
+										echo "<h3><u>Vos sessions en cours :</u></h3><hr>";
 										while($row = $sessions->fetch()) {
-											echo '<p> Nom du test : ' . $row['titre_test'] . ", du groupe " . $row['num_grpe'];
+											echo '<h6><u> Nom du test :</u> </h6>' .'<h4 class="lead">'. $row['titre_test'] . ", du groupe " . $row['num_grpe'].'</h4>';
 											echo "<form action='./index.php?action=continueTest' method='POST'> 
 											<input type='hidden' name='titre_test' value='" . $row['titre_test'] . "'>
-											<input type='submit' name='continuer' value='continuer'>";
+											<center><input type='submit' class='btn btn-primary ' text-center' name='continuer' value='continuer'></center>";
 											echo "</form>";
-											echo "</p>";
+											echo "</p><hr>";
 										}
 									}
 									?>
 								</p>
 
-								<hr>
+								
 
 								<!-- NOUVELLE SESSION -->
-								<p> Sélectionner un titre de test : </p>
+								<p><u> Sélectionner un titre de test :</u> </p>
 								<form action='index.php?action=startTest' method='post'>
 									<p>
 										<select id='titreTest' name='titreTest' class="custom-select">
@@ -111,7 +112,7 @@ ob_start();
 												while($row = $sth->fetch()) {
 													echo "<option value='" . $row['titre_test'] . "'>" . $row['titre_test'] ."</option>";
 												}
-												echo "</select></p> <input class='nav-link px-4 active rounded-pill' type='submit' name='submit' value='Lancer Test'>";
+												echo "</select></p> <center><input class='nav-link px-4 active rounded-pill btn btn-primary' type='submit' name='submit' value='Lancer Test'></center>";
 											}
 											?>
 										</select>
@@ -120,11 +121,11 @@ ob_start();
 
 								<hr>
 
-								<p> Créer votre Test : </p>
+								<p><u> Créer votre Test :</u> </p>
 								<form action="index.php?action=createTest" method="post">
 									<input type="text" placeholder="Nom du Test" name="titre" class="form-control"> <br>
 									<input type="text" placeholder="Numéro du Groupe" name="groupe" class="form-control"> <br>
-									<input type="submit" class="nav-link px-4 active rounded-pill" name="create" value="Creation du test">
+									<center><input type="submit" class="nav-link px-4 active rounded-pill btn btn-primary" name="create" value="Creation du test"></center>
 								</form>									
 							</div>
 						</div>

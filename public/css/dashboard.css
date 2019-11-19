@@ -63,6 +63,7 @@ body {
   background      : #5c94bd;
   background-color: #5c94bd;
   overflow-x      : hidden;
+  font-family     : 'Noto Sans', sans-serif;
 }
 
 .separator {
