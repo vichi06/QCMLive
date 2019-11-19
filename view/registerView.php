@@ -29,15 +29,18 @@ ob_start();
       <!-- Login Form -->
       <form action="./index.php?action=register" method="post">
       <p class="h4 mb-4 underlineHover"style="font-family:'Noto Sans',sans-serif;">QCM Live</p>
-       <div class="form-group">
+       <div class="form-check form-check-inline">
             <div class="custom-control custom-radio">
               <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
               <label class="custom-control-label" for="customRadio1"> Etudiant </label>
             </div>
+        </div>
+      <div class="form-check form-check-inline">
             <div class="custom-control custom-radio">
               <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
               <label class="custom-control-label" for="customRadio2">Professeur </label>
             </div>
+      </div>
         <input type="text" id ="nom" class="fadeIn fourth" name="nom_utilisateur"placeholder="Nom"required>
         <input type="text" id ="prenom" class="fadeIn fith" name="prenom_utilisateur"placeholder="Prénom"required>
         <input type="text" id ="mail" class="fadeIn sixth" name="mail_utilisateur"placeholder="Adresse mail"required>
